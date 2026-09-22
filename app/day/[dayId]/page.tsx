@@ -35,9 +35,12 @@ import {
   getTargetDays,
   getCompletedDays,
   getAllowFreeAccess,
+  getShowBushu,
+  setShowBushu,
   DEFAULT_TARGET_DAYS,
   PROGRESS_EVENT_NAME,
 } from "../../../lib/storage";
+import { getBushuByKanji } from "../../../lib/bushu";
 
 export default function DailyLessonPage() {
   const params = useParams();
@@ -64,6 +67,7 @@ export default function DailyLessonPage() {
   const [isCompleted, setIsCompleted] = useState(false);
   const [bookmarkedSet, setBookmarkedSet] = useState<Set<string>>(new Set());
   const [allowFreeAccess, setAllowFreeAccess] = useState<boolean>(true);
+  const [showBushu, setShowBushuState] = useState<boolean>(false);
 
   useEffect(() => {
     try {
@@ -77,6 +81,7 @@ export default function DailyLessonPage() {
       } else if (savedKanji === "1") {
         setKanjiCols(1);
       }
+      setShowBushuState(getShowBushu());
     } catch {}
   }, []);
 
@@ -85,6 +90,12 @@ export default function DailyLessonPage() {
     try {
       localStorage.setItem("jlpt_n3_kanji_cols", cols.toString());
     } catch {}
+  };
+
+  const handleToggleBushu = () => {
+    const next = !showBushu;
+    setShowBushuState(next);
+    setShowBushu(next);
   };
 
   const handleVocabViewModeChange = (mode: "full" | "compact") => {
@@ -99,6 +110,7 @@ export default function DailyLessonPage() {
       setTargetDays(getTargetDays());
       setIsCompleted(isDayCompleted(dayIdNum));
       setAllowFreeAccess(getAllowFreeAccess());
+      setShowBushuState(getShowBushu());
 
       // Build bookmarked set for all items in this day
       const currentSet = new Set<string>();
@@ -417,34 +429,52 @@ export default function DailyLessonPage() {
               </h2>
             </div>
 
-            {/* Kanji Layout Switcher: 1 Baris (Fokus) vs 2 Baris (Grid) */}
-            <div className="flex items-center gap-1 bg-slate-900/90 border border-slate-800 p-1 rounded-xl self-start sm:self-auto text-xs font-semibold shadow-sm">
+            {/* Kanji Controls: Bushu Toggle & Layout Switcher */}
+            <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+              {/* Bushu Radical Toggle */}
               <button
                 type="button"
-                onClick={() => handleKanjiColsChange(1)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                  kanjiCols === 1
-                    ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
-                    : "text-slate-400 hover:text-slate-200"
+                onClick={handleToggleBushu}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-all ${
+                  showBushu
+                    ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-300 font-bold shadow-sm"
+                    : "border-slate-800 bg-slate-900/90 text-slate-400 hover:text-slate-200 hover:border-slate-700"
                 }`}
-                title="Tampilan 1 Baris per Kanji (Mode Fokus)"
+                title={showBushu ? "Sembunyikan Informasi Radikal (Bushu)" : "Tampilkan Informasi Radikal (Bushu)"}
               >
-                <Rows2 size={13} />
-                <span>1 Baris (Fokus)</span>
+                <Sparkles size={13} className={showBushu ? "text-emerald-400" : "text-slate-400"} />
+                <span>Radikal Bushu: {showBushu ? "Aktif" : "Off"}</span>
               </button>
-              <button
-                type="button"
-                onClick={() => handleKanjiColsChange(2)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                  kanjiCols === 2
-                    ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
-                    : "text-slate-400 hover:text-slate-200"
-                }`}
-                title="Tampilan 2 Kolom (Grid)"
-              >
-                <LayoutGrid size={13} />
-                <span>2 Baris (Grid)</span>
-              </button>
+
+              {/* Kanji Layout Switcher: 1 Baris (Fokus) vs 2 Baris (Grid) */}
+              <div className="flex items-center gap-1 bg-slate-900/90 border border-slate-800 p-1 rounded-xl text-xs font-semibold shadow-sm">
+                <button
+                  type="button"
+                  onClick={() => handleKanjiColsChange(1)}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                    kanjiCols === 1
+                      ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
+                      : "text-slate-400 hover:text-slate-200"
+                  }`}
+                  title="Tampilan 1 Baris per Kanji (Mode Fokus)"
+                >
+                  <Rows2 size={13} />
+                  <span>1 Baris (Fokus)</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleKanjiColsChange(2)}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                    kanjiCols === 2
+                      ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
+                      : "text-slate-400 hover:text-slate-200"
+                  }`}
+                  title="Tampilan 2 Kolom (Grid)"
+                >
+                  <LayoutGrid size={13} />
+                  <span>2 Baris (Grid)</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -514,6 +544,32 @@ export default function DailyLessonPage() {
                       </button>
                     </div>
                   </div>
+
+                  {/* Bushu Radical Badge (Active when toggled on) */}
+                  {showBushu && (() => {
+                    const bushu = getBushuByKanji(kanjiItem.kanji);
+                    if (!bushu) return null;
+                    return (
+                      <div className="mt-3.5 pt-3 border-t border-slate-800/80 flex flex-wrap items-center gap-2 text-xs">
+                        <span className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 px-2 py-1 text-xs font-semibold text-emerald-300">
+                          <span className="text-[10px] text-emerald-400 font-mono font-bold uppercase">Bushu:</span>
+                          <span className="font-japanese font-black text-sm text-emerald-200">{bushu.radical}</span>
+                          <span>{bushu.nameJa} ({bushu.nameRomaji})</span>
+                        </span>
+                        {bushu.positionId && (
+                          <span className="rounded-lg bg-slate-800/80 border border-slate-700/60 px-2 py-0.5 text-[11px] text-slate-300">
+                            Posisi: {bushu.positionId}
+                          </span>
+                        )}
+                        <span className="text-slate-300">
+                          Makna: <strong className="text-emerald-300 font-medium">{bushu.meaningId}</strong>
+                        </span>
+                        <span className="text-[11px] text-slate-400">
+                          ({bushu.strokes} goresan)
+                        </span>
+                      </div>
+                    );
+                  })()}
 
                   {/* Compound Words (Jukugo) with Ruby/Furigana */}
                   {kanjiItem.words && kanjiItem.words.length > 0 && (

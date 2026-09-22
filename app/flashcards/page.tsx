@@ -22,6 +22,7 @@ import { FlashcardItem } from "../../components/FlashcardModal";
 import { FuriganaSentence } from "../../components/FuriganaSentence";
 import { AudioButton } from "../../components/AudioButton";
 import { WallDisplayModal } from "../../components/WallDisplayModal";
+import { getBushuByKanji } from "../../lib/bushu";
 
 export default function FlashcardsDeckPage() {
   const [selectedDay, setSelectedDay] = useState<number | "all" | "starred">(1);
@@ -143,6 +144,7 @@ export default function FlashcardsDeckPage() {
   }, [selectedDay, selectedType, shuffledSeed]);
 
   const currentCard = filteredDeck[currentIndex];
+  const currentBushu = currentCard?.type === "kanji" ? getBushuByKanji(currentCard.front.title) : null;
   const isCurrentBookmarked = currentCard ? bookmarks.includes(currentCard.id) : false;
 
   const flipCard = useCallback(() => {
@@ -447,6 +449,31 @@ export default function FlashcardsDeckPage() {
                   {currentCard.back.connection && (
                     <div className="mt-4 inline-block rounded-xl border border-slate-700 bg-slate-900 px-4 py-1.5 text-xs text-amber-300 font-mono">
                       接続: {currentCard.back.connection}
+                    </div>
+                  )}
+
+                  {currentCard.type === "kanji" && currentBushu && (
+                    <div className="mt-4 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-3.5 text-center text-xs text-emerald-300">
+                      <div className="flex items-center justify-center gap-2 flex-wrap">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                          Radikal (Bushu):
+                        </span>
+                        <span className="font-japanese font-black text-lg text-emerald-200">
+                          {currentBushu.radical}
+                        </span>
+                        <span className="font-semibold text-emerald-300">
+                          {currentBushu.nameJa} ({currentBushu.nameRomaji})
+                        </span>
+                        {currentBushu.positionId && (
+                          <span className="rounded bg-emerald-950/70 border border-emerald-500/30 px-2 py-0.5 text-[10px] text-emerald-300">
+                            {currentBushu.positionId}
+                          </span>
+                        )}
+                      </div>
+                      <div className="mt-1.5 text-slate-300 text-xs">
+                        Makna Radikal: <strong className="text-emerald-300 font-medium">{currentBushu.meaningId}</strong>
+                        <span className="text-slate-400 text-[11px] ml-1.5">({currentBushu.strokes} goresan)</span>
+                      </div>
                     </div>
                   )}
 

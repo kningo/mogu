@@ -16,6 +16,7 @@ import { FuriganaText } from "./FuriganaText";
 import { FuriganaSentence } from "./FuriganaSentence";
 import { AudioButton } from "./AudioButton";
 import { isBookmarked, toggleBookmark } from "../lib/storage";
+import { getBushuByKanji } from "../lib/bushu";
 
 export interface FlashcardItem {
   id: string;
@@ -61,6 +62,7 @@ export function FlashcardModal({
   });
 
   const currentItem = items[currentIndex];
+  const currentBushu = currentItem?.type === "kanji" ? getBushuByKanji(currentItem.front.title) : null;
 
   // Sync bookmark state with current item
   useEffect(() => {
@@ -333,6 +335,40 @@ export function FlashcardModal({
                     {currentItem.back.connection && (
                       <div className="mt-4 inline-block rounded-xl border border-slate-700 bg-slate-900/90 px-3.5 py-1.5 text-xs text-amber-300 font-mono">
                         接続: {currentItem.back.connection}
+                      </div>
+                    )}
+
+                    {currentItem.type === "kanji" && currentBushu && (
+                      <div className="mt-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-3 text-center text-xs text-emerald-300">
+                        <div className="flex items-center justify-center gap-2 flex-wrap">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                            Radikal (Bushu):
+                          </span>
+                          <span className="font-japanese font-black text-base text-emerald-200">
+                            {currentBushu.radical}
+                          </span>
+                          <span className="font-semibold text-emerald-300">
+                            {currentBushu.nameJa} ({currentBushu.nameRomaji})
+                          </span>
+                          {currentBushu.positionId && (
+                            <span className="rounded bg-emerald-950/70 border border-emerald-500/30 px-1.5 py-0.5 text-[10px] text-emerald-300">
+                              {currentBushu.positionId}
+                            </span>
+                          )}
+                        </div>
+                        <div className="mt-1 text-slate-300 text-xs">
+                          Makna: <strong className="text-emerald-300 font-medium">{currentBushu.meaningId}</strong>
+                          <span className="text-slate-400 text-[11px] ml-1.5">({currentBushu.strokes} goresan)</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {currentItem.back.notes && (
+                      <div className="mt-4 rounded-xl border border-slate-800 bg-slate-950/60 p-3 text-left text-xs font-japanese text-slate-400">
+                        <span className="block text-[10px] uppercase font-bold text-slate-500 mb-1">
+                          Kosakata Terkait:
+                        </span>
+                        {currentItem.back.notes}
                       </div>
                     )}
 

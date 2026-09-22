@@ -9,6 +9,7 @@ const STORAGE_KEYS = {
   EXAM_DATE: "jlpt_n3_exam_date",
   THEME: "jlpt_n3_theme",
   ALLOW_FREE_ACCESS: "jlpt_n3_allow_free_access",
+  SHOW_BUSHU: "jlpt_n3_show_bushu",
 };
 
 export type AppTheme = "dark" | "matcha";
@@ -426,3 +427,22 @@ export function resetAllProgress(): void {
   }
 }
 
+export function getShowBushu(): boolean {
+  if (!isBrowser()) return false;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.SHOW_BUSHU);
+    return raw === "true";
+  } catch {
+    return false;
+  }
+}
+
+export function setShowBushu(show: boolean): void {
+  if (!isBrowser()) return;
+  try {
+    localStorage.setItem(STORAGE_KEYS.SHOW_BUSHU, show ? "true" : "false");
+    dispatchStorageUpdate();
+  } catch (err) {
+    console.error("Error setting show bushu:", err);
+  }
+}
