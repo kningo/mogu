@@ -19,6 +19,7 @@ import {
   Rows2,
   LayoutGrid,
   Lock,
+  Maximize2,
 } from "lucide-react";
 import { getDailyContent } from "../../../data/schedule";
 import { FuriganaText } from "../../../components/FuriganaText";
@@ -26,6 +27,8 @@ import { FuriganaSentence } from "../../../components/FuriganaSentence";
 import { AudioButton } from "../../../components/AudioButton";
 import { FlashcardModal, FlashcardItem } from "../../../components/FlashcardModal";
 import { WallDisplayModal } from "../../../components/WallDisplayModal";
+import { JukugoModal } from "../../../components/JukugoModal";
+import { KanjiCompound } from "../../../lib/types";
 import { QuizWidget } from "../../../components/QuizWidget";
 import {
   isBookmarked,
@@ -68,6 +71,36 @@ export default function DailyLessonPage() {
   const [bookmarkedSet, setBookmarkedSet] = useState<Set<string>>(new Set());
   const [allowFreeAccess, setAllowFreeAccess] = useState<boolean>(true);
   const [showBushu, setShowBushuState] = useState<boolean>(false);
+  const [activeJukugoModal, setActiveJukugoModal] = useState<{
+    isOpen: boolean;
+    words: KanjiCompound[];
+    initialIndex: number;
+    parentKanji?: string;
+    parentMeaning?: string;
+  }>({
+    isOpen: false,
+    words: [],
+    initialIndex: 0,
+  });
+
+  const handleOpenJukugo = (
+    words: KanjiCompound[],
+    initialIndex: number,
+    parentKanji?: string,
+    parentMeaning?: string
+  ) => {
+    setActiveJukugoModal({
+      isOpen: true,
+      words,
+      initialIndex,
+      parentKanji,
+      parentMeaning,
+    });
+  };
+
+  const handleCloseJukugo = () => {
+    setActiveJukugoModal((prev) => ({ ...prev, isOpen: false }));
+  };
 
   useEffect(() => {
     try {
@@ -584,17 +617,33 @@ export default function DailyLessonPage() {
                         {kanjiItem.words.map((w, wIdx) => (
                           <div
                             key={wIdx}
-                            className="rounded-xl border border-slate-800/80 bg-slate-950/60 p-3 flex items-center justify-between gap-3 shadow-sm hover:border-slate-700/80 transition-colors"
+                            onClick={() => handleOpenJukugo(kanjiItem.words, wIdx, kanjiItem.kanji, kanjiItem.meaning)}
+                            className="group/jukugo cursor-pointer rounded-xl border border-slate-800/80 bg-slate-950/60 p-3 flex items-center justify-between gap-3 shadow-sm hover:border-emerald-500/40 hover:bg-slate-900/60 transition-all"
+                            title="Klik untuk memperbesar & latihan goresan kanji (Maximize)"
                           >
                             <div className="min-w-0">
                               <FuriganaText
                                 kanji={w.word}
                                 reading={w.reading}
-                                className="text-[1.5rem] font-bold text-slate-100 leading-snug"
+                                className="text-[1.5rem] font-bold text-slate-100 leading-snug group-hover/jukugo:text-emerald-300 transition-colors"
                               />
                               <p className="text-xs text-slate-400 mt-0.5">{w.meaning}</p>
                             </div>
-                            <AudioButton text={w.word} size="sm" />
+
+                            <div
+                              className="flex items-center gap-1.5 shrink-0"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <AudioButton text={w.word} size="sm" />
+                              <button
+                                type="button"
+                                onClick={() => handleOpenJukugo(kanjiItem.words, wIdx, kanjiItem.kanji, kanjiItem.meaning)}
+                                className="p-1.5 rounded-lg border border-slate-800 bg-slate-850 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/40 hover:bg-slate-800 transition-colors"
+                                title="Perbesar & Latihan Goresan (Maximize)"
+                              >
+                                <Maximize2 size={15} />
+                              </button>
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -894,6 +943,15 @@ export default function DailyLessonPage() {
         onClose={() => setIsWallModeOpen(false)}
         cards={flashcards}
         dayTitle={`JLPT N3 Maraton • Hari ${dayIdNum}`}
+      />
+
+      <JukugoModal
+        isOpen={activeJukugoModal.isOpen}
+        onClose={handleCloseJukugo}
+        words={activeJukugoModal.words}
+        initialIndex={activeJukugoModal.initialIndex}
+        parentKanji={activeJukugoModal.parentKanji}
+        parentMeaning={activeJukugoModal.parentMeaning}
       />
     </div>
   );
