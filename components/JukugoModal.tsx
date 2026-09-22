@@ -128,17 +128,40 @@ export function JukugoModal({
 
   // Split word into individual characters for stroke grid inspection
   const characters = Array.from(currentWord.word);
+  const charCount = characters.length;
+
+  // Dynamic responsive box sizing based on character count and zoom state
+  const getBoxSizeClass = () => {
+    if (isSuperZoom) {
+      if (charCount <= 2) {
+        return "w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 text-7xl sm:text-8xl md:text-9xl";
+      }
+      if (charCount === 3) {
+        return "w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 text-6xl sm:text-7xl md:text-8xl";
+      }
+      return "w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 text-5xl sm:text-6xl md:text-7xl";
+    }
+
+    // Normal mode (well-proportioned to modal width)
+    if (charCount <= 2) {
+      return "w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 text-6xl sm:text-7xl md:text-8xl";
+    }
+    if (charCount === 3) {
+      return "w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 text-5xl sm:text-6xl md:text-7xl";
+    }
+    return "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 text-4xl sm:text-5xl md:text-6xl";
+  };
 
   return (
     <dialog
       ref={dialogRef}
       aria-labelledby="jukugo-modal-title"
       {...{ closedby: "any" }}
-      className="fixed inset-0 z-50 m-auto h-full w-full max-w-2xl bg-transparent p-4 backdrop:bg-slate-950/80 backdrop:backdrop-blur-md outline-none"
+      className="fixed inset-0 z-50 m-auto flex items-center justify-center p-2 sm:p-4 w-full max-w-xl sm:max-w-2xl bg-transparent backdrop:bg-slate-950/80 backdrop:backdrop-blur-md outline-none"
     >
-      <div className="relative flex flex-col rounded-3xl border border-slate-700/80 bg-slate-900 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-        {/* Header */}
-        <div className="flex items-center justify-between border-b border-slate-800 px-6 py-4 bg-slate-900/95">
+      <div className="relative flex flex-col w-full max-h-[88vh] sm:max-h-[92vh] rounded-3xl border border-slate-700/80 bg-slate-900 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+        {/* Header (Always pinned on top) */}
+        <div className="shrink-0 flex items-center justify-between border-b border-slate-800 px-5 py-3 sm:px-6 sm:py-3.5 bg-slate-900/95">
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 shadow-sm">
               <PenTool size={18} />
@@ -149,7 +172,7 @@ export function JukugoModal({
                   Panduan Menulis & Goresan Jukugo
                 </h2>
                 {parentKanji && (
-                  <span className="hidden sm:inline-flex items-center gap-1 rounded-md bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 text-[11px] font-bold text-emerald-300">
+                  <span className="hidden sm:inline-flex items-center gap-1 rounded-md bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 text-[11px] font-bold text-emerald-600 dark:text-emerald-300">
                     Kanji: {parentKanji}
                   </span>
                 )}
@@ -177,25 +200,22 @@ export function JukugoModal({
           </div>
         </div>
 
-        {/* Body Content */}
-        <div className="p-6 space-y-6 overflow-y-auto max-h-[78vh]">
+        {/* Body Content (Smooth inner scroll) */}
+        <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4 sm:space-y-5">
           {/* Top Word Summary Banner */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-950/60 px-5 py-3.5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-950/60 px-4 py-3 sm:px-5 sm:py-3.5">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 font-mono">
                 Kosakata Gabungan (Jukugo):
               </span>
-              <div className="flex items-baseline gap-2 mt-0.5">
+              <div className="mt-0.5">
                 <FuriganaText
                   kanji={currentWord.word}
                   reading={currentWord.reading}
                   className="text-2xl sm:text-3xl font-black text-slate-100"
                 />
-                <span className="text-xs sm:text-sm font-mono text-emerald-400 font-semibold">
-                  [{currentWord.reading}]
-                </span>
               </div>
-              <p className="text-sm font-bold text-amber-300 mt-1">
+              <p className="text-sm font-bold text-amber-400 mt-1">
                 {currentWord.meaning}
               </p>
             </div>
@@ -223,18 +243,18 @@ export function JukugoModal({
 
           {/* Character Stroke Practice Grid (Genkouyoushi Boxes) */}
           <div>
-            <div className="flex items-center justify-between mb-2.5">
+            <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
                 <Sparkles size={13} className="text-emerald-400" />
                 <span>Detail Goresan per Karakter Kanji:</span>
               </span>
               <span className="text-[11px] text-slate-500 hidden sm:inline">
-                {isSuperZoom ? "Mode Super Zoom Aktif" : "Tekan tombol Super Zoom untuk melihat lebih dekat"}
+                {isSuperZoom ? "Mode Super Zoom Aktif" : "Tekan Super Zoom untuk memperbesar kanvas"}
               </span>
             </div>
 
             <div className="overflow-x-auto pb-2 pt-1">
-              <div className="flex items-center justify-center gap-3 sm:gap-4 flex-nowrap min-w-max mx-auto">
+              <div className="flex items-center justify-center gap-3 sm:gap-4 flex-nowrap min-w-max mx-auto px-2">
                 {characters.map((char, cIdx) => {
                   const strokes = STROKE_MAP[char];
                   const isParent = parentKanji && char === parentKanji;
@@ -242,7 +262,7 @@ export function JukugoModal({
                   return (
                     <div
                       key={cIdx}
-                      className="flex flex-col items-center space-y-2 select-none"
+                      className="flex flex-col items-center space-y-1.5 select-none"
                     >
                       {/* Character Label & Stroke Badge */}
                       <div className="flex items-center gap-1.5">
@@ -250,12 +270,12 @@ export function JukugoModal({
                           #{cIdx + 1}
                         </span>
                         {isParent && (
-                          <span className="rounded-md bg-emerald-500/20 border border-emerald-500/30 px-1.5 py-0.2 text-[10px] font-bold text-emerald-400">
+                          <span className="rounded-md bg-emerald-500/20 border border-emerald-500/30 px-1.5 py-0.5 text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
                             Utama
                           </span>
                         )}
                         {strokes && (
-                          <span className="rounded-md bg-slate-800 border border-slate-700 px-1.5 py-0.2 text-[10px] font-mono text-slate-300">
+                          <span className="rounded-md bg-slate-800/90 border border-slate-700 px-1.5 py-0.5 text-[10px] font-mono text-slate-300">
                             {strokes} goresan
                           </span>
                         )}
@@ -263,44 +283,40 @@ export function JukugoModal({
 
                       {/* The Genkouyoushi Character Box */}
                       <div
-                        className={`relative flex items-center justify-center rounded-2xl border-2 transition-all duration-300 shadow-lg ${
-                          isSuperZoom
-                            ? "h-36 w-36 sm:h-44 sm:w-44 text-7xl sm:text-8xl"
-                            : "h-28 w-28 sm:h-36 sm:w-36 text-5xl sm:text-7xl"
-                        } ${
+                        className={`relative flex items-center justify-center rounded-2xl border-2 transition-all duration-300 shadow-md ${getBoxSizeClass()} ${
                           isParent
-                            ? "border-emerald-500/50 bg-emerald-950/20 shadow-emerald-500/10"
-                            : "border-slate-700/80 bg-slate-950/80"
+                            ? "border-emerald-500/50 bg-emerald-500/5 dark:bg-emerald-950/20"
+                            : "border-slate-300 dark:border-slate-700/80 bg-slate-50/50 dark:bg-slate-950/80"
                         }`}
                       >
                         {/* 4-Quadrant Crosshair Lines (田) */}
                         {/* Horizontal dashed line */}
-                        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-slate-700/50 pointer-events-none" />
+                        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-slate-300 dark:border-slate-700/60 pointer-events-none" />
                         {/* Vertical dashed line */}
-                        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-slate-700/50 pointer-events-none" />
+                        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-slate-300 dark:border-slate-700/60 pointer-events-none" />
 
-                        {/* Kanji Character */}
+                        {/* Kanji Character - Clean, sharp typography without muddy shadow */}
                         <span
-                          className={`relative z-10 font-japanese font-black tracking-wide leading-none transition-transform duration-200 ${
+                          className={`relative z-10 font-japanese font-black tracking-wide leading-none transition-transform duration-200 select-none ${
                             isParent
-                              ? "text-emerald-300 drop-shadow-[0_2px_10px_rgba(52,211,153,0.3)]"
-                              : "text-slate-100 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+                              ? "text-emerald-600 dark:text-emerald-300"
+                              : "text-slate-900 dark:text-slate-100"
                           }`}
                         >
                           {char}
                         </span>
 
                         {/* Corner Accents */}
-                        <div className="absolute top-1 left-1.5 text-[9px] font-mono text-slate-600 select-none pointer-events-none">
+                        <div className="absolute top-1 left-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
                           ↖
                         </div>
-                        <div className="absolute top-1 right-1.5 text-[9px] font-mono text-slate-600 select-none pointer-events-none">
+                        <div className="absolute top-1 right-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
                           ↗
                         </div>
-                        <div className="absolute bottom-1 left-1.5 text-[9px] font-mono text-slate-600 select-none pointer-events-none">
+                        <div className="absolute bottom-1 left-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
                           ↙
                         </div>
-                        <div className="absolute bottom-1 right-1.5 text-[9px] font-mono text-slate-600 select-none pointer-events-none">
+                        <div className="absolute bottom-1 right-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
                           ↘
                         </div>
                       </div>
@@ -314,20 +330,17 @@ export function JukugoModal({
             </div>
           </div>
 
-          {/* Stroke Practice Helpful Guide */}
-          <div className="rounded-2xl border border-slate-800/80 bg-slate-950/50 p-4 text-xs text-slate-300 space-y-1.5">
-            <div className="flex items-center gap-2 text-emerald-400 font-bold">
-              <Sparkles size={14} />
-              <span>Panduan Menulis Kanji Rapi:</span>
-            </div>
-            <p className="text-slate-400 leading-relaxed text-[11px] sm:text-xs">
-              Garis bantu putus-putus <strong>4 kuadran (田)</strong> di atas membagi ruang kanji menjadi empat sektor simetris. Saat menulis, perhatikan titik awal dan akhir goresan relatif terhadap garis tengah untuk memastikan keseimbangan proporsi huruf.
+          {/* Stroke Practice Helpful Guide (Compact Tip) */}
+          <div className="flex items-center gap-2.5 rounded-xl border border-slate-800/80 bg-slate-950/40 px-4 py-2.5 text-xs text-slate-300">
+            <Sparkles size={14} className="text-emerald-400 shrink-0" />
+            <p className="text-[11px] sm:text-xs text-slate-400 leading-snug">
+              <strong>Tips Menulis:</strong> Perhatikan titik temu goresan terhadap garis tengah <strong>4 kuadran (田)</strong> untuk menjaga simetri dan keseimbangan proporsi kanji.
             </p>
           </div>
         </div>
 
-        {/* Footer Navigation */}
-        <div className="flex items-center justify-between border-t border-slate-800 px-6 py-4 bg-slate-900/95">
+        {/* Footer Navigation (Always pinned at bottom) */}
+        <div className="shrink-0 flex items-center justify-between border-t border-slate-800 px-5 py-3 sm:px-6 sm:py-3.5 bg-slate-900/95">
           <button
             type="button"
             onClick={handlePrev}
