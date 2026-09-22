@@ -25,6 +25,7 @@ const config: Config = {
           950: "rgb(var(--slate-950) / <alpha-value>)",
         },
         emerald: {
+          200: "rgb(var(--emerald-200) / <alpha-value>)",
           300: "rgb(var(--emerald-300) / <alpha-value>)",
           400: "rgb(var(--emerald-400) / <alpha-value>)",
           500: "rgb(var(--emerald-500) / <alpha-value>)",
@@ -57,6 +58,8 @@ const config: Config = {
         indigo: {
           300: "rgb(var(--indigo-300) / <alpha-value>)",
           400: "rgb(var(--indigo-400) / <alpha-value>)",
+          800: "rgb(var(--indigo-800) / <alpha-value>)",
+          950: "rgb(var(--indigo-950) / <alpha-value>)",
         },
       },
       fontFamily: {

@@ -339,25 +339,25 @@ export function FlashcardModal({
                     )}
 
                     {currentItem.type === "kanji" && currentBushu && (
-                      <div className="mt-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-3 text-center text-xs text-emerald-300">
+                      <div className="mt-4 rounded-xl border border-indigo-500/30 bg-indigo-500/10 p-3 text-center text-xs text-slate-200">
                         <div className="flex items-center justify-center gap-2 flex-wrap">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-400 font-mono">
                             Radikal (Bushu):
                           </span>
-                          <span className="font-japanese font-black text-base text-emerald-200">
+                          <span className="inline-flex h-7 min-w-[28px] items-center justify-center rounded-lg bg-indigo-500/20 px-1.5 font-japanese font-black text-lg text-indigo-400 shadow-sm">
                             {currentBushu.radical}
                           </span>
-                          <span className="font-semibold text-emerald-300">
+                          <span className="font-semibold text-slate-100">
                             {currentBushu.nameJa} ({currentBushu.nameRomaji})
                           </span>
                           {currentBushu.positionId && (
-                            <span className="rounded bg-emerald-950/70 border border-emerald-500/30 px-1.5 py-0.5 text-[10px] text-emerald-300">
+                            <span className="rounded bg-slate-800/80 border border-slate-700/60 px-1.5 py-0.5 text-[10px] text-slate-300">
                               {currentBushu.positionId}
                             </span>
                           )}
                         </div>
                         <div className="mt-1 text-slate-300 text-xs">
-                          Makna: <strong className="text-emerald-300 font-medium">{currentBushu.meaningId}</strong>
+                          Makna: <strong className="text-indigo-400 font-semibold">{currentBushu.meaningId}</strong>
                           <span className="text-slate-400 text-[11px] ml-1.5">({currentBushu.strokes} goresan)</span>
                         </div>
                       </div>

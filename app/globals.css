@@ -44,6 +44,8 @@
   --sky-400: 56 189 248;
   --indigo-300: 165 180 252;
   --indigo-400: 129 140 248;
+  --indigo-800: 55 48 163;
+  --indigo-950: 30 27 75;
 
   /* Scrollbar */
   --scrollbar-track: #0b0f19;
@@ -73,7 +75,7 @@
   --slate-900: 255 255 255;   /* Card surfaces: Pure Crisp White #FFFFFF */
   --slate-950: 243 246 244;   /* Canvas background: Soft Sage Mist #F3F6F4 */
 
-  /* Accents calibrated for high legibility (WCAG AAA) on light sage & white */
+  --emerald-200: 20 83 45;    /* Deep Pine Green (contrast 7.5:1) */
   --emerald-300: 21 128 61;   /* Rich Jade #15803D (contrast 5.0:1) */
   --emerald-400: 22 101 52;   /* Deep Forest Green #166534 (contrast 7.1:1) */
   --emerald-500: 21 128 61;   /* Jade Accent #15803D */
@@ -96,6 +98,8 @@
   --sky-400: 2 132 199;       /* Clear Ocean #0284C7 */
   --indigo-300: 67 56 202;    /* Deep Indigo #4338CA (contrast 7.9:1 for grammar badge) */
   --indigo-400: 55 48 163;    /* Royal Indigo #3730A3 */
+  --indigo-800: 199 210 254;  /* Soft lavender border #C7D2FE */
+  --indigo-950: 238 242 255;  /* Soft lavender mist pill background #EEF2FF */
 
   /* Scrollbar */
   --scrollbar-track: #f3f6f4;

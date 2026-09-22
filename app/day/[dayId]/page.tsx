@@ -437,12 +437,12 @@ export default function DailyLessonPage() {
                 onClick={handleToggleBushu}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-all ${
                   showBushu
-                    ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-300 font-bold shadow-sm"
+                    ? "bg-indigo-500/15 border-indigo-500/40 text-indigo-400 font-bold shadow-sm"
                     : "border-slate-800 bg-slate-900/90 text-slate-400 hover:text-slate-200 hover:border-slate-700"
                 }`}
                 title={showBushu ? "Sembunyikan Informasi Radikal (Bushu)" : "Tampilkan Informasi Radikal (Bushu)"}
               >
-                <Sparkles size={13} className={showBushu ? "text-emerald-400" : "text-slate-400"} />
+                <Sparkles size={13} className={showBushu ? "text-indigo-400" : "text-slate-400"} />
                 <span>Radikal Bushu: {showBushu ? "Aktif" : "Off"}</span>
               </button>
 
@@ -551,10 +551,12 @@ export default function DailyLessonPage() {
                     if (!bushu) return null;
                     return (
                       <div className="mt-3.5 pt-3 border-t border-slate-800/80 flex flex-wrap items-center gap-2 text-xs">
-                        <span className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 px-2 py-1 text-xs font-semibold text-emerald-300">
-                          <span className="text-[10px] text-emerald-400 font-mono font-bold uppercase">Bushu:</span>
-                          <span className="font-japanese font-black text-sm text-emerald-200">{bushu.radical}</span>
-                          <span>{bushu.nameJa} ({bushu.nameRomaji})</span>
+                        <span className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/30 px-2.5 py-1 text-xs font-semibold text-slate-200">
+                          <span className="text-[10px] text-indigo-400 font-mono font-bold uppercase tracking-wider">Bushu:</span>
+                          <span className="inline-flex h-5 min-w-[20px] items-center justify-center rounded bg-indigo-500/20 px-1 font-japanese font-black text-sm text-indigo-400 shadow-sm">
+                            {bushu.radical}
+                          </span>
+                          <span className="text-slate-200 font-semibold">{bushu.nameJa} ({bushu.nameRomaji})</span>
                         </span>
                         {bushu.positionId && (
                           <span className="rounded-lg bg-slate-800/80 border border-slate-700/60 px-2 py-0.5 text-[11px] text-slate-300">
@@ -562,7 +564,7 @@ export default function DailyLessonPage() {
                           </span>
                         )}
                         <span className="text-slate-300">
-                          Makna: <strong className="text-emerald-300 font-medium">{bushu.meaningId}</strong>
+                          Makna: <strong className="text-indigo-400 font-semibold">{bushu.meaningId}</strong>
                         </span>
                         <span className="text-[11px] text-slate-400">
                           ({bushu.strokes} goresan)
