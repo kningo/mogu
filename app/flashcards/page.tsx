@@ -65,7 +65,7 @@ export default function FlashcardsDeckPage() {
             id: k.id,
             type: "kanji",
             front: { title: k.kanji, sub: `On: ${k.on || "-"} • Kun: ${k.kun || "-"}`, badge: "Kanji Starred" },
-            back: { reading: k.on || k.kun, meaning: k.meaning, notes: k.words?.map((w: any) => `${w.word}: ${w.meaning}`).join(" | ") },
+            back: { reading: k.on || k.kun, meaning: k.meaning, bushu: k.bushu, notes: k.words?.map((w: any) => `${w.word}: ${w.meaning}`).join(" | ") },
           });
         } else if (found.type === "vocab") {
           const v = found.item as any;
@@ -96,7 +96,7 @@ export default function FlashcardsDeckPage() {
             id: k.id,
             type: "kanji",
             front: { title: k.kanji, sub: `On: ${k.on || "-"} • Kun: ${k.kun || "-"}`, badge: `Hari ${d} • Kanji` },
-            back: { reading: k.on || k.kun, meaning: k.meaning, notes: k.words?.map((w) => `${w.word}: ${w.meaning}`).join(" | ") },
+            back: { reading: k.on || k.kun, meaning: k.meaning, bushu: k.bushu, notes: k.words?.map((w) => `${w.word}: ${w.meaning}`).join(" | ") },
           });
         });
 
@@ -144,7 +144,7 @@ export default function FlashcardsDeckPage() {
   }, [selectedDay, selectedType, shuffledSeed]);
 
   const currentCard = filteredDeck[currentIndex];
-  const currentBushu = currentCard?.type === "kanji" ? getBushuByKanji(currentCard.front.title) : null;
+  const currentBushu = currentCard?.back?.bushu || (currentCard?.type === "kanji" ? getBushuByKanji(currentCard.front.title) : null);
   const isCurrentBookmarked = currentCard ? bookmarks.includes(currentCard.id) : false;
 
   const flipCard = useCallback(() => {
@@ -448,7 +448,7 @@ export default function FlashcardsDeckPage() {
 
                   {currentCard.back.connection && (
                     <div className="mt-4 inline-block rounded-xl border border-slate-700 bg-slate-900 px-4 py-1.5 text-xs text-amber-300 font-mono">
-                      接続: {currentCard.back.connection}
+                      Rumus: {currentCard.back.connection}
                     </div>
                   )}
 

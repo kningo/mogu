@@ -3,7 +3,7 @@
     "id": "g-1",
     "pattern": "〜わけにはいかない",
     "meaning": "Tidak mungkin / tidak bisa melakukan (karena pertimbangan moral, sosial, atau situasi)",
-    "connection": "V-kamus / V-nai + わけにはいかない",
+    "connection": "KK-kamus / KK-nai + わけにはいかない",
     "examples": [
       {
         "japanese": "明日は大事な試験があるので、夜更かしするわけにはいかない。",
@@ -21,7 +21,7 @@
     "id": "g-2",
     "pattern": "〜わけがない",
     "meaning": "Pasti tidak mungkin / mustahil",
-    "connection": "Bentuk biasa (V/A-i/A-na+な/N+の) + わけがない",
+    "connection": "Bentuk biasa (KK / KS-i / KS-na+な / KB+の) + わけがない",
     "examples": [
       {
         "japanese": "あんなに真面目な田中さんが嘘をつくわけがない。",
@@ -39,7 +39,7 @@
     "id": "g-3",
     "pattern": "〜わけではない",
     "meaning": "Bukan berarti / tidak selalu begitu (penolakan parsial)",
-    "connection": "Bentuk biasa (V/A-i/A-na+な/N+な) + わけではない",
+    "connection": "Bentuk biasa (KK / KS-i / KS-na+な / KB+な) + わけではない",
     "examples": [
       {
         "japanese": "日本料理が嫌いなわけではないが、納豆だけは食べられない。",
@@ -75,7 +75,7 @@
     "id": "g-5",
     "pattern": "〜に違いない",
     "meaning": "Pasti / tidak salah lagi (keyakinan pembicara)",
-    "connection": "Bentuk biasa (A-na / N tanpa だ) + に違いない",
+    "connection": "Bentuk biasa (KS-na / KB tanpa だ) + に違いない",
     "examples": [
       {
         "japanese": "鍵がない。どこかに落としたに違いない。",
@@ -93,7 +93,7 @@
     "id": "g-6",
     "pattern": "〜はずだ / はずがない",
     "meaning": "Seharusnya / pasti (berdasarkan logika atau fakta)",
-    "connection": "Bentuk biasa (A-na+な / N+の) + はずだ",
+    "connection": "Bentuk biasa (KS-na+な / KB+の) + はずだ",
     "examples": [
       {
         "japanese": "彼は昨日飛行機に乗ったから、もう日本に着いているはずだ。",
@@ -111,7 +111,7 @@
     "id": "g-7",
     "pattern": "〜に決まっている",
     "meaning": "Pasti / sudah pasti (pendapat kuat pembicara)",
-    "connection": "Bentuk biasa (A-na / N tanpa だ) + に決まっている",
+    "connection": "Bentuk biasa (KS-na / KB tanpa だ) + に決まっている",
     "examples": [
       {
         "japanese": "そんな危険なことをしたら、怪我をするに決まっている。",
@@ -129,7 +129,7 @@
     "id": "g-8",
     "pattern": "〜にすぎない",
     "meaning": "Hanya / sekadar / tidak lebih dari",
-    "connection": "Bentuk biasa (A-na / N tanpa だ) + にすぎない",
+    "connection": "Bentuk biasa (KS-na / KB tanpa だ) + にすぎない",
     "examples": [
       {
         "japanese": "私は自分の意見を述べたにすぎません。",
@@ -147,7 +147,7 @@
     "id": "g-9",
     "pattern": "〜ことになっている",
     "meaning": "Telah ditetapkan / sudah menjadi aturan bahwa",
-    "connection": "V-kamus / V-nai + ことになっている",
+    "connection": "KK-kamus / KK-nai + ことになっている",
     "examples": [
       {
         "japanese": "この部屋では靴を脱ぐことになっています。",
@@ -165,7 +165,7 @@
     "id": "g-10",
     "pattern": "〜ことにする",
     "meaning": "Memutuskan untuk (keputusan pribadi)",
-    "connection": "V-kamus / V-nai + ことにする",
+    "connection": "KK-kamus / KK-nai + ことにする",
     "examples": [
       {
         "japanese": "健康のために、毎朝ジョギングをすることにした。",
@@ -183,7 +183,7 @@
     "id": "g-11",
     "pattern": "〜ようにする",
     "meaning": "Berusaha untuk / mengusahakan agar",
-    "connection": "V-kamus / V-nai + ようにする",
+    "connection": "KK-kamus / KK-nai + ようにする",
     "examples": [
       {
         "japanese": "夜11時前には寝るようにしています。",
@@ -201,7 +201,7 @@
     "id": "g-12",
     "pattern": "〜ようになる",
     "meaning": "Menjadi bisa / mulai terbiasa (perubahan kondisi/kemampuan)",
-    "connection": "V-kamus (potensial/kondisi) / V-nai + ようになる",
+    "connection": "KK-kamus (potensial/kondisi) / KK-nai + ようになる",
     "examples": [
       {
         "japanese": "日本に住んでから、日本語が少し話せるようになりました。",
@@ -219,7 +219,7 @@
     "id": "g-13",
     "pattern": "〜ように言う / 頼む",
     "meaning": "Menyampaikan pesan agar / meminta supaya",
-    "connection": "V-kamus / V-nai + ように言う/伝える/頼む",
+    "connection": "KK-kamus / KK-nai + ように言う/伝える/頼む",
     "examples": [
       {
         "japanese": "先生から、明日9時までに集合するように言われました。",
@@ -237,7 +237,7 @@
     "id": "g-14",
     "pattern": "〜おかげで",
     "meaning": "Berkat / berkat bantuan (hasil positif)",
-    "connection": "Bentuk biasa (A-na+な / N+の) + おかげで",
+    "connection": "Bentuk biasa (KS-na+な / KB+の) + おかげで",
     "examples": [
       {
         "japanese": "先生のおかげで、無事に合格することができました。",
@@ -255,7 +255,7 @@
     "id": "g-15",
     "pattern": "〜せいで",
     "meaning": "Gara-gara / akibat dari (hasil negatif / menyalahkan)",
-    "connection": "Bentuk biasa (A-na+な / N+の) + せいで",
+    "connection": "Bentuk biasa (KS-na+な / KB+の) + せいで",
     "examples": [
       {
         "japanese": "大雨のせいで、電車が大幅に遅れてしまった。",
@@ -273,7 +273,7 @@
     "id": "g-16",
     "pattern": "〜によって / による",
     "meaning": "Oleh / melalui / tergantung pada / karena",
-    "connection": "N + によって / による + N",
+    "connection": "KB + によって / による + KB",
     "examples": [
       {
         "japanese": "この小説は世界的に有名な作家によって書かれた。",
@@ -291,7 +291,7 @@
     "id": "g-17",
     "pattern": "〜に応じて / に応じた",
     "meaning": "Sesuai dengan / menyesuaikan dengan",
-    "connection": "N + に応じて / に応じた + N",
+    "connection": "KB + に応じて / に応じた + KB",
     "examples": [
       {
         "japanese": "予算に応じて、最適な旅行プランを提案します。",
@@ -309,7 +309,7 @@
     "id": "g-18",
     "pattern": "〜に比べて / に比べると",
     "meaning": "Dibandingkan dengan",
-    "connection": "N + に比べて / に比べると",
+    "connection": "KB + に比べて / に比べると",
     "examples": [
       {
         "japanese": "今年は去年に比べて、気温が高い日が多い。",
@@ -327,7 +327,7 @@
     "id": "g-19",
     "pattern": "〜に対して / に対する",
     "meaning": "Terhadap / kepada / sedangkan (perbandingan kontras)",
-    "connection": "N / 普通形 (Na-adj+な / N+な・である) + のに対して / に対する + N",
+    "connection": "KB / 普通形 (KS-na+な / KB+な・である) + のに対して / に対する + KB",
     "examples": [
       {
         "japanese": "お客様に対して、常に丁寧な言葉遣いを心がけてください。",
@@ -345,7 +345,7 @@
     "id": "g-20",
     "pattern": "〜について / に関して",
     "meaning": "Mengenai / tentang",
-    "connection": "N + について / に関して",
+    "connection": "KB + について / に関して",
     "examples": [
       {
         "japanese": "日本の伝統文化についてレポートを書きました。",
@@ -381,7 +381,7 @@
     "id": "g-22",
     "pattern": "〜として / としては",
     "meaning": "Sebagai / selaku",
-    "connection": "N + として / としての + N",
+    "connection": "KB + として / としての + KB",
     "examples": [
       {
         "japanese": "彼は留学生として日本へ勉強しに来た。",
@@ -399,7 +399,7 @@
     "id": "g-23",
     "pattern": "〜を通じて / を通して",
     "meaning": "Melalui / perantara / sepanjang (selama periode waktu)",
-    "connection": "N + を通じて / を通して",
+    "connection": "KB + を通じて / を通して",
     "examples": [
       {
         "japanese": "友人の紹介を通じて、新しい仕事を見つけた。",
@@ -435,7 +435,7 @@
     "id": "g-25",
     "pattern": "〜を中心に / を中心として",
     "meaning": "Berpusat pada / berfokus pada",
-    "connection": "N + を中心に / を中心として",
+    "connection": "KB + を中心に / を中心として",
     "examples": [
       {
         "japanese": "文法問題を中心に、JLPT N3の復習を進めています。",
@@ -453,7 +453,7 @@
     "id": "g-26",
     "pattern": "〜をもとに / をもとにして",
     "meaning": "Berdasarkan / bersumber dari (sebagai bahan dasar ide/karya)",
-    "connection": "N + をもとに / をもとにして",
+    "connection": "KB + をもとに / をもとにして",
     "examples": [
       {
         "japanese": "この映画は実際の事件をもとにして作られました。",
@@ -471,7 +471,7 @@
     "id": "g-27",
     "pattern": "〜をきっかけに / を契機に",
     "meaning": "Bermula dari / termotivasi oleh / dipicu oleh",
-    "connection": "N / V-ta + ことをきっかけに",
+    "connection": "KB / KK-ta + ことをきっかけに",
     "examples": [
       {
         "japanese": "アニメを見たことをきっかけに、日本語の勉強を始めました。",
@@ -489,7 +489,7 @@
     "id": "g-28",
     "pattern": "〜をはじめ / をはじめとする",
     "meaning": "Mulai dari... (sebagai contoh utama)",
-    "connection": "N + をはじめ / をはじめとする + N",
+    "connection": "KB + をはじめ / をはじめとする + KB",
     "examples": [
       {
         "japanese": "会長をはじめ、社員全員がボランティア活動に参加した。",
@@ -507,7 +507,7 @@
     "id": "g-29",
     "pattern": "〜にわたって / にわたる",
     "meaning": "Sepanjang / mencakup seluruh (rentang waktu, tempat, atau bidang luas)",
-    "connection": "N (jangka waktu/wilayah) + にわたって / にわたる + N",
+    "connection": "N (jangka waktu/wilayah) + にわたって / にわたる + KB",
     "examples": [
       {
         "japanese": "会議は3日間にわたって熱心に行われた。",
@@ -525,7 +525,7 @@
     "id": "g-30",
     "pattern": "〜にかけて / にかけては",
     "meaning": "Dari... sampai... (perkiraan rentang waktu atau area)",
-    "connection": "N1 + から + N2 + にかけて",
+    "connection": "KB1 + から + KB2 + にかけて",
     "examples": [
       {
         "japanese": "昨夜から今朝にかけて強い雨が降り続いた。",
@@ -543,7 +543,7 @@
     "id": "g-31",
     "pattern": "〜につれて / にしたがって",
     "meaning": "Seiring dengan / sejalan dengan (perubahan bertahap)",
-    "connection": "V-kamus / N + につれて / にしたがって",
+    "connection": "KK-kamus / KB + につれて / にしたがって",
     "examples": [
       {
         "japanese": "年を取るにつれて、物忘れが多くなってきた。",
@@ -561,7 +561,7 @@
     "id": "g-32",
     "pattern": "〜にともなって / に伴い",
     "meaning": "Seiring dengan / berbarengan dengan terjadinya",
-    "connection": "V-kamus / N + にともなって / に伴い",
+    "connection": "KK-kamus / KB + にともなって / に伴い",
     "examples": [
       {
         "japanese": "人口の減少に伴って、空き家が増加している。",
@@ -579,7 +579,7 @@
     "id": "g-33",
     "pattern": "〜ばかりか / ばかりでなく",
     "meaning": "Bukan hanya... tapi juga... (bahkan hal lain yang lebih)",
-    "connection": "Bentuk biasa (A-na+な / N) + ばかりか",
+    "connection": "Bentuk biasa (KS-na+な / KB) + ばかりか",
     "examples": [
       {
         "japanese": "彼は英語ばかりか、フランス語も流暢に話せる。",
@@ -597,7 +597,7 @@
     "id": "g-34",
     "pattern": "〜だけでなく / のみならず",
     "meaning": "Tidak hanya... melainkan juga",
-    "connection": "Bentuk biasa (A-na+な / N) + だけでなく",
+    "connection": "Bentuk biasa (KS-na+な / KB) + だけでなく",
     "examples": [
       {
         "japanese": "野菜はビタミンだけでなく、食物繊維も豊富に含まれている。",
@@ -615,7 +615,7 @@
     "id": "g-35",
     "pattern": "〜はもちろん / はもとより",
     "meaning": "Sudah tentu... apalagi / jangankan...",
-    "connection": "N + はもちろん",
+    "connection": "KB + はもちろん",
     "examples": [
       {
         "japanese": "平日はもちろん、週末も休まずに働いている。",
@@ -633,7 +633,7 @@
     "id": "g-36",
     "pattern": "〜うえに（上に）",
     "meaning": "Ditambah lagi / sudah... malah...",
-    "connection": "Bentuk biasa (A-na+な / N+の) + うえに",
+    "connection": "Bentuk biasa (KS-na+な / KB+の) + うえに",
     "examples": [
       {
         "japanese": "この店の料理は美味しい上に、値段もとても安い。",
@@ -651,7 +651,7 @@
     "id": "g-37",
     "pattern": "〜反面（はんめん）/ その一方で",
     "meaning": "Di sisi lain / sebaliknya (dua sisi yang bertolak belakang)",
-    "connection": "Bentuk biasa (A-na+な / N+である) + 反面",
+    "connection": "Bentuk biasa (KS-na+な / KB+である) + 反面",
     "examples": [
       {
         "japanese": "都会の生活は便利な反面、人付き合いが希薄になりがちだ。",
@@ -669,7 +669,7 @@
     "id": "g-38",
     "pattern": "〜に反して / に反する",
     "meaning": "Bertentangan dengan / berlawanan dengan (harapan/aturan)",
-    "connection": "N + に反して / に反する + N",
+    "connection": "KB + に反して / に反する + KB",
     "examples": [
       {
         "japanese": "事前の予想に反して、株価は急激に下落した。",
@@ -687,7 +687,7 @@
     "id": "g-39",
     "pattern": "〜にもかかわらず",
     "meaning": "Meskipun / terlepas dari / walau kenyataannya",
-    "connection": "Bentuk biasa (A-na/N tanpa だ, atau である) + にもかかわらず",
+    "connection": "Bentuk biasa (KS-na / KB tanpa だ, atau である) + にもかかわらず",
     "examples": [
       {
         "japanese": "悪天候にもかかわらず、多くの観客が集まった。",
@@ -705,7 +705,7 @@
     "id": "g-40",
     "pattern": "〜くせに",
     "meaning": "Padahal / mentang-mentang (nada kesal / mencela)",
-    "connection": "Bentuk biasa (A-na+な / N+の) + くせに",
+    "connection": "Bentuk biasa (KS-na+な / KB+の) + くせに",
     "examples": [
       {
         "japanese": "自分は何もしないくせに、文句ばかり言う。",
@@ -723,7 +723,7 @@
     "id": "g-41",
     "pattern": "〜わりに（は）",
     "meaning": "Untuk ukuran... lumayan / dibandingkan dengan standarnya",
-    "connection": "Bentuk biasa (A-na+な / N+の) + わりに（は）",
+    "connection": "Bentuk biasa (KS-na+な / KB+の) + わりに（は）",
     "examples": [
       {
         "japanese": "このレストランは値段のわりには、料理がとても美味しい。",
@@ -741,7 +741,7 @@
     "id": "g-42",
     "pattern": "〜にしては",
     "meaning": "Untuk ukuran... (fakta nyata tidak seperti anggapan umum)",
-    "connection": "Bentuk biasa (A-na / N tanpa だ) + にしては",
+    "connection": "Bentuk biasa (KS-na / KB tanpa だ) + にしては",
     "examples": [
       {
         "japanese": "彼は日本に住んでまだ1か月にしては、日本語がとても上手だ。",
@@ -759,7 +759,7 @@
     "id": "g-43",
     "pattern": "たとえ〜ても",
     "meaning": "Meskipun / seandainya... pun",
-    "connection": "たとえ + V-te / A-kute / A-na+でも / N+でも",
+    "connection": "たとえ + KK-te / KS-kute / KS-na+でも / KB+でも",
     "examples": [
       {
         "japanese": "たとえ失敗しても、諦めずに挑戦し続ける。",
@@ -777,7 +777,7 @@
     "id": "g-44",
     "pattern": "〜さえ〜ば",
     "meaning": "Asalkan... saja (syarat tunggal yang cukup)",
-    "connection": "N + さえ + V-ba / A-kereba / A-na+なら",
+    "connection": "KB + さえ + KK-ba / KS-kereba / KS-na+なら",
     "examples": [
       {
         "japanese": "体さえ健康なら、どんな困難も乗り越えられる。",
@@ -813,7 +813,7 @@
     "id": "g-46",
     "pattern": "〜こそ",
     "meaning": "Justru / benarlah (penekanan tegas)",
-    "connection": "N / Bentuk biasa + からこそ",
+    "connection": "KB / Bentuk biasa + からこそ",
     "examples": [
       {
         "japanese": "今年こそ、JLPT N3に絶対に合格してみせる。",
@@ -831,7 +831,7 @@
     "id": "g-47",
     "pattern": "〜なんか / なんて / など",
     "meaning": "Hal seperti... / yang namanya... (meremehkan atau merendah)",
-    "connection": "N / V-kamus + なんて / なんか",
+    "connection": "KB / KK-kamus + なんて / なんか",
     "examples": [
       {
         "japanese": "私なんかに、そんな大役は務まりません。",
@@ -867,7 +867,7 @@
     "id": "g-49",
     "pattern": "〜ほど〜ない",
     "meaning": "Tidak ada yang se-... (menyatakan yang paling/ekstrem)",
-    "connection": "N + ほど〜ない",
+    "connection": "KB + ほど〜ない",
     "examples": [
       {
         "japanese": "健康ほど大切なものはない。",
@@ -885,7 +885,7 @@
     "id": "g-50",
     "pattern": "〜ば〜ほど",
     "meaning": "Semakin... maka semakin...",
-    "connection": "V-ba + V-kamus + ほど / A-kereba + A-i + ほど",
+    "connection": "KK-ba + KK-kamus + ほど / KS-kereba + KS-i + ほど",
     "examples": [
       {
         "japanese": "日本語は勉強すればするほど、面白くなってくる。",
@@ -903,7 +903,7 @@
     "id": "g-51",
     "pattern": "〜くらいなら",
     "meaning": "Daripada harus... (lebih baik...)",
-    "connection": "V-kamus + くらいなら",
+    "connection": "KK-kamus + くらいなら",
     "examples": [
       {
         "japanese": "あんな人に頭を下げるくらいなら、会社を辞めたほうがましだ。",
@@ -921,7 +921,7 @@
     "id": "g-52",
     "pattern": "〜に限る",
     "meaning": "Paling baik... / tidak ada yang menandingi...",
-    "connection": "V-kamus / V-nai / N + に限る",
+    "connection": "KK-kamus / KK-nai / KB + に限る",
     "examples": [
       {
         "japanese": "暑い夏の日には、冷たい麦茶を飲むに限る。",
@@ -939,7 +939,7 @@
     "id": "g-53",
     "pattern": "〜に限って / 〜に限らず",
     "meaning": "Khusus saat... justru... / Tidak hanya terbatas pada...",
-    "connection": "N + に限って / に限らず",
+    "connection": "KB + に限って / に限らず",
     "examples": [
       {
         "japanese": "傘を持っていない日に限って、雨が降る。",
@@ -957,7 +957,7 @@
     "id": "g-54",
     "pattern": "〜きり / きりだ",
     "meaning": "Hanya... saja / sejak... tidak pernah lagi",
-    "connection": "N / V-ta + きり",
+    "connection": "KB / KK-ta + きり",
     "examples": [
       {
         "japanese": "二人きりで静かに話がしたい。",
@@ -975,7 +975,7 @@
     "id": "g-55",
     "pattern": "〜っぱなし",
     "meaning": "Dibiarkan begitu saja terus-menerus (konotasi kelalaian)",
-    "connection": "V-masu (batang) + っぱなし",
+    "connection": "KK-masu (batang) + っぱなし",
     "examples": [
       {
         "japanese": "テレビをつけっぱなしで寝てしまった。",
@@ -993,7 +993,7 @@
     "id": "g-56",
     "pattern": "〜だらけ",
     "meaning": "Penuh dengan... (bertaburan hal buruk/kotor)",
-    "connection": "N + だらけ",
+    "connection": "KB + だらけ",
     "examples": [
       {
         "japanese": "泥だらけになってサッカーボールを追いかけた。",
@@ -1011,7 +1011,7 @@
     "id": "g-57",
     "pattern": "〜気味（ぎみ）",
     "meaning": "Sedikit merasa / agak ada tanda-tanda...",
-    "connection": "V-masu (batang) / N + 気味",
+    "connection": "KK-masu (batang) / KB + 気味",
     "examples": [
       {
         "japanese": "風邪気味なので、今夜は早めに寝ます。",
@@ -1029,7 +1029,7 @@
     "id": "g-58",
     "pattern": "〜っぽい",
     "meaning": "Cenderung bersikap / terkesan seperti...",
-    "connection": "V-masu (batang) / N / A-i tanpa い + っぽい",
+    "connection": "KK-masu (batang) / KB / KS-i tanpa い + っぽい",
     "examples": [
       {
         "japanese": "彼は大人なのに、言動が子供っぽい。",
@@ -1047,7 +1047,7 @@
     "id": "g-59",
     "pattern": "〜がち",
     "meaning": "Sering kali / cenderung (kebiasaan yang kurang baik)",
-    "connection": "V-masu (batang) / N + がち",
+    "connection": "KK-masu (batang) / KB + がち",
     "examples": [
       {
         "japanese": "一人暮らしを始めると、野菜が不足しがちになる。",
@@ -1065,7 +1065,7 @@
     "id": "g-60",
     "pattern": "〜向き / 〜向け",
     "meaning": "Cocok untuk (muki) / Ditujukan khusus untuk (muke)",
-    "connection": "N + 向き / 向け",
+    "connection": "KB + 向き / 向け",
     "examples": [
       {
         "japanese": "この料理は辛くないので、子供向きです。",
@@ -1083,7 +1083,7 @@
     "id": "g-61",
     "pattern": "〜かける / 〜かけの",
     "meaning": "Baru setengah jalan / sedang dalam proses belum selesai",
-    "connection": "V-masu (batang) + かける / かけの + N",
+    "connection": "KK-masu (batang) + かける / かけの + KB",
     "examples": [
       {
         "japanese": "机の上に読みかけの本が置いてある。",
@@ -1101,7 +1101,7 @@
     "id": "g-62",
     "pattern": "〜きる / 〜きれる / 〜きれない",
     "meaning": "Selesai tuntas / sanggup menghabiskan / tak kuasa menghabiskan",
-    "connection": "V-masu (batang) + きる",
+    "connection": "KK-masu (batang) + きる",
     "examples": [
       {
         "japanese": "長いマラソンコースを最後まで走りきった。",
@@ -1119,7 +1119,7 @@
     "id": "g-63",
     "pattern": "〜抜く（ぬく）",
     "meaning": "Melakukan sampai tuntas dengan gigih melalui rintangan",
-    "connection": "V-masu (batang) + 抜く",
+    "connection": "KK-masu (batang) + 抜く",
     "examples": [
       {
         "japanese": "どんなに苦しくても、最後までやり抜く決意だ。",
@@ -1137,7 +1137,7 @@
     "id": "g-64",
     "pattern": "〜かねる",
     "meaning": "Sulit / tidak bisa (penolakan halus formal)",
-    "connection": "V-masu (batang) + かねる",
+    "connection": "KK-masu (batang) + かねる",
     "examples": [
       {
         "japanese": "お客様のご要望には応じかねます。",
@@ -1155,7 +1155,7 @@
     "id": "g-65",
     "pattern": "〜かねない",
     "meaning": "Bisa saja terjadi (potensi bahaya/hasil buruk)",
-    "connection": "V-masu (batang) + かねない",
+    "connection": "KK-masu (batang) + かねない",
     "examples": [
       {
         "japanese": "そんな乱暴な運転をすると、大事故を起こしかねない。",
@@ -1173,7 +1173,7 @@
     "id": "g-66",
     "pattern": "〜恐れがある（おそれがある）",
     "meaning": "Dikhawatirkan / ada risiko terjadinya bahaya",
-    "connection": "V-kamus / N+の + 恐れがある",
+    "connection": "KK-kamus / KB+の + 恐れがある",
     "examples": [
       {
         "japanese": "大雨により、土砂崩れが発生する恐れがあります。",
@@ -1191,7 +1191,7 @@
     "id": "g-67",
     "pattern": "〜っこない",
     "meaning": "Mustahil / mana mungkin bisa (percakapan kasual)",
-    "connection": "V-masu (batang) + っこない",
+    "connection": "KK-masu (batang) + っこない",
     "examples": [
       {
         "japanese": "一日でこの厚い本を全部読めっこないよ。",
@@ -1209,7 +1209,7 @@
     "id": "g-68",
     "pattern": "〜ざるを得ない",
     "meaning": "Terpaksa harus melakukan (tak ada pilihan lain)",
-    "connection": "V-nai (tanpa ない) + ざるを得ない (する -> せざるを得ない)",
+    "connection": "KK-nai (tanpa ない) + ざるを得ない (する -> せざるを得ない)",
     "examples": [
       {
         "japanese": "証拠が揃っているので、罪を認めざるを得ない。",
@@ -1227,7 +1227,7 @@
     "id": "g-69",
     "pattern": "〜ずにはいられない / ないではいられない",
     "meaning": "Tidak tahan untuk tidak... / spontan melakukan",
-    "connection": "V-nai (tanpa ない) + ずにはいられない (する -> せずにはいられない)",
+    "connection": "KK-nai (tanpa ない) + ずにはいられない (する -> せずにはいられない)",
     "examples": [
       {
         "japanese": "彼の面白い冗談を聞いて、笑わずにはいられなかった。",
@@ -1245,7 +1245,7 @@
     "id": "g-70",
     "pattern": "〜てたまらない / てしょうがない",
     "meaning": "Sangat / tak tertahankan (perasaan/keinginan kuat)",
-    "connection": "V-te / A-kute / A-na+で + たまらない",
+    "connection": "KK-te / KS-kute / KS-na+で + たまらない",
     "examples": [
       {
         "japanese": "家族に会いたくてたまらない。",
@@ -1263,7 +1263,7 @@
     "id": "g-71",
     "pattern": "〜てならない",
     "meaning": "Terasa sangat... / tak bisa dihindari perasaannya",
-    "connection": "V-te / A-kute / A-na+で + ならない (kata perasaan/emosi)",
+    "connection": "KK-te / KS-kute / KS-na+で + ならない (kata perasaan/emosi)",
     "examples": [
       {
         "japanese": "友人の手術が無事に成功するか、気になってならない。",
@@ -1281,7 +1281,7 @@
     "id": "g-72",
     "pattern": "〜べきだ / べきではない",
     "meaning": "Seharusnya / sewajarnya tidak boleh",
-    "connection": "V-kamus + べきだ (する -> すべき / するべき)",
+    "connection": "KK-kamus + べきだ (する -> すべき / するべき)",
     "examples": [
       {
         "japanese": "約束した時間は厳守するべきだ。",
@@ -1299,7 +1299,7 @@
     "id": "g-73",
     "pattern": "〜ことだ",
     "meaning": "Sebaiknya / hendaknya (saran langsung)",
-    "connection": "V-kamus / V-nai + ことだ",
+    "connection": "KK-kamus / KK-nai + ことだ",
     "examples": [
       {
         "japanese": "日本語を上達させたいなら、毎日少しでも話すことだ。",
@@ -1317,7 +1317,7 @@
     "id": "g-74",
     "pattern": "〜ものだ / ものではない",
     "meaning": "Sudah semestinya / wajarnya / betapa... (ungkapan hakikat alamiah)",
-    "connection": "V-kamus / A-i / A-na+な + ものだ",
+    "connection": "KK-kamus / KS-i / KS-na+な + ものだ",
     "examples": [
       {
         "japanese": "人の悪口を言うものではありません。",
@@ -1335,7 +1335,7 @@
     "id": "g-75",
     "pattern": "〜たものだ",
     "meaning": "Dulu sering kali (mengenang kebiasaan masa lampau)",
-    "connection": "V-ta + ものだ",
+    "connection": "KK-ta + ものだ",
     "examples": [
       {
         "japanese": "子供のころ、よくこの川で泳いだものだ。",
@@ -1353,7 +1353,7 @@
     "id": "g-76",
     "pattern": "〜ものだから / もので",
     "meaning": "Karena alasan... (alasan personal / membela diri)",
-    "connection": "Bentuk biasa (A-na+な / N+な) + ものだから",
+    "connection": "Bentuk biasa (KS-na+な / KB+な) + ものだから",
     "examples": [
       {
         "japanese": "事故で電車が遅れたものですから、遅刻してしまいました。",
@@ -1371,7 +1371,7 @@
     "id": "g-77",
     "pattern": "〜うちに / ないうちに",
     "meaning": "Selagi / mumpung / sebelum keburu berubah",
-    "connection": "V-kamus / V-teiru / V-nai / A-i / A-na+な / N+の + うちに",
+    "connection": "KK-kamus / KK-teiru / KK-nai / KS-i / KS-na+な / KB+の + うちに",
     "examples": [
       {
         "japanese": "スープが温かいうちに召し上がってください。",
@@ -1389,7 +1389,7 @@
     "id": "g-78",
     "pattern": "〜あいだ / あいだに（間 / 間に）",
     "meaning": "Selama (berkelanjutan) / Selagi sempat (terjadi suatu aksi di tengah waktu)",
-    "connection": "V-kamus / V-teiru / N+の + 間（に）",
+    "connection": "KK-kamus / KK-teiru / KB+の + 間（に）",
     "examples": [
       {
         "japanese": "夏休みの間、ずっと祖父母の家に滞在していた。",
@@ -1407,7 +1407,7 @@
     "id": "g-79",
     "pattern": "〜最中に（さいちゅうに）",
     "meaning": "Tepat di tengah-tengah sedang melakukan...",
-    "connection": "V-teiru / N+の + 最中に",
+    "connection": "KK-teiru / KB+の + 最中に",
     "examples": [
       {
         "japanese": "食事の最中に電話が鳴った。",
@@ -1425,7 +1425,7 @@
     "id": "g-80",
     "pattern": "〜たとたん（に）",
     "meaning": "Begitu... seketika itu juga...",
-    "connection": "V-ta + とたん（に）",
+    "connection": "KK-ta + とたん（に）",
     "examples": [
       {
         "japanese": "窓を開けたとたん、冷たい風が吹き込んできた。",
@@ -1443,7 +1443,7 @@
     "id": "g-81",
     "pattern": "〜たびに",
     "meaning": "Setiap kali... (selalu terjadi hal yang sama)",
-    "connection": "V-kamus / N+の + たびに",
+    "connection": "KK-kamus / KB+の + たびに",
     "examples": [
       {
         "japanese": "この曲を聴くたびに、学生時代の青春を思い出す。",
@@ -1461,7 +1461,7 @@
     "id": "g-82",
     "pattern": "〜ついでに",
     "meaning": "Sekalian / mumpung sedang...",
-    "connection": "V-kamus / V-ta / N+の + ついでに",
+    "connection": "KK-kamus / KK-ta / KB+の + ついでに",
     "examples": [
       {
         "japanese": "コンビニへ行くついでに、ゴミを出してきてくれる？",
@@ -1479,7 +1479,7 @@
     "id": "g-83",
     "pattern": "〜に際して / にあたって",
     "meaning": "Menjelang / saat hendak mengawali momen penting",
-    "connection": "V-kamus / N + に際して",
+    "connection": "KK-kamus / KB + に際して",
     "examples": [
       {
         "japanese": "新事業の開始に際して、スタッフ一同で目標を確認した。",
@@ -1497,7 +1497,7 @@
     "id": "g-84",
     "pattern": "〜にしろ / にせよ",
     "meaning": "Baik... maupun... / Sekalipun... (menunjukkan opsi atau konsesi)",
-    "connection": "Bentuk biasa (A-na / N tanpa だ atau である) + にしろ / にせよ",
+    "connection": "Bentuk biasa (KS-na / KB tanpa だ atau である) + にしろ / にせよ",
     "examples": [
       {
         "japanese": "行くにしろ行かないにしろ、前もって連絡してください。",
@@ -1515,7 +1515,7 @@
     "id": "g-85",
     "pattern": "〜に相違ない（にそういない）",
     "meaning": "Pasti tidak salah lagi (formal/tertulis)",
-    "connection": "Bentuk biasa (A-na / N tanpa だ) + に相違ない",
+    "connection": "Bentuk biasa (KS-na / KB tanpa だ) + に相違ない",
     "examples": [
       {
         "japanese": "目撃者の証言から、この男が犯人に相違ない。",
@@ -1533,7 +1533,7 @@
     "id": "g-86",
     "pattern": "〜にほかならない",
     "meaning": "Tidak lain dan tidak bukan adalah...",
-    "connection": "N + にほかならない",
+    "connection": "KB + にほかならない",
     "examples": [
       {
         "japanese": "今回の合格は、日頃の努力の結晶にほかならない。",
@@ -1551,7 +1551,7 @@
     "id": "g-87",
     "pattern": "〜ばかりだ",
     "meaning": "Terus-menerus memburuk / tinggal menunggu... saja",
-    "connection": "V-kamus + ばかりだ",
+    "connection": "KK-kamus + ばかりだ",
     "examples": [
       {
         "japanese": "景気は悪化するばかりで、回復の兆しが見えない。",
@@ -1569,7 +1569,7 @@
     "id": "g-88",
     "pattern": "〜一方だ（いっぽうだ）",
     "meaning": "Cenderung terus menuju satu arah (semakin bertambah/berkurang)",
-    "connection": "V-kamus (kata kerja perubahan) + 一方だ",
+    "connection": "KK-kamus (kata kerja perubahan) + 一方だ",
     "examples": [
       {
         "japanese": "スマートフォン利用者の数は年々増える一方だ。",
@@ -1587,7 +1587,7 @@
     "id": "g-89",
     "pattern": "〜つつある",
     "meaning": "Sedang berangsur-angsur dalam proses perubahan",
-    "connection": "V-masu (batang) + つつある",
+    "connection": "KK-masu (batang) + つつある",
     "examples": [
       {
         "japanese": "景気は少しずつ回復しつつある。",
@@ -1605,7 +1605,7 @@
     "id": "g-90",
     "pattern": "〜つつ（も）",
     "meaning": "Sambil / meskipun menyadari (kontras batin)",
-    "connection": "V-masu (batang) + つつ（も）",
+    "connection": "KK-masu (batang) + つつ（も）",
     "examples": [
       {
         "japanese": "体に悪いと知りつつも、夜食のラーメンを食べてしまう。",
@@ -1623,7 +1623,7 @@
     "id": "g-91",
     "pattern": "〜に沿って / に沿った",
     "meaning": "Sesuai dengan / mengikuti acuan garis pedoman",
-    "connection": "N + に沿って / に沿った + N",
+    "connection": "KB + に沿って / に沿った + KB",
     "examples": [
       {
         "japanese": "マニュアルに沿って、機械を正しく操作してください。",
@@ -1641,7 +1641,7 @@
     "id": "g-92",
     "pattern": "〜に基づいて / に基づく",
     "meaning": "Berdasarkan / berlandaskan fakta atau data sah",
-    "connection": "N + に基づいて / に基づく + N",
+    "connection": "KB + に基づいて / に基づく + KB",
     "examples": [
       {
         "japanese": "最新の調査データに基づいて、今後の戦略を立てる。",
@@ -1659,7 +1659,7 @@
     "id": "g-93",
     "pattern": "〜のもとで / のもとに",
     "meaning": "Di bawah bimbingan / di bawah lindungan / di bawah kondisi",
-    "connection": "N + のもとで / のもとに",
+    "connection": "KB + のもとで / のもとに",
     "examples": [
       {
         "japanese": "有名な教授の指導のもとで研究を深めることができた。",
@@ -1677,7 +1677,7 @@
     "id": "g-94",
     "pattern": "〜をめぐって / をめぐる",
     "meaning": "Seputar / memperebutkan / memperdebatkan tentang",
-    "connection": "N + をめぐって / をめぐる + N",
+    "connection": "KB + をめぐって / をめぐる + KB",
     "examples": [
       {
         "japanese": "遺産の相続をめぐって、親族間で激しい争いが起きた。",
@@ -1695,7 +1695,7 @@
     "id": "g-95",
     "pattern": "〜げ",
     "meaning": "Tampak seperti... / Berkesan ada nuansa... (kesan ekspresi/perilaku orang lain)",
-    "connection": "A-i (tanpa い) / A-na (tanpa な) / V-tai (tanpa い) + げ",
+    "connection": "KS-i (tanpa い) / KS-na (tanpa な) / KK-tai (tanpa い) + げ",
     "examples": [
       {
         "japanese": "彼は自信ありげにプレゼンテーションを始めた。",
@@ -1713,7 +1713,7 @@
     "id": "g-96",
     "pattern": "〜まい / まいか",
     "meaning": "Pasti tidak akan / Bertekad tidak akan... (penyangkalan kuat / tekad negatif)",
-    "connection": "V-kamus (Kel 1) / V-nai stem (Kel 2) + まい (する -> すまい/するまい)",
+    "connection": "KK-kamus (Kel 1) / KK-nai stem (Kel 2) + まい (する -> すまい/するまい)",
     "examples": [
       {
         "japanese": "あんなひどい店には二度と行くまいと心に決めた。",
@@ -1731,7 +1731,7 @@
     "id": "g-97",
     "pattern": "〜といった",
     "meaning": "Seperti misalnya... (menyebut contoh-contoh)",
-    "connection": "N1, N2 + といった + N",
+    "connection": "KB1, KB2 + といった + KB",
     "examples": [
       {
         "japanese": "京都や奈良といった古い街には、歴史的な建物がたくさんある。",
@@ -1749,7 +1749,7 @@
     "id": "g-98",
     "pattern": "〜に答えて / にこたえる",
     "meaning": "Menanggapi / memenuhi (harapan, aspirasi, atau panggilan)",
-    "connection": "N + にこたえて / にこたえる + N",
+    "connection": "KB + にこたえて / にこたえる + KB",
     "examples": [
       {
         "japanese": "ファンの熱烈なアンコールに応えて、もう一曲演奏した。",
@@ -1767,7 +1767,7 @@
     "id": "g-99",
     "pattern": "〜を問わず / は問わず",
     "meaning": "Tanpa memandang / tidak mempersoalkan (usia, gender, pengalaman)",
-    "connection": "N + を問わず",
+    "connection": "KB + を問わず",
     "examples": [
       {
         "japanese": "このマラソン大会は、年齢や性別を問わず誰でも参加できます。",
@@ -1785,7 +1785,7 @@
     "id": "g-100",
     "pattern": "〜にかかわらず / にかかわりなく",
     "meaning": "Tanpa mempedulikan / Terlepas dari... (tidak terpengaruh syarat tertentu)",
-    "connection": "N / V-kamus + V-nai + にかかわらず",
+    "connection": "KB / KK-kamus + KK-nai + にかかわらず",
     "examples": [
       {
         "japanese": "国籍や年齢にかかわらず、どなたでも応募できます。",

@@ -17,7 +17,16 @@
         "reading": "せいふ",
         "meaning": "Pemerintah"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "攵",
+      "nameJa": "ぼくづくり",
+      "meaningId": "Aksi, memukul, aktivitas",
+      "nameRomaji": "bokuzukuri",
+      "strokes": 4,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-2",
@@ -37,7 +46,16 @@
         "reading": "ちあん",
         "meaning": "Ketertiban umum"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "氵",
+      "nameJa": "さんずい",
+      "meaningId": "Air / Cairan",
+      "nameRomaji": "sanzui",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-3",
@@ -57,7 +75,16 @@
         "reading": "けいけん",
         "meaning": "Pengalaman"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "糸",
+      "nameJa": "いとへん",
+      "meaningId": "Benang, kain, jalinan",
+      "nameRomaji": "itohen",
+      "strokes": 6,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-4",
@@ -77,7 +104,16 @@
         "reading": "へんさい",
         "meaning": "Pelunasan cicilan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "氵",
+      "nameJa": "さんずい",
+      "meaningId": "Air / Cairan",
+      "nameRomaji": "sanzui",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-5",
@@ -97,7 +133,14 @@
         "reading": "りれきしょ",
         "meaning": "CV / riwayat hidup"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "止",
+      "nameJa": "とめる",
+      "meaningId": "Berhenti, langkah",
+      "nameRomaji": "tomeru",
+      "strokes": 4
+    }
   },
   {
     "id": "k-6",
@@ -117,7 +160,14 @@
         "reading": "せかいし",
         "meaning": "Sejarah dunia"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くち",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-7",
@@ -137,7 +187,14 @@
         "reading": "そだてる",
         "meaning": "Membesarkan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "月",
+      "nameJa": "にくづき",
+      "meaningId": "Daging, organ tubuh",
+      "nameRomaji": "nikuzuki",
+      "strokes": 4
+    }
   },
   {
     "id": "k-8",
@@ -157,7 +214,16 @@
         "reading": "かがく",
         "meaning": "Kimia"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "匕",
+      "nameJa": "さじ",
+      "meaningId": "Sendok, sudu",
+      "nameRomaji": "saji",
+      "strokes": 2,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-9",
@@ -177,7 +243,16 @@
         "reading": "りょうり",
         "meaning": "Masakan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "王",
+      "nameJa": "おうへん",
+      "meaningId": "Permata, giok, batu mulia",
+      "nameRomaji": "ouhen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-10",
@@ -197,7 +272,16 @@
         "reading": "きょうかしょ",
         "meaning": "Buku teks pelajaran"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "禾",
+      "nameJa": "のぎへん",
+      "meaningId": "Padi-padian, biji-bijian",
+      "nameRomaji": "nogihen",
+      "strokes": 5,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-11",
@@ -217,7 +301,16 @@
         "reading": "すうがく",
         "meaning": "Matematika"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "攵",
+      "nameJa": "ぼくづくり",
+      "meaningId": "Aksi, memukul, aktivitas",
+      "nameRomaji": "bokuzukuri",
+      "strokes": 4,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-12",
@@ -237,7 +330,16 @@
         "reading": "としょかん",
         "meaning": "Perpustakaan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "囗",
+      "nameJa": "くにがまえ",
+      "meaningId": "Keliling, batas wilayah",
+      "nameRomaji": "kunigamae",
+      "strokes": 3,
+      "positionJa": "くにがまえ",
+      "positionId": "Keliling Kotak (Kunigamae)"
+    }
   },
   {
     "id": "k-13",
@@ -257,7 +359,16 @@
         "reading": "えいがかん",
         "meaning": "Bioskop"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "飠",
+      "nameJa": "しょくへん",
+      "meaningId": "Makanan, santapan",
+      "nameRomaji": "shokuhen",
+      "strokes": 8,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-14",
@@ -277,7 +388,16 @@
         "reading": "ちかてつせん",
         "meaning": "Jalur subway"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "糸",
+      "nameJa": "いとへん",
+      "meaningId": "Benang, kain, jalinan",
+      "nameRomaji": "itohen",
+      "strokes": 6,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-15",
@@ -297,7 +417,14 @@
         "reading": "ほうめん",
         "meaning": "Arah/jurusan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "面",
+      "nameJa": "めん",
+      "meaningId": "Wajah, permukaan",
+      "nameRomaji": "men",
+      "strokes": 9
+    }
   },
   {
     "id": "k-16",
@@ -317,7 +444,16 @@
         "reading": "しゅっぱつ",
         "meaning": "Keberangkatan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "癶",
+      "nameJa": "はつがしら",
+      "meaningId": "Kaki melangkah, keberangkatan",
+      "nameRomaji": "hatsugashira",
+      "strokes": 5,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-17",
@@ -337,7 +473,14 @@
         "reading": "だいひょう",
         "meaning": "Perwakilan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "衣",
+      "nameJa": "ころも",
+      "meaningId": "Pakaian, busana",
+      "nameRomaji": "koromo",
+      "strokes": 6
+    }
   },
   {
     "id": "k-18",
@@ -357,7 +500,16 @@
         "reading": "げんしょう",
         "meaning": "Fenomena"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "王",
+      "nameJa": "おうへん",
+      "meaningId": "Permata, giok, batu mulia",
+      "nameRomaji": "ouhen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-19",
@@ -377,7 +529,16 @@
         "reading": "ちょうし",
         "meaning": "Kondisi tubuh/alat"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "言",
+      "nameJa": "ごんべん",
+      "meaningId": "Kata, ucapan, bahasa",
+      "nameRomaji": "gonben",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-20",
@@ -397,7 +558,14 @@
         "reading": "しんさ",
         "meaning": "Penilaian/penjurian"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "木",
+      "nameJa": "き",
+      "meaningId": "Pohon, kayu",
+      "nameRomaji": "ki",
+      "strokes": 4
+    }
   },
   {
     "id": "k-21",
@@ -417,7 +585,16 @@
         "reading": "ほうほう",
         "meaning": "Metode / cara"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "氵",
+      "nameJa": "さんずい",
+      "meaningId": "Air / Cairan",
+      "nameRomaji": "sanzui",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-22",
@@ -437,7 +614,14 @@
         "reading": "じょうぎ",
         "meaning": "Penggaris"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "見",
+      "nameJa": "みる",
+      "meaningId": "Melihat, tatapan",
+      "nameRomaji": "miru",
+      "strokes": 7
+    }
   },
   {
     "id": "k-23",
@@ -457,7 +641,16 @@
         "reading": "はんそく",
         "meaning": "Pelanggaran"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "刂",
+      "nameJa": "りっとう",
+      "meaningId": "Pisau, pedang, memotong",
+      "nameRomaji": "rittou",
+      "strokes": 2,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-24",
@@ -477,7 +670,16 @@
         "reading": "せいげん",
         "meaning": "Pembatasan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "刂",
+      "nameJa": "りっとう",
+      "meaningId": "Pisau, pedang, memotong",
+      "nameRomaji": "rittou",
+      "strokes": 2,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-25",
@@ -497,7 +699,16 @@
         "reading": "おんど",
         "meaning": "Temperatur"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "广",
+      "nameJa": "まだれ",
+      "meaningId": "Atap miring, pondok",
+      "nameRomaji": "madare",
+      "strokes": 3,
+      "positionJa": "たれ",
+      "positionId": "Kiri Atas (Tare)"
+    }
   },
   {
     "id": "k-26",
@@ -517,7 +728,16 @@
         "reading": "やくいん",
         "meaning": "Pejabat eksekutif"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "彳",
+      "nameJa": "ぎょうにんべん",
+      "meaningId": "Langkah jalan, berjalan",
+      "nameRomaji": "gyouninben",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-27",
@@ -537,7 +757,16 @@
         "reading": "さいばん",
         "meaning": "Pengadilan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "刂",
+      "nameJa": "りっとう",
+      "meaningId": "Pisau, pedang, memotong",
+      "nameRomaji": "rittou",
+      "strokes": 2,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-28",
@@ -557,7 +786,16 @@
         "reading": "けつだん",
         "meaning": "Ketegasan tekad"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "斤",
+      "nameJa": "おのづくり",
+      "meaningId": "axe",
+      "nameRomaji": "onozukuri",
+      "strokes": 4,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-29",
@@ -577,7 +815,14 @@
         "reading": "ほうこく",
         "meaning": "Laporan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くち",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-30",
@@ -597,7 +842,14 @@
         "reading": "よほう",
         "meaning": "Prakiraan cuaca"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "土",
+      "nameJa": "つち",
+      "meaningId": "earth",
+      "nameRomaji": "tsuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-31",
@@ -617,7 +869,16 @@
         "reading": "れんきゅう",
         "meaning": "Libur beruntun"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辶",
+      "nameJa": "しんにょう",
+      "meaningId": "road, walk, to advance",
+      "nameRomaji": "shinnyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-32",
@@ -637,7 +898,16 @@
         "reading": "たんらく",
         "meaning": "Gegabah / korsleting"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "糸",
+      "nameJa": "いとへん",
+      "meaningId": "Benang, kain, jalinan",
+      "nameRomaji": "itohen",
+      "strokes": 6,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-33",
@@ -657,7 +927,16 @@
         "reading": "じしん",
         "meaning": "Percaya diri"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-34",
@@ -677,7 +956,14 @@
         "reading": "ばんごう",
         "meaning": "Nomor urut"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くち",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-35",
@@ -697,7 +983,16 @@
         "reading": "ひこうき",
         "meaning": "Pesawat terbang"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "木",
+      "nameJa": "きへん",
+      "meaningId": "Pohon, kayu",
+      "nameRomaji": "kihen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-36",
@@ -717,7 +1012,16 @@
         "reading": "きかい",
         "meaning": "Instrumen aparatur"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "木",
+      "nameJa": "きへん",
+      "meaningId": "Pohon, kayu",
+      "nameRomaji": "kihen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-37",
@@ -737,7 +1041,16 @@
         "reading": "かんしん",
         "meaning": "Minat/perhatian"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "門",
+      "nameJa": "もんがまえ",
+      "meaningId": "Pintu gerbang",
+      "nameRomaji": "mongamae",
+      "strokes": 8,
+      "positionJa": "もんがまえ",
+      "positionId": "Gerbang (Mongamae)"
+    }
   },
   {
     "id": "k-38",
@@ -757,7 +1070,16 @@
         "reading": "かんけいしゃ",
         "meaning": "Pihak terkait"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-39",
@@ -777,7 +1099,16 @@
         "reading": "しせつ",
         "meaning": "Fasilitas"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "言",
+      "nameJa": "ごんべん",
+      "meaningId": "Kata, ucapan, bahasa",
+      "nameRomaji": "gonben",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-40",
@@ -797,7 +1128,16 @@
         "reading": "よび",
         "meaning": "Cadangan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-41",
@@ -817,7 +1157,16 @@
         "reading": "じょうきゃく",
         "meaning": "Penumpang"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "宀",
+      "nameJa": "うかんむり",
+      "meaningId": "roof, house",
+      "nameRomaji": "ukanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-42",
@@ -837,7 +1186,14 @@
         "reading": "していせき",
         "meaning": "Kursi bernomor"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "巾",
+      "nameJa": "はば",
+      "meaningId": "cloth",
+      "nameRomaji": "haba",
+      "strokes": 3
+    }
   },
   {
     "id": "k-43",
@@ -857,7 +1213,14 @@
         "reading": "にちじょう",
         "meaning": "Sehari-hari"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "巾",
+      "nameJa": "はば",
+      "meaningId": "cloth",
+      "nameRomaji": "haba",
+      "strokes": 3
+    }
   },
   {
     "id": "k-44",
@@ -877,7 +1240,14 @@
         "reading": "ぜひ",
         "meaning": "Pasti / harus coba"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "非",
+      "nameJa": "あらず",
+      "meaningId": "Bukan, keliru, berlawanan",
+      "nameRomaji": "arazu",
+      "strokes": 8
+    }
   },
   {
     "id": "k-45",
@@ -897,7 +1267,16 @@
         "reading": "ゆびわ",
         "meaning": "Cincin"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "扌",
+      "nameJa": "てへん",
+      "meaningId": "Tangan, tindakan, aksi",
+      "nameRomaji": "tehen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-46",
@@ -917,7 +1296,16 @@
         "reading": "ていきゅうび",
         "meaning": "Hari libur rutin"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "宀",
+      "nameJa": "うかんむり",
+      "meaningId": "roof, house",
+      "nameRomaji": "ukanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-47",
@@ -937,7 +1325,14 @@
         "reading": "きたい",
         "meaning": "Harapan besar"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "月",
+      "nameJa": "つき",
+      "meaningId": "Bulan, masa waktu",
+      "nameRomaji": "tsuki",
+      "strokes": 4
+    }
   },
   {
     "id": "k-48",
@@ -957,7 +1352,16 @@
         "reading": "げんかい",
         "meaning": "Batas kemampuan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "阝",
+      "nameJa": "こざとへん",
+      "meaningId": "hill, mound",
+      "nameRomaji": "kozatohen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-49",
@@ -977,7 +1381,14 @@
         "reading": "げんかい",
         "meaning": "Batas maksimal"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "田",
+      "nameJa": "た",
+      "meaningId": "Sawah, ladang",
+      "nameRomaji": "ta",
+      "strokes": 5
+    }
   },
   {
     "id": "k-50",
@@ -997,7 +1408,14 @@
         "reading": "けいゆ",
         "meaning": "Transit / via"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "田",
+      "nameJa": "た",
+      "meaningId": "Sawah, ladang",
+      "nameRomaji": "ta",
+      "strokes": 5
+    }
   },
   {
     "id": "k-51",
@@ -1017,7 +1435,16 @@
         "reading": "じじょう",
         "meaning": "Situasi/kondisi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "忄",
+      "nameJa": "りっしんべん",
+      "meaningId": "Hati, perasaan, batin",
+      "nameRomaji": "risshinben",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-52",
@@ -1037,7 +1464,14 @@
         "reading": "かんどう",
         "meaning": "Terharu"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "心",
+      "nameJa": "こころ",
+      "meaningId": "Hati, perasaan, batin",
+      "nameRomaji": "kokoro",
+      "strokes": 4
+    }
   },
   {
     "id": "k-53",
@@ -1057,7 +1491,14 @@
         "reading": "りそう",
         "meaning": "Cita-cita ideal"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "心",
+      "nameJa": "こころ",
+      "meaningId": "Hati, perasaan, batin",
+      "nameRomaji": "kokoro",
+      "strokes": 4
+    }
   },
   {
     "id": "k-54",
@@ -1077,7 +1518,14 @@
         "reading": "れんあい",
         "meaning": "Percintaan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "心",
+      "nameJa": "こころ",
+      "meaningId": "Hati, perasaan, batin",
+      "nameRomaji": "kokoro",
+      "strokes": 4
+    }
   },
   {
     "id": "k-55",
@@ -1097,7 +1545,14 @@
         "reading": "しつれん",
         "meaning": "Patah hati"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "心",
+      "nameJa": "こころ",
+      "meaningId": "Hati, perasaan, batin",
+      "nameRomaji": "kokoro",
+      "strokes": 4
+    }
   },
   {
     "id": "k-56",
@@ -1117,7 +1572,16 @@
         "reading": "くつう",
         "meaning": "Penderitaan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "疒",
+      "nameJa": "やまいだれ",
+      "meaningId": "Penyakit, kondisi sakit",
+      "nameRomaji": "yamaidare",
+      "strokes": 5,
+      "positionJa": "たれ",
+      "positionId": "Kiri Atas (Tare)"
+    }
   },
   {
     "id": "k-57",
@@ -1137,7 +1601,16 @@
         "reading": "にがて",
         "meaning": "Kurang mahir/lemah"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "艹",
+      "nameJa": "くさかんむり",
+      "meaningId": "grass",
+      "nameRomaji": "kusakanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-58",
@@ -1157,7 +1630,16 @@
         "reading": "くのう",
         "meaning": "Kegalauan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "忄",
+      "nameJa": "りっしんべん",
+      "meaningId": "Hati, perasaan, batin",
+      "nameRomaji": "risshinben",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-59",
@@ -1177,7 +1659,16 @@
         "reading": "こんなん",
         "meaning": "Rintangan sulit"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "囗",
+      "nameJa": "くにがまえ",
+      "meaningId": "Keliling, batas wilayah",
+      "nameRomaji": "kunigamae",
+      "strokes": 3,
+      "positionJa": "くにがまえ",
+      "positionId": "Keliling Kotak (Kunigamae)"
+    }
   },
   {
     "id": "k-60",
@@ -1197,7 +1688,14 @@
         "reading": "ひなん",
         "meaning": "Evakuasi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "隹",
+      "nameJa": "ふるとり",
+      "meaningId": "Burung kecil",
+      "nameRomaji": "furutori",
+      "strokes": 8
+    }
   },
   {
     "id": "k-61",
@@ -1217,7 +1715,16 @@
         "reading": "きき",
         "meaning": "Krisis"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "卩",
+      "nameJa": "ふしづくり",
+      "meaningId": "stamp, seal",
+      "nameRomaji": "fushizukuri",
+      "strokes": 2,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-62",
@@ -1237,7 +1744,16 @@
         "reading": "けわしい",
         "meaning": "Terjal"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "阝",
+      "nameJa": "こざとへん",
+      "meaningId": "hill, mound",
+      "nameRomaji": "kozatohen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-63",
@@ -1257,7 +1773,16 @@
         "reading": "ぼうすい",
         "meaning": "Tahan air"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "阝",
+      "nameJa": "こざとへん",
+      "meaningId": "hill, mound",
+      "nameRomaji": "kozatohen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-64",
@@ -1277,7 +1802,14 @@
         "reading": "ぼうさい",
         "meaning": "Mitigasi bencana"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "火",
+      "nameJa": "ひ",
+      "meaningId": "Api, panas, cahaya",
+      "nameRomaji": "hi",
+      "strokes": 4
+    }
   },
   {
     "id": "k-65",
@@ -1297,7 +1829,16 @@
         "reading": "こうがい",
         "meaning": "Pencemaran"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "宀",
+      "nameJa": "うかんむり",
+      "meaningId": "roof, house",
+      "nameRomaji": "ukanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-66",
@@ -1317,7 +1858,14 @@
         "reading": "けいこく",
         "meaning": "Peringatan keras"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "言",
+      "nameJa": "げん",
+      "meaningId": "Kata, ucapan, bahasa",
+      "nameRomaji": "gen",
+      "strokes": 7
+    }
   },
   {
     "id": "k-67",
@@ -1337,7 +1885,16 @@
         "reading": "かんさつ",
         "meaning": "Observasi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "宀",
+      "nameJa": "うかんむり",
+      "meaningId": "roof, house",
+      "nameRomaji": "ukanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-68",
@@ -1357,7 +1914,16 @@
         "reading": "しょうぼうしょ",
         "meaning": "Dinas damkar"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "罒",
+      "nameJa": "よこめ",
+      "meaningId": "Mata, penglihatan",
+      "nameRomaji": "yokome",
+      "strokes": 5,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-69",
@@ -1377,7 +1943,16 @@
         "reading": "しやくしょ",
         "meaning": "Kantor walikota"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "彳",
+      "nameJa": "ぎょうにんべん",
+      "meaningId": "Langkah jalan, berjalan",
+      "nameRomaji": "gyouninben",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-70",
@@ -1397,7 +1972,14 @@
         "reading": "こくみん",
         "meaning": "Rakyat bangsa"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "氏",
+      "nameJa": "うじ",
+      "meaningId": "Marga, keluarga, klan",
+      "nameRomaji": "uji",
+      "strokes": 4
+    }
   },
   {
     "id": "k-71",
@@ -1417,7 +1999,14 @@
         "reading": "とくひょう",
         "meaning": "Perolehan suara"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "示",
+      "nameJa": "しめす",
+      "meaningId": "Altar, ritual, berkah",
+      "nameRomaji": "shimesu",
+      "strokes": 5
+    }
   },
   {
     "id": "k-72",
@@ -1437,7 +2026,16 @@
         "reading": "とうし",
         "meaning": "Investasi modal"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "扌",
+      "nameJa": "てへん",
+      "meaningId": "Tangan, tindakan, aksi",
+      "nameRomaji": "tehen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-73",
@@ -1457,7 +2055,14 @@
         "reading": "しりょう",
         "meaning": "Materi/dokumen"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "貝",
+      "nameJa": "かい",
+      "meaningId": "Harta, kekayaan, uang kuno (kerang)",
+      "nameRomaji": "kai",
+      "strokes": 7
+    }
   },
   {
     "id": "k-74",
@@ -1477,7 +2082,16 @@
         "reading": "かかく",
         "meaning": "Harga barang"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "木",
+      "nameJa": "きへん",
+      "meaningId": "Pohon, kayu",
+      "nameRomaji": "kihen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-75",
@@ -1497,7 +2111,16 @@
         "reading": "ひょうか",
         "meaning": "Evaluasi/apresiasi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-76",
@@ -1517,7 +2140,14 @@
         "reading": "しょうぎょう",
         "meaning": "Perdagangan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くち",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-77",
@@ -1537,7 +2167,14 @@
         "reading": "しょくひん",
         "meaning": "Bahan makanan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くち",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-78",
@@ -1557,7 +2194,14 @@
         "reading": "かいもの",
         "meaning": "Belanja"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "貝",
+      "nameJa": "かい",
+      "meaningId": "Harta, kekayaan, uang kuno (kerang)",
+      "nameRomaji": "kai",
+      "strokes": 7
+    }
   },
   {
     "id": "k-79",
@@ -1577,7 +2221,16 @@
         "reading": "うりきれ",
         "meaning": "Habis terjual"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "士",
+      "nameJa": "さむらいかんむり",
+      "meaningId": "man, scholar, samurai",
+      "nameRomaji": "samuraikanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-80",
@@ -1597,7 +2250,16 @@
         "reading": "はらいもどし",
         "meaning": "Pengembalian uang"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "扌",
+      "nameJa": "てへん",
+      "meaningId": "Tangan, tindakan, aksi",
+      "nameRomaji": "tehen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-81",
@@ -1617,7 +2279,16 @@
         "reading": "ぜいきん",
         "meaning": "Uang pajak"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "禾",
+      "nameJa": "のぎへん",
+      "meaningId": "Padi-padian, biji-bijian",
+      "nameRomaji": "nogihen",
+      "strokes": 5,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-82",
@@ -1637,7 +2308,14 @@
         "reading": "こうつうひ",
         "meaning": "Ongkos transportasi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "貝",
+      "nameJa": "かい",
+      "meaningId": "Harta, kekayaan, uang kuno (kerang)",
+      "nameRomaji": "kai",
+      "strokes": 7
+    }
   },
   {
     "id": "k-83",
@@ -1657,7 +2335,16 @@
         "reading": "かりる",
         "meaning": "Meminjam"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-84",
@@ -1677,7 +2364,14 @@
         "reading": "ちんたい",
         "meaning": "Sewa menyewa"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "貝",
+      "nameJa": "かい",
+      "meaningId": "Harta, kekayaan, uang kuno (kerang)",
+      "nameRomaji": "kai",
+      "strokes": 7
+    }
   },
   {
     "id": "k-85",
@@ -1697,7 +2391,14 @@
         "reading": "かしや",
         "meaning": "Rumah kontrakan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "貝",
+      "nameJa": "かい",
+      "meaningId": "Harta, kekayaan, uang kuno (kerang)",
+      "nameRomaji": "kai",
+      "strokes": 7
+    }
   },
   {
     "id": "k-86",
@@ -1717,7 +2418,14 @@
         "reading": "うんちん",
         "meaning": "Tarif ongkos kirim/tiket"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "貝",
+      "nameJa": "かい",
+      "meaningId": "Harta, kekayaan, uang kuno (kerang)",
+      "nameRomaji": "kai",
+      "strokes": 7
+    }
   },
   {
     "id": "k-87",
@@ -1737,7 +2445,16 @@
         "reading": "あずかる",
         "meaning": "Menjaga titipan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "頁",
+      "nameJa": "おおがい",
+      "meaningId": "Kepala, lembaran muka",
+      "nameRomaji": "oogai",
+      "strokes": 9,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-88",
@@ -1757,7 +2474,16 @@
         "reading": "ちょぞう",
         "meaning": "Penyimpanan stok"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "貝",
+      "nameJa": "かいへん",
+      "meaningId": "Harta, kekayaan, uang kuno (kerang)",
+      "nameRomaji": "kaihen",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-89",
@@ -1777,7 +2503,16 @@
         "reading": "なっとく",
         "meaning": "Paham/menerima"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "彳",
+      "nameJa": "ぎょうにんべん",
+      "meaningId": "Langkah jalan, berjalan",
+      "nameRomaji": "gyouninben",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-90",
@@ -1797,7 +2532,14 @@
         "reading": "しつぼう",
         "meaning": "Kekecewaan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "大",
+      "nameJa": "だい",
+      "meaningId": "large, big",
+      "nameRomaji": "dai",
+      "strokes": 3
+    }
   },
   {
     "id": "k-91",
@@ -1817,7 +2559,16 @@
         "reading": "れいぎ",
         "meaning": "Kesopanan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "礻",
+      "nameJa": "しめすへん",
+      "meaningId": "Altar, ritual, berkah",
+      "nameRomaji": "shimesuhen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-92",
@@ -1837,7 +2588,16 @@
         "reading": "れいぎ",
         "meaning": "Sopan santun"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-93",
@@ -1857,7 +2617,16 @@
         "reading": "かんしゃ",
         "meaning": "Rasa syukur"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "言",
+      "nameJa": "ごんべん",
+      "meaningId": "Kata, ucapan, bahasa",
+      "nameRomaji": "gonben",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-94",
@@ -1877,7 +2646,16 @@
         "reading": "そんけい",
         "meaning": "Rasa hormat"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "攵",
+      "nameJa": "ぼくづくり",
+      "meaningId": "Aksi, memukul, aktivitas",
+      "nameRomaji": "bokuzukuri",
+      "strokes": 4,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-95",
@@ -1897,7 +2675,14 @@
         "reading": "とうとい",
         "meaning": "Amat mulia"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "寸",
+      "nameJa": "すん",
+      "meaningId": "inch, (2.25 cm)",
+      "nameRomaji": "sun",
+      "strokes": 3
+    }
   },
   {
     "id": "k-96",
@@ -1917,7 +2702,14 @@
         "reading": "たいじゅう",
         "meaning": "Berat badan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "里",
+      "nameJa": "さと",
+      "meaningId": "Desa, kampung",
+      "nameRomaji": "sato",
+      "strokes": 7
+    }
   },
   {
     "id": "k-97",
@@ -1937,7 +2729,16 @@
         "reading": "けいしょく",
         "meaning": "Kudapan ringan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "車",
+      "nameJa": "くるまへん",
+      "meaningId": "Kendaraan, kereta, roda",
+      "nameRomaji": "kurumahen",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-98",
@@ -1957,7 +2758,16 @@
         "reading": "すいしん",
         "meaning": "Kedalaman air"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "氵",
+      "nameJa": "さんずい",
+      "meaningId": "Air / Cairan",
+      "nameRomaji": "sanzui",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-99",
@@ -1977,7 +2787,16 @@
         "reading": "せんぱく",
         "meaning": "Ceteka nalar"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "氵",
+      "nameJa": "さんずい",
+      "meaningId": "Air / Cairan",
+      "nameRomaji": "sanzui",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-100",
@@ -1997,7 +2816,16 @@
         "reading": "ちこく",
         "meaning": "Keterlambatan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "刂",
+      "nameJa": "りっとう",
+      "meaningId": "Pisau, pedang, memotong",
+      "nameRomaji": "rittou",
+      "strokes": 2,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-101",
@@ -2017,7 +2845,16 @@
         "reading": "まもる",
         "meaning": "Menjaga janji"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "宀",
+      "nameJa": "うかんむり",
+      "meaningId": "roof, house",
+      "nameRomaji": "ukanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-102",
@@ -2037,7 +2874,14 @@
         "reading": "じゅけん",
         "meaning": "Mengikuti ujian"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "又",
+      "nameJa": "また",
+      "meaningId": "Lagi, tangan kanan",
+      "nameRomaji": "mata",
+      "strokes": 2
+    }
   },
   {
     "id": "k-103",
@@ -2057,7 +2901,16 @@
         "reading": "ひづけ",
         "meaning": "Tanggal"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-104",
@@ -2077,7 +2930,14 @@
         "reading": "とりけし",
         "meaning": "Pembatalan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "又",
+      "nameJa": "また",
+      "meaningId": "Lagi, tangan kanan",
+      "nameRomaji": "mata",
+      "strokes": 2
+    }
   },
   {
     "id": "k-105",
@@ -2097,7 +2957,16 @@
         "reading": "しょうか",
         "meaning": "Pencernaan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "氵",
+      "nameJa": "さんずい",
+      "meaningId": "Air / Cairan",
+      "nameRomaji": "sanzui",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-106",
@@ -2117,7 +2986,16 @@
         "reading": "ぼうえい",
         "meaning": "Pertahanan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "阝",
+      "nameJa": "こざとへん",
+      "meaningId": "hill, mound",
+      "nameRomaji": "kozatohen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-107",
@@ -2137,7 +3015,16 @@
         "reading": "きゅうじょ",
         "meaning": "Penyelamatan SAR"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "攵",
+      "nameJa": "ぼくづくり",
+      "meaningId": "Aksi, memukul, aktivitas",
+      "nameRomaji": "bokuzukuri",
+      "strokes": 4,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-108",
@@ -2157,7 +3044,14 @@
         "reading": "じょしゅ",
         "meaning": "Asisten staf"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "力",
+      "nameJa": "ちから",
+      "meaningId": "power",
+      "nameRomaji": "chikara",
+      "strokes": 2
+    }
   },
   {
     "id": "k-109",
@@ -2177,7 +3071,16 @@
         "reading": "まねく",
         "meaning": "Mengundang"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "扌",
+      "nameJa": "てへん",
+      "meaningId": "Tangan, tindakan, aksi",
+      "nameRomaji": "tehen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-110",
@@ -2197,7 +3100,16 @@
         "reading": "きたい",
         "meaning": "Harapan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "彳",
+      "nameJa": "ぎょうにんべん",
+      "meaningId": "Langkah jalan, berjalan",
+      "nameRomaji": "gyouninben",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-111",
@@ -2217,7 +3129,16 @@
         "reading": "こきゅう",
         "meaning": "Pernapasan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くちへん",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchihen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-112",
@@ -2237,7 +3158,16 @@
         "reading": "きゅうしゅう",
         "meaning": "Penyerapan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くちへん",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchihen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-113",
@@ -2257,7 +3187,14 @@
         "reading": "りょうしゅうしょ",
         "meaning": "Kuitansi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "又",
+      "nameJa": "また",
+      "meaningId": "Lagi, tangan kanan",
+      "nameRomaji": "mata",
+      "strokes": 2
+    }
   },
   {
     "id": "k-114",
@@ -2277,7 +3214,16 @@
         "reading": "りょうじかん",
         "meaning": "Konsulat"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "頁",
+      "nameJa": "おおがい",
+      "meaningId": "Kepala, lembaran muka",
+      "nameRomaji": "oogai",
+      "strokes": 9,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-115",
@@ -2297,7 +3243,14 @@
         "reading": "どうにゅう",
         "meaning": "Penerapan awal"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "寸",
+      "nameJa": "すん",
+      "meaningId": "inch, (2.25 cm)",
+      "nameRomaji": "sun",
+      "strokes": 3
+    }
   },
   {
     "id": "k-116",
@@ -2317,7 +3270,16 @@
         "reading": "してい",
         "meaning": "Penunjukan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "扌",
+      "nameJa": "てへん",
+      "meaningId": "Tangan, tindakan, aksi",
+      "nameRomaji": "tehen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-117",
@@ -2337,7 +3299,14 @@
         "reading": "ほうこう",
         "meaning": "Arah haluan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くち",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-118",
@@ -2357,7 +3326,16 @@
         "reading": "けいしゃ",
         "meaning": "Kemiringan lereng"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-119",
@@ -2377,7 +3355,16 @@
         "reading": "よこ",
         "meaning": "Sebelah / samping"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "木",
+      "nameJa": "きへん",
+      "meaningId": "Pohon, kayu",
+      "nameRomaji": "kihen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-120",
@@ -2397,7 +3384,16 @@
         "reading": "しんだん",
         "meaning": "Diagnosis medis"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "斤",
+      "nameJa": "おのづくり",
+      "meaningId": "axe",
+      "nameRomaji": "onozukuri",
+      "strokes": 4,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-121",
@@ -2417,7 +3413,16 @@
         "reading": "りょうがわ",
         "meaning": "Kedua belah sisi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-122",
@@ -2437,7 +3442,16 @@
         "reading": "はし",
         "meaning": "Ujung pinggir"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "立",
+      "nameJa": "たつへん",
+      "meaningId": "Berdiri, tegak",
+      "nameRomaji": "tatsuhen",
+      "strokes": 5,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-123",
@@ -2457,7 +3471,16 @@
         "reading": "せんげつ",
         "meaning": "Bulan lalu"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "儿",
+      "nameJa": "ひとあし",
+      "meaningId": "Kaki manusia, melangkah",
+      "nameRomaji": "hitoashi",
+      "strokes": 2,
+      "positionJa": "あし",
+      "positionId": "Bawah (Ashi)"
+    }
   },
   {
     "id": "k-124",
@@ -2477,7 +3500,14 @@
         "reading": "どうはい",
         "meaning": "Teman sebaya"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "車",
+      "nameJa": "くるま",
+      "meaningId": "Kendaraan, kereta, roda",
+      "nameRomaji": "kuruma",
+      "strokes": 7
+    }
   },
   {
     "id": "k-125",
@@ -2497,7 +3527,16 @@
         "reading": "こうはん",
         "meaning": "Babak kedua"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "彳",
+      "nameJa": "ぎょうにんべん",
+      "meaningId": "Langkah jalan, berjalan",
+      "nameRomaji": "gyouninben",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-126",
@@ -2517,7 +3556,16 @@
         "reading": "ぜんご",
         "meaning": "Depan belakang / kira-kira"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "刂",
+      "nameJa": "りっとう",
+      "meaningId": "Pisau, pedang, memotong",
+      "nameRomaji": "rittou",
+      "strokes": 2,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-127",
@@ -2537,7 +3585,14 @@
         "reading": "しょうじき",
         "meaning": "Jujur tulus"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "目",
+      "nameJa": "め",
+      "meaningId": "Mata, penglihatan",
+      "nameRomaji": "me",
+      "strokes": 5
+    }
   },
   {
     "id": "k-128",
@@ -2557,7 +3612,16 @@
         "reading": "せっきゃく",
         "meaning": "Pelayanan pembeli"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "扌",
+      "nameJa": "てへん",
+      "meaningId": "Tangan, tindakan, aksi",
+      "nameRomaji": "tehen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-129",
@@ -2577,7 +3641,16 @@
         "reading": "さいきん",
         "meaning": "Akhir-akhir ini"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辶",
+      "nameJa": "しんにょう",
+      "meaningId": "road, walk, to advance",
+      "nameRomaji": "shinnyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-130",
@@ -2597,7 +3670,16 @@
         "reading": "えんそく",
         "meaning": "Piknik sekolah"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辶",
+      "nameJa": "しんにょう",
+      "meaningId": "road, walk, to advance",
+      "nameRomaji": "shinnyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-131",
@@ -2617,7 +3699,16 @@
         "reading": "こうりょ",
         "meaning": "Pertimbangan mendalam"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "虍",
+      "nameJa": "とらがしら",
+      "meaningId": "Binatang buas, hewan",
+      "nameRomaji": "toragashira",
+      "strokes": 6,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-132",
@@ -2637,7 +3728,16 @@
         "reading": "はいたつ",
         "meaning": "Pengantaran paket"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "酉",
+      "nameJa": "とりへん",
+      "meaningId": "Guci sake, peragian / fermentasi",
+      "nameRomaji": "torihen",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-133",
@@ -2657,7 +3757,16 @@
         "reading": "はったつ",
         "meaning": "Perkembangan fisik/sistem"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辶",
+      "nameJa": "しんにょう",
+      "meaningId": "road, walk, to advance",
+      "nameRomaji": "shinnyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-134",
@@ -2677,7 +3786,16 @@
         "reading": "みおくり",
         "meaning": "Mengantar perpisahan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辶",
+      "nameJa": "しんにょう",
+      "meaningId": "road, walk, to advance",
+      "nameRomaji": "shinnyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-135",
@@ -2697,7 +3815,16 @@
         "reading": "へんきゃく",
         "meaning": "Pengembalian barang"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辶",
+      "nameJa": "しんにょう",
+      "meaningId": "road, walk, to advance",
+      "nameRomaji": "shinnyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-136",
@@ -2717,7 +3844,16 @@
         "reading": "しょうきゃく",
         "meaning": "Amortisasi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "卩",
+      "nameJa": "ふしづくり",
+      "meaningId": "Segel, orang berlutut",
+      "nameRomaji": "fushizukuri",
+      "strokes": 2,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-137",
@@ -2737,7 +3873,16 @@
         "reading": "こっせつ",
         "meaning": "Patah tulang"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "扌",
+      "nameJa": "てへん",
+      "meaningId": "Tangan, tindakan, aksi",
+      "nameRomaji": "tehen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-138",
@@ -2757,7 +3902,14 @@
         "reading": "ほねぐみ",
         "meaning": "Kerangka struktur"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "骨",
+      "nameJa": "ほね",
+      "meaningId": "Tulang, kerangka",
+      "nameRomaji": "hone",
+      "strokes": 10
+    }
   },
   {
     "id": "k-139",
@@ -2777,7 +3929,16 @@
         "reading": "ばんぐみ",
         "meaning": "Acara siaran TV"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "糸",
+      "nameJa": "いとへん",
+      "meaningId": "Benang, kain, jalinan",
+      "nameRomaji": "itohen",
+      "strokes": 6,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-140",
@@ -2797,7 +3958,16 @@
         "reading": "そしきてき",
         "meaning": "Secara sistematis terorganisir"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "糸",
+      "nameJa": "いとへん",
+      "meaningId": "Benang, kain, jalinan",
+      "nameRomaji": "itohen",
+      "strokes": 6,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-141",
@@ -2817,7 +3987,14 @@
         "reading": "かんせい",
         "meaning": "Penyelesaian paripurna"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "戈",
+      "nameJa": "ほこ",
+      "meaningId": "Tombak, senjata",
+      "nameRomaji": "hoko",
+      "strokes": 4
+    }
   },
   {
     "id": "k-142",
@@ -2837,7 +4014,14 @@
         "reading": "せいこうしゃ",
         "meaning": "Orang sukses"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "力",
+      "nameJa": "ちから",
+      "meaningId": "power",
+      "nameRomaji": "chikara",
+      "strokes": 2
+    }
   },
   {
     "id": "k-143",
@@ -2857,7 +4041,16 @@
         "reading": "かんりょう",
         "meaning": "Tuntas selesai"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "宀",
+      "nameJa": "うかんむり",
+      "meaningId": "roof, house",
+      "nameRomaji": "ukanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-144",
@@ -2877,7 +4070,14 @@
         "reading": "しゅうりょう",
         "meaning": "Berakhir"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亅",
+      "nameJa": "はねぼう",
+      "meaningId": "Garis tegak berkait",
+      "nameRomaji": "hanebou",
+      "strokes": 1
+    }
   },
   {
     "id": "k-145",
@@ -2897,7 +4097,16 @@
         "reading": "しゅうでん",
         "meaning": "Kereta terakhir malam"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "糸",
+      "nameJa": "いとへん",
+      "meaningId": "Benang, kain, jalinan",
+      "nameRomaji": "itohen",
+      "strokes": 6,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-146",
@@ -2917,7 +4126,16 @@
         "reading": "しはつ",
         "meaning": "Kereta pertama subuh"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "女",
+      "nameJa": "おんなへん",
+      "meaningId": "woman",
+      "nameRomaji": "onnahen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-147",
@@ -2937,7 +4155,16 @@
         "reading": "かいはつ",
         "meaning": "Pengembangan teknologi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "門",
+      "nameJa": "もんがまえ",
+      "meaningId": "Pintu gerbang",
+      "nameRomaji": "mongamae",
+      "strokes": 8,
+      "positionJa": "もんがまえ",
+      "positionId": "Gerbang (Mongamae)"
+    }
   },
   {
     "id": "k-148",
@@ -2957,7 +4184,16 @@
         "reading": "へいかい",
         "meaning": "Penutupan acara"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "門",
+      "nameJa": "もんがまえ",
+      "meaningId": "Pintu gerbang",
+      "nameRomaji": "mongamae",
+      "strokes": 8,
+      "positionJa": "もんがまえ",
+      "positionId": "Gerbang (Mongamae)"
+    }
   },
   {
     "id": "k-149",
@@ -2977,7 +4213,16 @@
         "reading": "けってん",
         "meaning": "Kekurangan/kelemahan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "灬",
+      "nameJa": "れっか",
+      "meaningId": "Api, panas, cahaya",
+      "nameRomaji": "rekka",
+      "strokes": 4,
+      "positionJa": "あし",
+      "positionId": "Bawah (Ashi)"
+    }
   },
   {
     "id": "k-150",
@@ -2997,7 +4242,16 @@
         "reading": "こうしょう",
         "meaning": "Negosiasi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亠",
+      "nameJa": "なべぶた",
+      "meaningId": "Tutup atas",
+      "nameRomaji": "nabebuta",
+      "strokes": 2,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-151",
@@ -3017,7 +4271,14 @@
         "reading": "じさ",
         "meaning": "Perbedaan zona waktu"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "工",
+      "nameJa": "たくみ",
+      "meaningId": "work, carpenter, skill",
+      "nameRomaji": "takumi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-152",
@@ -3037,7 +4298,14 @@
         "reading": "ふかけつ",
         "meaning": "Mutlak diperlukan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "欠",
+      "nameJa": "あくび",
+      "meaningId": "Menguap, celah, kurang",
+      "nameRomaji": "akubi",
+      "strokes": 4
+    }
   },
   {
     "id": "k-153",
@@ -3057,7 +4325,14 @@
         "reading": "まんせき",
         "meaning": "Penuh terisi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "巾",
+      "nameJa": "はば",
+      "meaningId": "cloth",
+      "nameRomaji": "haba",
+      "strokes": 3
+    }
   },
   {
     "id": "k-154",
@@ -3077,7 +4352,16 @@
         "reading": "くうき",
         "meaning": "Udara hawa"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "穴",
+      "nameJa": "あなかんむり",
+      "meaningId": "Lubang, gua, celah",
+      "nameRomaji": "anakanmuri",
+      "strokes": 5,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-155",
@@ -3097,7 +4381,16 @@
         "reading": "みなとまち",
         "meaning": "Kota pelabuhan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "氵",
+      "nameJa": "さんずい",
+      "meaningId": "Air / Cairan",
+      "nameRomaji": "sanzui",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-156",
@@ -3117,7 +4410,16 @@
         "reading": "わんがん",
         "meaning": "Pesisir teluk"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "氵",
+      "nameJa": "さんずい",
+      "meaningId": "Air / Cairan",
+      "nameRomaji": "sanzui",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-157",
@@ -3137,7 +4439,16 @@
         "reading": "たいがん",
         "meaning": "Tepi seberang"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "山",
+      "nameJa": "やまかんむり",
+      "meaningId": "Gunung",
+      "nameRomaji": "yamakanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-158",
@@ -3157,7 +4468,16 @@
         "reading": "たいりく",
         "meaning": "Benua daratan besar"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "阝",
+      "nameJa": "こざとへん",
+      "meaningId": "hill, mound",
+      "nameRomaji": "kozatohen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-159",
@@ -3177,7 +4497,14 @@
         "reading": "うわぎ",
         "meaning": "Jaket/baju luar"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "目",
+      "nameJa": "め",
+      "meaningId": "Mata, penglihatan",
+      "nameRomaji": "me",
+      "strokes": 5
+    }
   },
   {
     "id": "k-160",
@@ -3197,7 +4524,16 @@
         "reading": "たおれる",
         "meaning": "Tumbang pingsan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-161",
@@ -3217,7 +4553,14 @@
         "reading": "せいさん",
         "meaning": "Produksi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "生",
+      "nameJa": "うまれる",
+      "meaningId": "Kelahiran, hidup tumbuh",
+      "nameRomaji": "umareru",
+      "strokes": 5
+    }
   },
   {
     "id": "k-162",
@@ -3237,7 +4580,14 @@
         "reading": "ざんぎょう",
         "meaning": "Lembur kerja"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "木",
+      "nameJa": "き",
+      "meaningId": "Pohon, kayu",
+      "nameRomaji": "ki",
+      "strokes": 4
+    }
   },
   {
     "id": "k-163",
@@ -3257,7 +4607,16 @@
         "reading": "のこり",
         "meaning": "Sisa"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "歹",
+      "nameJa": "がつへん",
+      "meaningId": "Kematian, tulang sisa",
+      "nameRomaji": "gatsuhen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-164",
@@ -3277,7 +4636,14 @@
         "reading": "しんねん",
         "meaning": "Keyakinan teguh"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "心",
+      "nameJa": "こころ",
+      "meaningId": "Hati, perasaan, batin",
+      "nameRomaji": "kokoro",
+      "strokes": 4
+    }
   },
   {
     "id": "k-165",
@@ -3297,7 +4663,16 @@
         "reading": "きにゅう",
         "meaning": "Pengisian formulir"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "言",
+      "nameJa": "ごんべん",
+      "meaningId": "Kata, ucapan, bahasa",
+      "nameRomaji": "gonben",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-166",
@@ -3317,7 +4692,16 @@
         "reading": "とうろく",
         "meaning": "Pendaftaran akun"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "金",
+      "nameJa": "かねへん",
+      "meaningId": "Logam, emas, besi",
+      "nameRomaji": "kanehen",
+      "strokes": 8,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-167",
@@ -3337,7 +4721,16 @@
         "reading": "とうじょう",
         "meaning": "Tampil di panggung"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "癶",
+      "nameJa": "はつがしら",
+      "meaningId": "Kaki melangkah, keberangkatan",
+      "nameRomaji": "hatsugashira",
+      "strokes": 5,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-168",
@@ -3357,7 +4750,16 @@
         "reading": "ろくが",
         "meaning": "Rekaman video"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "金",
+      "nameJa": "かねへん",
+      "meaningId": "Logam, emas, besi",
+      "nameRomaji": "kanehen",
+      "strokes": 8,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-169",
@@ -3377,7 +4779,14 @@
         "reading": "はつおん",
         "meaning": "Pelafalan pengucapan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "音",
+      "nameJa": "おと",
+      "meaningId": "Suara, bunyi",
+      "nameRomaji": "oto",
+      "strokes": 9
+    }
   },
   {
     "id": "k-170",
@@ -3397,7 +4806,14 @@
         "reading": "たのしみ",
         "meaning": "Kesenangan antusias"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "木",
+      "nameJa": "き",
+      "meaningId": "Pohon, kayu",
+      "nameRomaji": "ki",
+      "strokes": 4
+    }
   },
   {
     "id": "k-171",
@@ -3417,7 +4833,16 @@
         "reading": "しあい",
         "meaning": "Pertandingan turnamen"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "言",
+      "nameJa": "ごんべん",
+      "meaningId": "Kata, ucapan, bahasa",
+      "nameRomaji": "gonben",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-172",
@@ -3437,7 +4862,16 @@
         "reading": "たいけん",
         "meaning": "Pengalaman langsung"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "馬",
+      "nameJa": "うまへん",
+      "meaningId": "Kuda",
+      "nameRomaji": "umahen",
+      "strokes": 10,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-173",
@@ -3457,7 +4891,14 @@
         "reading": "ばあい",
         "meaning": "Situasi kejadian"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くち",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-174",
@@ -3477,7 +4918,16 @@
         "reading": "しんじつ",
         "meaning": "Kebenaran sejati"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "宀",
+      "nameJa": "うかんむり",
+      "meaningId": "roof, house",
+      "nameRomaji": "ukanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-175",
@@ -3497,7 +4947,14 @@
         "reading": "まじめ",
         "meaning": "Rajin tekun/jujur"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "目",
+      "nameJa": "め",
+      "meaningId": "Mata, penglihatan",
+      "nameRomaji": "me",
+      "strokes": 5
+    }
   },
   {
     "id": "k-176",
@@ -3517,7 +4974,16 @@
         "reading": "ふくしゃ",
         "meaning": "Fotokopi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "冖",
+      "nameJa": "わかんむり",
+      "meaningId": "Tudung, kanopi penutup",
+      "nameRomaji": "wakanmuri",
+      "strokes": 2,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-177",
@@ -3537,7 +5003,16 @@
         "reading": "ふくすう",
         "meaning": "Jumlah jamak"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "衤",
+      "nameJa": "ころもへん",
+      "meaningId": "Pakaian, busana",
+      "nameRomaji": "koromohen",
+      "strokes": 5,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-178",
@@ -3557,7 +5032,14 @@
         "reading": "ざつおん",
         "meaning": "Suara berisik / noise"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "隹",
+      "nameJa": "ふるとり",
+      "meaningId": "Burung kecil",
+      "nameRomaji": "furutori",
+      "strokes": 8
+    }
   },
   {
     "id": "k-179",
@@ -3577,7 +5059,16 @@
         "reading": "にっし",
         "meaning": "Buku harian jurnal"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "言",
+      "nameJa": "ごんべん",
+      "meaningId": "Kata, ucapan, bahasa",
+      "nameRomaji": "gonben",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-180",
@@ -3597,7 +5088,16 @@
         "reading": "ゆうかん",
         "meaning": "Koran sore"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "刂",
+      "nameJa": "りっとう",
+      "meaningId": "Pisau, pedang, memotong",
+      "nameRomaji": "rittou",
+      "strokes": 2,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-181",
@@ -3617,7 +5117,14 @@
         "reading": "けさ",
         "meaning": "Tadi pagi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "月",
+      "nameJa": "つき",
+      "meaningId": "Bulan, masa waktu",
+      "nameRomaji": "tsuki",
+      "strokes": 4
+    }
   },
   {
     "id": "k-182",
@@ -3637,7 +5144,14 @@
         "reading": "ひるやすみ",
         "meaning": "Istirahat siang"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "日",
+      "nameJa": "ひ",
+      "meaningId": "Matahari, siang, waktu",
+      "nameRomaji": "hi",
+      "strokes": 4
+    }
   },
   {
     "id": "k-183",
@@ -3657,7 +5171,14 @@
         "reading": "こんや",
         "meaning": "Malam ini"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "夕",
+      "nameJa": "ゆうべ",
+      "meaningId": "Sore, senja hari",
+      "nameRomaji": "yuube",
+      "strokes": 3
+    }
   },
   {
     "id": "k-184",
@@ -3677,7 +5198,16 @@
         "reading": "ばんごはん",
         "meaning": "Makan malam"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "日",
+      "nameJa": "ひへん",
+      "meaningId": "Matahari, siang, waktu",
+      "nameRomaji": "hihen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-185",
@@ -3697,7 +5227,14 @@
         "reading": "ふけいき",
         "meaning": "Resesi lesu"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "日",
+      "nameJa": "ひ",
+      "meaningId": "Matahari, siang, waktu",
+      "nameRomaji": "hi",
+      "strokes": 4
+    }
   },
   {
     "id": "k-186",
@@ -3717,7 +5254,14 @@
         "reading": "ちゃいろ",
         "meaning": "Cokelat"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "色",
+      "nameJa": "いろ",
+      "meaningId": "Warna, rupa",
+      "nameRomaji": "iro",
+      "strokes": 6
+    }
   },
   {
     "id": "k-187",
@@ -3737,7 +5281,16 @@
         "reading": "とくに",
         "meaning": "Khususnya"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "牛",
+      "nameJa": "うしへん",
+      "meaningId": "Sapi, lembu",
+      "nameRomaji": "ushihen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-188",
@@ -3757,7 +5310,16 @@
         "reading": "わかれる",
         "meaning": "Berpisah"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "刂",
+      "nameJa": "りっとう",
+      "meaningId": "Pisau, pedang, memotong",
+      "nameRomaji": "rittou",
+      "strokes": 2,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-189",
@@ -3777,7 +5339,14 @@
         "reading": "たいさ",
         "meaning": "Perbedaan mencolok"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "工",
+      "nameJa": "たくみ",
+      "meaningId": "work, carpenter, skill",
+      "nameRomaji": "takumi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-190",
@@ -3797,7 +5366,14 @@
         "reading": "ゆうりょう",
         "meaning": "Berbayar"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "月",
+      "nameJa": "つき",
+      "meaningId": "Bulan, masa waktu",
+      "nameRomaji": "tsuki",
+      "strokes": 4
+    }
   },
   {
     "id": "k-191",
@@ -3817,7 +5393,14 @@
         "reading": "みょうじ",
         "meaning": "Marga / nama keluarga"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くち",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-192",
@@ -3837,7 +5420,16 @@
         "reading": "りえき",
         "meaning": "Keuntungan laba"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "刂",
+      "nameJa": "りっとう",
+      "meaningId": "Pisau, pedang, memotong",
+      "nameRomaji": "rittou",
+      "strokes": 2,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-193",
@@ -3857,7 +5449,16 @@
         "reading": "こうくうびん",
         "meaning": "Surat udara pos"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-194",
@@ -3877,7 +5478,16 @@
         "reading": "ゆうそう",
         "meaning": "Pengiriman pos"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "阝",
+      "nameJa": "おおざと",
+      "meaningId": "village, country, city",
+      "nameRomaji": "oozato",
+      "strokes": 3,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-195",
@@ -3897,7 +5507,16 @@
         "reading": "やっきょく",
         "meaning": "Apotek"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "尸",
+      "nameJa": "しかばね",
+      "meaningId": "corpse, awning",
+      "nameRomaji": "shikabane",
+      "strokes": 3,
+      "positionJa": "たれ",
+      "positionId": "Kiri Atas (Tare)"
+    }
   },
   {
     "id": "k-196",
@@ -3917,7 +5536,16 @@
         "reading": "けっか",
         "meaning": "Hasil akibat"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "糸",
+      "nameJa": "いとへん",
+      "meaningId": "Benang, kain, jalinan",
+      "nameRomaji": "itohen",
+      "strokes": 6,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-197",
@@ -3937,7 +5565,14 @@
         "reading": "こうか",
         "meaning": "Khasiat efektivitas"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "木",
+      "nameJa": "き",
+      "meaningId": "Pohon, kayu",
+      "nameRomaji": "ki",
+      "strokes": 4
+    }
   },
   {
     "id": "k-198",
@@ -3957,7 +5592,14 @@
         "reading": "むこう",
         "meaning": "Tidak berlaku invalid"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "力",
+      "nameJa": "ちから",
+      "meaningId": "power",
+      "nameRomaji": "chikara",
+      "strokes": 2
+    }
   },
   {
     "id": "k-199",
@@ -3977,7 +5619,16 @@
         "reading": "むり",
         "meaning": "Mustahil / memaksa diri"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "灬",
+      "nameJa": "れっか",
+      "meaningId": "Api, panas, cahaya",
+      "nameRomaji": "rekka",
+      "strokes": 4,
+      "positionJa": "あし",
+      "positionId": "Bawah (Ashi)"
+    }
   },
   {
     "id": "k-200",
@@ -3997,7 +5648,16 @@
         "reading": "げんりょう",
         "meaning": "Bahan mentah baku"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "斗",
+      "nameJa": "ますづくり",
+      "meaningId": "Gayung bintang, takaran",
+      "nameRomaji": "masuzukuri",
+      "strokes": 4,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-201",
@@ -4017,7 +5677,16 @@
         "reading": "のはら",
         "meaning": "Padang rumput"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "厂",
+      "nameJa": "がんだれ",
+      "meaningId": "Tebing terjal, jurang",
+      "nameRomaji": "gandare",
+      "strokes": 2,
+      "positionJa": "たれ",
+      "positionId": "Kiri Atas (Tare)"
+    }
   },
   {
     "id": "k-202",
@@ -4037,7 +5706,16 @@
         "reading": "しいん",
         "meaning": "Penyebab kematian"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "囗",
+      "nameJa": "くにがまえ",
+      "meaningId": "Keliling, batas wilayah",
+      "nameRomaji": "kunigamae",
+      "strokes": 3,
+      "positionJa": "くにがまえ",
+      "positionId": "Keliling Kotak (Kunigamae)"
+    }
   },
   {
     "id": "k-203",
@@ -4057,7 +5735,14 @@
         "reading": "ようてん",
         "meaning": "Poin inti penting"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "覀",
+      "nameJa": "にし",
+      "meaningId": "Penutup, barat",
+      "nameRomaji": "nishi",
+      "strokes": 6
+    }
   },
   {
     "id": "k-204",
@@ -4077,7 +5762,14 @@
         "reading": "ひっし",
         "meaning": "Mati-matian gigih"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "心",
+      "nameJa": "こころ",
+      "meaningId": "Hati, perasaan, batin",
+      "nameRomaji": "kokoro",
+      "strokes": 4
+    }
   },
   {
     "id": "k-205",
@@ -4097,7 +5789,14 @@
         "reading": "ししゃ",
         "meaning": "Korban tewas"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "歹",
+      "nameJa": "がつ",
+      "meaningId": "Kematian, tulang sisa",
+      "nameRomaji": "gatsu",
+      "strokes": 4
+    }
   },
   {
     "id": "k-206",
@@ -4117,7 +5816,16 @@
         "reading": "みぼうじん",
         "meaning": "Janda"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亠",
+      "nameJa": "なべぶた",
+      "meaningId": "Tutup atas",
+      "nameRomaji": "nabebuta",
+      "strokes": 2,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-207",
@@ -4137,7 +5845,14 @@
         "reading": "おおいそぎ",
         "meaning": "Sangat terburu-buru"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "心",
+      "nameJa": "こころ",
+      "meaningId": "Hati, perasaan, batin",
+      "nameRomaji": "kokoro",
+      "strokes": 4
+    }
   },
   {
     "id": "k-208",
@@ -4157,7 +5872,16 @@
         "reading": "きゅうそく",
         "meaning": "Sangat pesat"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辶",
+      "nameJa": "しんにょう",
+      "meaningId": "road, walk, to advance",
+      "nameRomaji": "shinnyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-209",
@@ -4177,7 +5901,16 @@
         "reading": "ておくれ",
         "meaning": "Sudah terlambat nasi jadi bubur"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辶",
+      "nameJa": "しんにょう",
+      "meaningId": "road, walk, to advance",
+      "nameRomaji": "shinnyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-210",
@@ -4197,7 +5930,16 @@
         "reading": "えんちょう",
         "meaning": "Perpanjangan waktu"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "廴",
+      "nameJa": "えんにょう",
+      "meaningId": "to move, stretch",
+      "nameRomaji": "ennyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-211",
@@ -4217,7 +5959,14 @@
         "reading": "しちょう",
         "meaning": "Walikota"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "長",
+      "nameJa": "ながい",
+      "meaningId": "Panjang, pemimpin",
+      "nameRomaji": "nagai",
+      "strokes": 8
+    }
   },
   {
     "id": "k-212",
@@ -4237,7 +5986,16 @@
         "reading": "たんしょ",
         "meaning": "Kekurangan diri"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "矢",
+      "nameJa": "やへん",
+      "meaningId": "Anak panah",
+      "nameRomaji": "yahen",
+      "strokes": 5,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-213",
@@ -4257,7 +6015,16 @@
         "reading": "ちょうしょ",
         "meaning": "Kelebihan keunggulan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "戸",
+      "nameJa": "とだれ",
+      "meaningId": "Pintu satu daun",
+      "nameRomaji": "todare",
+      "strokes": 4,
+      "positionJa": "たれ",
+      "positionId": "Kiri Atas (Tare)"
+    }
   },
   {
     "id": "k-214",
@@ -4277,7 +6044,16 @@
         "reading": "たちば",
         "meaning": "Posisi sudut pandang"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "車",
+      "nameJa": "つちへん",
+      "meaningId": "earth",
+      "nameRomaji": "tsuchihen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-215",
@@ -4297,7 +6073,14 @@
         "reading": "こくりつ",
         "meaning": "Negeri/nasional"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "立",
+      "nameJa": "たつ",
+      "meaningId": "Berdiri, tegak",
+      "nameRomaji": "tatsu",
+      "strokes": 5
+    }
   },
   {
     "id": "k-216",
@@ -4317,7 +6100,16 @@
         "reading": "こうざ",
         "meaning": "Rekening bank"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "广",
+      "nameJa": "まだれ",
+      "meaningId": "Atap miring, pondok",
+      "nameRomaji": "madare",
+      "strokes": 3,
+      "positionJa": "たれ",
+      "positionId": "Kiri Atas (Tare)"
+    }
   },
   {
     "id": "k-217",
@@ -4337,7 +6129,14 @@
         "reading": "まどぐち",
         "meaning": "Loket pelayanan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くち",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-218",
@@ -4357,7 +6156,16 @@
         "reading": "しゃそう",
         "meaning": "Jendela kereta/kendaraan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "穴",
+      "nameJa": "あなかんむり",
+      "meaningId": "Lubang, gua, celah",
+      "nameRomaji": "anakanmuri",
+      "strokes": 5,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-219",
@@ -4377,7 +6185,14 @@
         "reading": "でんしゃ",
         "meaning": "Kereta listrik"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "車",
+      "nameJa": "くるま",
+      "meaningId": "Kendaraan, kereta, roda",
+      "nameRomaji": "kuruma",
+      "strokes": 7
+    }
   },
   {
     "id": "k-220",
@@ -4397,7 +6212,16 @@
         "reading": "ちゅうしゃいはん",
         "meaning": "Pelanggaran parkir"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "馬",
+      "nameJa": "うまへん",
+      "meaningId": "Kuda",
+      "nameRomaji": "umahen",
+      "strokes": 10,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-221",
@@ -4417,7 +6241,16 @@
         "reading": "しゃりん",
         "meaning": "Roda gerobak/kendaraan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "車",
+      "nameJa": "くるまへん",
+      "meaningId": "Kendaraan, kereta, roda",
+      "nameRomaji": "kurumahen",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-222",
@@ -4437,7 +6270,16 @@
         "reading": "いはん",
         "meaning": "Pelanggaran aturan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辶",
+      "nameJa": "しんにょう",
+      "meaningId": "road, walk, to advance",
+      "nameRomaji": "shinnyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-223",
@@ -4457,7 +6299,14 @@
         "reading": "はんせい",
         "meaning": "Mawas diri introspeksi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "又",
+      "nameJa": "また",
+      "meaningId": "Lagi, tangan kanan",
+      "nameRomaji": "mata",
+      "strokes": 2
+    }
   },
   {
     "id": "k-224",
@@ -4477,7 +6326,14 @@
         "reading": "しょうエネ",
         "meaning": "Hemat energi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "目",
+      "nameJa": "め",
+      "meaningId": "Mata, penglihatan",
+      "nameRomaji": "me",
+      "strokes": 5
+    }
   },
   {
     "id": "k-225",
@@ -4497,7 +6353,16 @@
         "reading": "おうたい",
         "meaning": "Menerima melayani tamu"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "寸",
+      "nameJa": "すんづくり",
+      "meaningId": "inch, (2.25 cm)",
+      "nameRomaji": "sunzukuri",
+      "strokes": 3,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-226",
@@ -4517,7 +6382,14 @@
         "reading": "おうよう",
         "meaning": "Aplikasi terapan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "心",
+      "nameJa": "こころ",
+      "meaningId": "Hati, perasaan, batin",
+      "nameRomaji": "kokoro",
+      "strokes": 4
+    }
   },
   {
     "id": "k-227",
@@ -4537,7 +6409,16 @@
         "reading": "きゅうえん",
         "meaning": "Pertolongan darurat SAR"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "扌",
+      "nameJa": "てへん",
+      "meaningId": "Tangan, tindakan, aksi",
+      "nameRomaji": "tehen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-228",
@@ -4557,7 +6438,14 @@
         "reading": "えんじょ",
         "meaning": "Bantuan subsidi finansial"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "力",
+      "nameJa": "ちから",
+      "meaningId": "power",
+      "nameRomaji": "chikara",
+      "strokes": 2
+    }
   },
   {
     "id": "k-229",
@@ -4577,7 +6465,16 @@
         "reading": "たいいん",
         "meaning": "Anggota regu tim"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "阝",
+      "nameJa": "こざとへん",
+      "meaningId": "hill, mound",
+      "nameRomaji": "kozatohen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-230",
@@ -4597,7 +6494,14 @@
         "reading": "ぜんいん",
         "meaning": "Semua anggota tanpa kecuali"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くち",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-231",
@@ -4617,7 +6521,16 @@
         "reading": "ぜんこく",
         "meaning": "Seluruh penjuru negeri"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "人",
+      "nameJa": "ひとやね",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "hitoyane",
+      "strokes": 2,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-232",
@@ -4637,7 +6550,16 @@
         "reading": "ふあん",
         "meaning": "Gelisah was-was"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "宀",
+      "nameJa": "うかんむり",
+      "meaningId": "roof, house",
+      "nameRomaji": "ukanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-233",
@@ -4657,7 +6579,14 @@
         "reading": "ふそく",
         "meaning": "Kekurangan defisit"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "一",
+      "nameJa": "いち",
+      "meaningId": "Satu, garis datar",
+      "nameRomaji": "ichi",
+      "strokes": 1
+    }
   },
   {
     "id": "k-234",
@@ -4677,7 +6606,14 @@
         "reading": "えんそく",
         "meaning": "Piknik tamasya"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "足",
+      "nameJa": "あし",
+      "meaningId": "Kaki, melangkah",
+      "nameRomaji": "ashi",
+      "strokes": 7
+    }
   },
   {
     "id": "k-235",
@@ -4697,7 +6633,14 @@
         "reading": "うんてんしゅ",
         "meaning": "Sopir pengemudi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "手",
+      "nameJa": "て",
+      "meaningId": "Tangan, tindakan, aksi",
+      "nameRomaji": "te",
+      "strokes": 4
+    }
   },
   {
     "id": "k-236",
@@ -4717,7 +6660,14 @@
         "reading": "かし",
         "meaning": "Lirik syair lagu"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "欠",
+      "nameJa": "あくび",
+      "meaningId": "Menguap, celah, kurang",
+      "nameRomaji": "akubi",
+      "strokes": 4
+    }
   },
   {
     "id": "k-237",
@@ -4737,7 +6687,16 @@
         "reading": "めいし",
         "meaning": "Kata benda nomina"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "言",
+      "nameJa": "ごんべん",
+      "meaningId": "Kata, ucapan, bahasa",
+      "nameRomaji": "gonben",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-238",
@@ -4757,7 +6716,14 @@
         "reading": "うんどう",
         "meaning": "Olahraga gerak badan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "力",
+      "nameJa": "ちから",
+      "meaningId": "power",
+      "nameRomaji": "chikara",
+      "strokes": 2
+    }
   },
   {
     "id": "k-239",
@@ -4777,7 +6743,16 @@
         "reading": "こううん",
         "meaning": "Beruntung bernasib mujur"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辶",
+      "nameJa": "しんにょう",
+      "meaningId": "road, walk, to advance",
+      "nameRomaji": "shinnyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-240",
@@ -4797,7 +6772,14 @@
         "reading": "ふこう",
         "meaning": "Kemalangan musibah"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "干",
+      "nameJa": "かん",
+      "meaningId": "Kering, perisai",
+      "nameRomaji": "kan",
+      "strokes": 3
+    }
   },
   {
     "id": "k-241",
@@ -4817,7 +6799,16 @@
         "reading": "ふくし",
         "meaning": "Kesejahteraan sosial"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "礻",
+      "nameJa": "しめすへん",
+      "meaningId": "Altar, ritual, berkah",
+      "nameRomaji": "shimesuhen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-242",
@@ -4837,7 +6828,16 @@
         "reading": "ふくししせつ",
         "meaning": "Fasilitas panti sosial"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "礻",
+      "nameJa": "しめすへん",
+      "meaningId": "Altar, ritual, berkah",
+      "nameRomaji": "shimesuhen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-243",
@@ -4857,7 +6857,16 @@
         "reading": "じんじゃ",
         "meaning": "Kuil Shinto"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "礻",
+      "nameJa": "しめすへん",
+      "meaningId": "Altar, ritual, berkah",
+      "nameRomaji": "shimesuhen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-244",
@@ -4877,7 +6886,16 @@
         "reading": "しんけい",
         "meaning": "Saraf urat batin"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "礻",
+      "nameJa": "しめすへん",
+      "meaningId": "Altar, ritual, berkah",
+      "nameRomaji": "shimesuhen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-245",
@@ -4897,7 +6915,16 @@
         "reading": "じゅうどう",
         "meaning": "Judo beladiri"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辶",
+      "nameJa": "しんにょう",
+      "meaningId": "road, walk, to advance",
+      "nameRomaji": "shinnyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-246",
@@ -4917,7 +6944,14 @@
         "reading": "しんぽ",
         "meaning": "Kemajuan progres pesat"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "止",
+      "nameJa": "とめる",
+      "meaningId": "Berhenti, langkah",
+      "nameRomaji": "tomeru",
+      "strokes": 4
+    }
   },
   {
     "id": "k-247",
@@ -4937,7 +6971,16 @@
         "reading": "さんらん",
         "meaning": "Berantakan berserakan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "攵",
+      "nameJa": "ぼくづくり",
+      "meaningId": "Aksi, memukul, aktivitas",
+      "nameRomaji": "bokuzukuri",
+      "strokes": 4,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-248",
@@ -4957,7 +7000,16 @@
         "reading": "かいとう",
         "meaning": "Kunci jawaban solusi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "角",
+      "nameJa": "つのへん",
+      "meaningId": "Tanduk, sudut",
+      "nameRomaji": "tsunohen",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-249",
@@ -4977,7 +7029,16 @@
         "reading": "かいとう",
         "meaning": "Jawaban survei tanggapan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "⺮",
+      "nameJa": "たけかんむり",
+      "meaningId": "Bambu, anyaman bambu",
+      "nameRomaji": "takekanmuri",
+      "strokes": 6,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-250",
@@ -4997,7 +7058,14 @@
         "reading": "ていあん",
         "meaning": "Usulan ide proposal"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "木",
+      "nameJa": "き",
+      "meaningId": "Pohon, kayu",
+      "nameRomaji": "ki",
+      "strokes": 4
+    }
   },
   {
     "id": "k-251",
@@ -5017,7 +7085,16 @@
         "reading": "こくない",
         "meaning": "Domestik dalam negeri"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "冂",
+      "nameJa": "けいがまえ",
+      "meaningId": "to enclose",
+      "nameRomaji": "keigamae",
+      "strokes": 2,
+      "positionJa": "けいがまえ",
+      "positionId": "Bingkai Bawah Terbuka (Keigamae)"
+    }
   },
   {
     "id": "k-252",
@@ -5037,7 +7114,16 @@
         "reading": "ていきょう",
         "meaning": "Pemberian sponsor sajian"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "扌",
+      "nameJa": "てへん",
+      "meaningId": "Tangan, tindakan, aksi",
+      "nameRomaji": "tehen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-253",
@@ -5057,7 +7143,16 @@
         "reading": "きょうきゅう",
         "meaning": "Pasokan supply"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-254",
@@ -5077,7 +7172,16 @@
         "reading": "げっきゅう",
         "meaning": "Gaji sebulan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "糸",
+      "nameJa": "いとへん",
+      "meaningId": "Benang, kain, jalinan",
+      "nameRomaji": "itohen",
+      "strokes": 6,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-255",
@@ -5097,7 +7201,14 @@
         "reading": "らいげつ",
         "meaning": "Bulan depan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "月",
+      "nameJa": "つき",
+      "meaningId": "Bulan, masa waktu",
+      "nameRomaji": "tsuki",
+      "strokes": 4
+    }
   },
   {
     "id": "k-256",
@@ -5117,7 +7228,14 @@
         "reading": "はなび",
         "meaning": "Kembang api semarak"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "火",
+      "nameJa": "ひ",
+      "meaningId": "Api, panas, cahaya",
+      "nameRomaji": "hi",
+      "strokes": 4
+    }
   },
   {
     "id": "k-257",
@@ -5137,7 +7255,14 @@
         "reading": "すいえい",
         "meaning": "Berenang olahraga"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "水",
+      "nameJa": "みず",
+      "meaningId": "Air / Cairan",
+      "nameRomaji": "mizu",
+      "strokes": 4
+    }
   },
   {
     "id": "k-258",
@@ -5157,7 +7282,14 @@
         "reading": "うえき",
         "meaning": "Tanaman pot kebun"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "木",
+      "nameJa": "き",
+      "meaningId": "Pohon, kayu",
+      "nameRomaji": "ki",
+      "strokes": 4
+    }
   },
   {
     "id": "k-259",
@@ -5177,7 +7309,14 @@
         "reading": "ちょきん",
         "meaning": "Uang tabungan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "金",
+      "nameJa": "かね",
+      "meaningId": "Logam, emas, besi",
+      "nameRomaji": "kane",
+      "strokes": 8
+    }
   },
   {
     "id": "k-260",
@@ -5197,7 +7336,14 @@
         "reading": "どようび",
         "meaning": "Hari Sabtu"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "土",
+      "nameJa": "つち",
+      "meaningId": "earth",
+      "nameRomaji": "tsuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-261",
@@ -5217,7 +7363,16 @@
         "reading": "ちいき",
         "meaning": "Wilayah teritorial"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "車",
+      "nameJa": "つちへん",
+      "meaningId": "earth",
+      "nameRomaji": "tsuchihen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-262",
@@ -5237,7 +7392,16 @@
         "reading": "ふるえる",
         "meaning": "Gemetar kedinginan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "雨",
+      "nameJa": "あめかんむり",
+      "meaningId": "Hujan, cuaca basah",
+      "nameRomaji": "amekanmuri",
+      "strokes": 8,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-263",
@@ -5257,7 +7421,16 @@
         "reading": "りゅういき",
         "meaning": "Daerah aliran sungai DAS"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "車",
+      "nameJa": "つちへん",
+      "meaningId": "earth",
+      "nameRomaji": "tsuchihen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-264",
@@ -5277,7 +7450,16 @@
         "reading": "いちりゅう",
         "meaning": "Kelas wahid ternama"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "氵",
+      "nameJa": "さんずい",
+      "meaningId": "Air / Cairan",
+      "nameRomaji": "sanzui",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-265",
@@ -5297,7 +7479,16 @@
         "reading": "ぎょうじ",
         "meaning": "Agenda acara festival"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "行",
+      "nameJa": "ぎょうがまえ",
+      "meaningId": "Pergi, berjalan, baris",
+      "nameRomaji": "gyougamae",
+      "strokes": 6,
+      "positionJa": "ぎょうがまえ",
+      "positionId": "Mengelilingi Kiri & Kanan (Gyougamae)"
+    }
   },
   {
     "id": "k-266",
@@ -5317,7 +7508,14 @@
         "reading": "しょくじ",
         "meaning": "Makan bersantap"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "丨",
+      "nameJa": "たてぼう",
+      "meaningId": "vertical stroke",
+      "nameRomaji": "tatebou",
+      "strokes": 1
+    }
   },
   {
     "id": "k-267",
@@ -5337,7 +7535,14 @@
         "reading": "がいしょく",
         "meaning": "Makan di luar resto"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "食",
+      "nameJa": "しょく",
+      "meaningId": "Makanan, santapan",
+      "nameRomaji": "shoku",
+      "strokes": 9
+    }
   },
   {
     "id": "k-268",
@@ -5357,7 +7562,16 @@
         "reading": "のみもの",
         "meaning": "Minuman"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "飠",
+      "nameJa": "しょくへん",
+      "meaningId": "Makanan, santapan",
+      "nameRomaji": "shokuhen",
+      "strokes": 8,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-269",
@@ -5377,7 +7591,16 @@
         "reading": "ほんもの",
         "meaning": "Asli original bukan tiruan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "牛",
+      "nameJa": "うしへん",
+      "meaningId": "Sapi, lembu",
+      "nameRomaji": "ushihen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-270",
@@ -5397,7 +7620,16 @@
         "reading": "おもに",
         "meaning": "Beban berat tanggungan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "艹",
+      "nameJa": "くさかんむり",
+      "meaningId": "grass",
+      "nameRomaji": "kusakanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-271",
@@ -5417,7 +7649,14 @@
         "reading": "ちょうふく",
         "meaning": "Duplikasi tumpang tindih"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "里",
+      "nameJa": "さと",
+      "meaningId": "Desa, kampung",
+      "nameRomaji": "sato",
+      "strokes": 7
+    }
   },
   {
     "id": "k-272",
@@ -5437,7 +7676,14 @@
         "reading": "きぞく",
         "meaning": "Bangsawan priyayi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "貝",
+      "nameJa": "かい",
+      "meaningId": "Harta, kekayaan, uang kuno (kerang)",
+      "nameRomaji": "kai",
+      "strokes": 7
+    }
   },
   {
     "id": "k-273",
@@ -5457,7 +7703,16 @@
         "reading": "みんぞく",
         "meaning": "Etnis suku bangsa"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "方",
+      "nameJa": "ほうへん",
+      "meaningId": "Arah, penjuru, bendera",
+      "nameRomaji": "houhen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-274",
@@ -5477,7 +7732,14 @@
         "reading": "しんせつ",
         "meaning": "Baik hati ramah"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "見",
+      "nameJa": "みる",
+      "meaningId": "Melihat, tatapan",
+      "nameRomaji": "miru",
+      "strokes": 7
+    }
   },
   {
     "id": "k-275",
@@ -5497,7 +7759,14 @@
         "reading": "きっぷ",
         "meaning": "Karcis tiket karcis"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "刀",
+      "nameJa": "かたな",
+      "meaningId": "Pisau, pedang, memotong",
+      "nameRomaji": "katana",
+      "strokes": 2
+    }
   },
   {
     "id": "k-276",
@@ -5517,7 +7786,16 @@
         "reading": "ふごう",
         "meaning": "Tanda simbol kode"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "⺮",
+      "nameJa": "たけかんむり",
+      "meaningId": "Bambu, anyaman bambu",
+      "nameRomaji": "takekanmuri",
+      "strokes": 6,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-277",
@@ -5537,7 +7815,14 @@
         "reading": "りょけん",
         "meaning": "Paspor buku paspor"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "刀",
+      "nameJa": "かたな",
+      "meaningId": "Pisau, pedang, memotong",
+      "nameRomaji": "katana",
+      "strokes": 2
+    }
   },
   {
     "id": "k-278",
@@ -5557,7 +7842,16 @@
         "reading": "りょかん",
         "meaning": "Penginapan ryokan Jepang"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "方",
+      "nameJa": "ほうへん",
+      "meaningId": "Arah, penjuru, bendera",
+      "nameRomaji": "houhen",
+      "strokes": 4,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-279",
@@ -5577,7 +7871,16 @@
         "reading": "しゅくだい",
         "meaning": "PR pekerjaan rumah"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "宀",
+      "nameJa": "うかんむり",
+      "meaningId": "roof, house",
+      "nameRomaji": "ukanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-280",
@@ -5597,7 +7900,16 @@
         "reading": "とまる",
         "meaning": "Menginap di hotel"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "氵",
+      "nameJa": "さんずい",
+      "meaningId": "Air / Cairan",
+      "nameRomaji": "sanzui",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-281",
@@ -5617,7 +7929,16 @@
         "reading": "わだい",
         "meaning": "Topik perbincangan hangat"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "頁",
+      "nameJa": "おおがい",
+      "meaningId": "Kepala, lembaran muka",
+      "nameRomaji": "oogai",
+      "strokes": 9,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-282",
@@ -5637,7 +7958,16 @@
         "reading": "でんわ",
         "meaning": "Telepon hubungan suara"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "言",
+      "nameJa": "ごんべん",
+      "meaningId": "Kata, ucapan, bahasa",
+      "nameRomaji": "gonben",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-283",
@@ -5657,7 +7987,16 @@
         "reading": "でんし",
         "meaning": "Elektronik digital"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "雨",
+      "nameJa": "あめかんむり",
+      "meaningId": "Hujan, cuaca basah",
+      "nameRomaji": "amekanmuri",
+      "strokes": 8,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-284",
@@ -5677,7 +8016,14 @@
         "reading": "どりょく",
         "meaning": "Upaya ikhtiar gigih"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "力",
+      "nameJa": "ちから",
+      "meaningId": "power",
+      "nameRomaji": "chikara",
+      "strokes": 2
+    }
   },
   {
     "id": "k-285",
@@ -5697,7 +8043,14 @@
         "reading": "さいのう",
         "meaning": "Bakat talenta seni"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "月",
+      "nameJa": "にくづき",
+      "meaningId": "Daging, organ tubuh",
+      "nameRomaji": "nikuzuki",
+      "strokes": 4
+    }
   },
   {
     "id": "k-286",
@@ -5717,7 +8070,14 @@
         "reading": "つとめる",
         "meaning": "Berupaya sekuat tenaga"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "力",
+      "nameJa": "ちから",
+      "meaningId": "power",
+      "nameRomaji": "chikara",
+      "strokes": 2
+    }
   },
   {
     "id": "k-287",
@@ -5737,7 +8097,14 @@
         "reading": "きんむ",
         "meaning": "Jam tugas kerja kantor"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "力",
+      "nameJa": "ちから",
+      "meaningId": "power",
+      "nameRomaji": "chikara",
+      "strokes": 2
+    }
   },
   {
     "id": "k-288",
@@ -5757,7 +8124,14 @@
         "reading": "こうむいん",
         "meaning": "PNS pegawai negeri"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "力",
+      "nameJa": "ちから",
+      "meaningId": "power",
+      "nameRomaji": "chikara",
+      "strokes": 2
+    }
   },
   {
     "id": "k-289",
@@ -5777,7 +8151,14 @@
         "reading": "こうしき",
         "meaning": "Resmi formal formula"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "八",
+      "nameJa": "はちがしら",
+      "meaningId": "Delapan, membelah",
+      "nameRomaji": "hachigashira",
+      "strokes": 2
+    }
   },
   {
     "id": "k-290",
@@ -5797,7 +8178,16 @@
         "reading": "ゆうえんち",
         "meaning": "Taman bermain hiburan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "囗",
+      "nameJa": "くにがまえ",
+      "meaningId": "Keliling, batas wilayah",
+      "nameRomaji": "kunigamae",
+      "strokes": 3,
+      "positionJa": "くにがまえ",
+      "positionId": "Keliling Kotak (Kunigamae)"
+    }
   },
   {
     "id": "k-291",
@@ -5817,7 +8207,16 @@
         "reading": "しゅうゆう",
         "meaning": "Tur keliling darmawisata"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辶",
+      "nameJa": "しんにょう",
+      "meaningId": "road, walk, to advance",
+      "nameRomaji": "shinnyou",
+      "strokes": 3,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-292",
@@ -5837,7 +8236,14 @@
         "reading": "いっしゅうねん",
         "meaning": "Ulang tahun genap 1 tahun"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くち",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-293",
@@ -5857,7 +8263,16 @@
         "reading": "かこむ",
         "meaning": "Mengelilingi melingkari"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "囗",
+      "nameJa": "くにがまえ",
+      "meaningId": "Keliling, batas wilayah",
+      "nameRomaji": "kunigamae",
+      "strokes": 3,
+      "positionJa": "くにがまえ",
+      "positionId": "Keliling Kotak (Kunigamae)"
+    }
   },
   {
     "id": "k-294",
@@ -5877,7 +8292,16 @@
         "reading": "きこう",
         "meaning": "Iklim cuaca global"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "気",
+      "nameJa": "きがまえ",
+      "meaningId": "Uap, hawa udara",
+      "nameRomaji": "kigamae",
+      "strokes": 4,
+      "positionJa": "きがまえ",
+      "positionId": "Kanan Atas (Kigamae)"
+    }
   },
   {
     "id": "k-295",
@@ -5897,7 +8321,16 @@
         "reading": "こうほ",
         "meaning": "Kandidat calon terpilih"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-296",
@@ -5917,7 +8350,14 @@
         "reading": "てんさい",
         "meaning": "Jenius berbakat alami"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "大",
+      "nameJa": "だい",
+      "meaningId": "large, big",
+      "nameRomaji": "dai",
+      "strokes": 3
+    }
   },
   {
     "id": "k-297",
@@ -5937,7 +8377,16 @@
         "reading": "なんさい",
         "meaning": "Berapa umur usia"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "扌",
+      "nameJa": "てへん",
+      "meaningId": "Tangan, tindakan, aksi",
+      "nameRomaji": "tehen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-298",
@@ -5957,7 +8406,16 @@
         "reading": "ほしゅう",
         "meaning": "Pelajaran tambahan remidi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "衤",
+      "nameJa": "ころもへん",
+      "meaningId": "Pakaian, busana",
+      "nameRomaji": "koromohen",
+      "strokes": 5,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-299",
@@ -5977,7 +8435,14 @@
         "reading": "れんしゅう",
         "meaning": "Latihan drill soal"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "羽",
+      "nameJa": "はね",
+      "meaningId": "Bulu, sayap",
+      "nameRomaji": "hane",
+      "strokes": 6
+    }
   },
   {
     "id": "k-300",
@@ -5997,7 +8462,16 @@
         "reading": "ねる",
         "meaning": "Mematangkan taktik strategi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "糸",
+      "nameJa": "いとへん",
+      "meaningId": "Benang, kain, jalinan",
+      "nameRomaji": "itohen",
+      "strokes": 6,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-301",
@@ -6017,7 +8491,16 @@
         "reading": "とっくん",
         "meaning": "Latihan kilat intensif"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "言",
+      "nameJa": "ごんべん",
+      "meaningId": "Kata, ucapan, bahasa",
+      "nameRomaji": "gonben",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-302",
@@ -6037,7 +8520,16 @@
         "reading": "みなれる",
         "meaning": "Sudah biasa terbiasa melihat"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "忄",
+      "nameJa": "りっしんべん",
+      "meaningId": "Hati, perasaan, batin",
+      "nameRomaji": "risshinben",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-303",
@@ -6057,7 +8549,14 @@
         "reading": "けんがく",
         "meaning": "Kunjungan studi edukatif"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "見",
+      "nameJa": "みる",
+      "meaningId": "Melihat, tatapan",
+      "nameRomaji": "miru",
+      "strokes": 7
+    }
   },
   {
     "id": "k-304",
@@ -6077,7 +8576,14 @@
         "reading": "ちゅうい",
         "meaning": "Perhatian peringatan waspada"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "心",
+      "nameJa": "こころ",
+      "meaningId": "Hati, perasaan, batin",
+      "nameRomaji": "kokoro",
+      "strokes": 4
+    }
   },
   {
     "id": "k-305",
@@ -6097,7 +8603,16 @@
         "reading": "ちゅうもく",
         "meaning": "Sorotan perhatian khalayak"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "氵",
+      "nameJa": "さんずい",
+      "meaningId": "Air / Cairan",
+      "nameRomaji": "sanzui",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-306",
@@ -6117,7 +8632,14 @@
         "reading": "さくぶん",
         "meaning": "Karangan esai tulis"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "文",
+      "nameJa": "ぶん",
+      "meaningId": "Sastra, tulisan, corak",
+      "nameRomaji": "bun",
+      "strokes": 4
+    }
   },
   {
     "id": "k-307",
@@ -6137,7 +8659,14 @@
         "reading": "りゅうがく",
         "meaning": "Studi menuntut ilmu di LN"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "子",
+      "nameJa": "こ",
+      "meaningId": "Anak, keturunan",
+      "nameRomaji": "ko",
+      "strokes": 3
+    }
   },
   {
     "id": "k-308",
@@ -6157,7 +8686,14 @@
         "reading": "かきとめ",
         "meaning": "Surat pos tercatat resmi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "田",
+      "nameJa": "た",
+      "meaningId": "Sawah, ladang",
+      "nameRomaji": "ta",
+      "strokes": 5
+    }
   },
   {
     "id": "k-309",
@@ -6177,7 +8713,16 @@
         "reading": "ほぞん",
         "meaning": "Menyimpan file awet"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-310",
@@ -6197,7 +8742,16 @@
         "reading": "かんごし",
         "meaning": "Perawat suster medis"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "言",
+      "nameJa": "ごんべん",
+      "meaningId": "Kata, ucapan, bahasa",
+      "nameRomaji": "gonben",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-311",
@@ -6217,7 +8771,16 @@
         "reading": "おべんとう",
         "meaning": "Kotak bekal makan siang"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "廾",
+      "nameJa": "にじゅうあし",
+      "meaningId": "Tangan terkatup",
+      "nameRomaji": "nijuuashi",
+      "strokes": 3,
+      "positionJa": "あし",
+      "positionId": "Bawah (Ashi)"
+    }
   },
   {
     "id": "k-312",
@@ -6237,7 +8800,14 @@
         "reading": "かんびょう",
         "meaning": "Merawat orang sakit"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "目",
+      "nameJa": "め",
+      "meaningId": "Mata, penglihatan",
+      "nameRomaji": "me",
+      "strokes": 5
+    }
   },
   {
     "id": "k-313",
@@ -6257,7 +8827,16 @@
         "reading": "びょうき",
         "meaning": "Penyakit kondisi sakit"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "疒",
+      "nameJa": "やまいだれ",
+      "meaningId": "Penyakit, kondisi sakit",
+      "nameRomaji": "yamaidare",
+      "strokes": 5,
+      "positionJa": "たれ",
+      "positionId": "Kiri Atas (Tare)"
+    }
   },
   {
     "id": "k-314",
@@ -6277,7 +8856,16 @@
         "reading": "にゅういん",
         "meaning": "Rawat inap di RS"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "阝",
+      "nameJa": "こざとへん",
+      "meaningId": "hill, mound",
+      "nameRomaji": "kozatohen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-315",
@@ -6297,7 +8885,14 @@
         "reading": "ゆにゅう",
         "meaning": "Impor komoditas masuk"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "入",
+      "nameJa": "いる",
+      "meaningId": "Masuk",
+      "nameRomaji": "iru",
+      "strokes": 2
+    }
   },
   {
     "id": "k-316",
@@ -6317,7 +8912,16 @@
         "reading": "ゆそう",
         "meaning": "Transportasi distribusi kargo"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "車",
+      "nameJa": "くるまへん",
+      "meaningId": "Kendaraan, kereta, roda",
+      "nameRomaji": "kurumahen",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-317",
@@ -6337,7 +8941,16 @@
         "reading": "しゅっしん",
         "meaning": "Asal kampung daerah"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "凵",
+      "nameJa": "かんにょう",
+      "meaningId": "container, open box",
+      "nameRomaji": "kannyou",
+      "strokes": 2,
+      "positionJa": "にょう",
+      "positionId": "Kiri Bawah (Nyou)"
+    }
   },
   {
     "id": "k-318",
@@ -6357,7 +8970,14 @@
         "reading": "どくしん",
         "meaning": "Lajang belum menikah"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "身",
+      "nameJa": "み",
+      "meaningId": "Tubuh, raga",
+      "nameRomaji": "mi",
+      "strokes": 7
+    }
   },
   {
     "id": "k-319",
@@ -6377,7 +8997,16 @@
         "reading": "どくじ",
         "meaning": "Orisinil khas tersendiri"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "犭",
+      "nameJa": "けものへん",
+      "meaningId": "Binatang buas, hewan",
+      "nameRomaji": "kemonohen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-320",
@@ -6397,7 +9026,14 @@
         "reading": "しぜん",
         "meaning": "Alam raya naturalis"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "自",
+      "nameJa": "みずから",
+      "meaningId": "Diri sendiri, hidung",
+      "nameRomaji": "mizukara",
+      "strokes": 6
+    }
   },
   {
     "id": "k-321",
@@ -6417,7 +9053,16 @@
         "reading": "とうぜん",
         "meaning": "Sudah sepantasnya wajar"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "灬",
+      "nameJa": "れっか",
+      "meaningId": "Api, panas, cahaya",
+      "nameRomaji": "rekka",
+      "strokes": 4,
+      "positionJa": "あし",
+      "positionId": "Bawah (Ashi)"
+    }
   },
   {
     "id": "k-322",
@@ -6437,7 +9082,16 @@
         "reading": "たんとう",
         "meaning": "Penanggung jawab pic tim"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "⺌",
+      "nameJa": "しょうかんむり",
+      "meaningId": "Kecil, sedikit",
+      "nameRomaji": "shoukanmuri",
+      "strokes": 3,
+      "positionJa": "かんむり",
+      "positionId": "Atas (Kanmuri)"
+    }
   },
   {
     "id": "k-323",
@@ -6457,7 +9111,16 @@
         "reading": "たんにん",
         "meaning": "Wali kelas penanggung jawab"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "扌",
+      "nameJa": "てへん",
+      "meaningId": "Tangan, tindakan, aksi",
+      "nameRomaji": "tehen",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-324",
@@ -6477,7 +9140,16 @@
         "reading": "じにん",
         "meaning": "Mengundurkan diri mundur"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "亻",
+      "nameJa": "にんべん",
+      "meaningId": "Orang, manusia",
+      "nameRomaji": "ninben",
+      "strokes": 2,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-325",
@@ -6497,7 +9169,14 @@
         "reading": "せめる",
         "meaning": "Menyalahkan menegur"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "貝",
+      "nameJa": "かい",
+      "meaningId": "Harta, kekayaan, uang kuno (kerang)",
+      "nameRomaji": "kai",
+      "strokes": 7
+    }
   },
   {
     "id": "k-326",
@@ -6517,7 +9196,14 @@
         "reading": "せじ",
         "meaning": "Pujian basa-basi sanjungan"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "辛",
+      "nameJa": "からい",
+      "meaningId": "Pahit, pedas, hukuman",
+      "nameRomaji": "karai",
+      "strokes": 7
+    }
   },
   {
     "id": "k-327",
@@ -6537,7 +9223,14 @@
         "reading": "どくしょ",
         "meaning": "Membaca buku gemar baca"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "日",
+      "nameJa": "ひ",
+      "meaningId": "Matahari, siang, waktu",
+      "nameRomaji": "hi",
+      "strokes": 4
+    }
   },
   {
     "id": "k-328",
@@ -6557,7 +9250,16 @@
         "reading": "じんるい",
         "meaning": "Umat manusia sedunia"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "頁",
+      "nameJa": "おおがい",
+      "meaningId": "Kepala, lembaran muka",
+      "nameRomaji": "oogai",
+      "strokes": 9,
+      "positionJa": "つくり",
+      "positionId": "Kanan (Tsukuri)"
+    }
   },
   {
     "id": "k-329",
@@ -6577,7 +9279,16 @@
         "reading": "かくしゅ",
         "meaning": "Beraneka macam ragam"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "禾",
+      "nameJa": "のぎへん",
+      "meaningId": "Padi-padian, biji-bijian",
+      "nameRomaji": "nogihen",
+      "strokes": 5,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-330",
@@ -6597,7 +9308,14 @@
         "reading": "かっこく",
         "meaning": "Masing-masing negara bangsa"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "口",
+      "nameJa": "くち",
+      "meaningId": "Mulut, lubang, perkataan",
+      "nameRomaji": "kuchi",
+      "strokes": 3
+    }
   },
   {
     "id": "k-331",
@@ -6617,7 +9335,16 @@
         "reading": "きこく",
         "meaning": "Kembali pulang ke tanah air"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "囗",
+      "nameJa": "くにがまえ",
+      "meaningId": "Keliling, batas wilayah",
+      "nameRomaji": "kunigamae",
+      "strokes": 3,
+      "positionJa": "くにがまえ",
+      "positionId": "Keliling Kotak (Kunigamae)"
+    }
   },
   {
     "id": "k-332",
@@ -6637,7 +9364,14 @@
         "reading": "ふっき",
         "meaning": "Kembali beraktivitas sembuh"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "巾",
+      "nameJa": "はば",
+      "meaningId": "cloth",
+      "nameRomaji": "haba",
+      "strokes": 3
+    }
   },
   {
     "id": "k-333",
@@ -6657,7 +9391,16 @@
         "reading": "ふくしゅう",
         "meaning": "Mengulang materi pelajaran"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "彳",
+      "nameJa": "ぎょうにんべん",
+      "meaningId": "Langkah jalan, berjalan",
+      "nameRomaji": "gyouninben",
+      "strokes": 3,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-334",
@@ -6677,7 +9420,16 @@
         "reading": "かいてん",
         "meaning": "Putaran rotasi gasing"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "囗",
+      "nameJa": "くにがまえ",
+      "meaningId": "Keliling, batas wilayah",
+      "nameRomaji": "kunigamae",
+      "strokes": 3,
+      "positionJa": "くにがまえ",
+      "positionId": "Keliling Kotak (Kunigamae)"
+    }
   },
   {
     "id": "k-335",
@@ -6697,7 +9449,16 @@
         "reading": "てんしょく",
         "meaning": "Pindah profesi karir baru"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "車",
+      "nameJa": "くるまへん",
+      "meaningId": "Kendaraan, kereta, roda",
+      "nameRomaji": "kurumahen",
+      "strokes": 7,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   },
   {
     "id": "k-336",
@@ -6717,6 +9478,15 @@
         "reading": "しょくば",
         "meaning": "Tempat kerja kantor instansi"
       }
-    ]
+    ],
+    "bushu": {
+      "radical": "耳",
+      "nameJa": "みみへん",
+      "meaningId": "Telinga, pendengaran",
+      "nameRomaji": "mimihen",
+      "strokes": 6,
+      "positionJa": "へん",
+      "positionId": "Kiri (Hen)"
+    }
   }
 ]

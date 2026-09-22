@@ -17,6 +17,7 @@ import { FuriganaSentence } from "./FuriganaSentence";
 import { AudioButton } from "./AudioButton";
 import { isBookmarked, toggleBookmark } from "../lib/storage";
 import { getBushuByKanji } from "../lib/bushu";
+import { BushuDetail } from "../lib/types";
 
 export interface FlashcardItem {
   id: string;
@@ -31,6 +32,7 @@ export interface FlashcardItem {
     meaning: string;
     notes?: string;
     connection?: string;
+    bushu?: BushuDetail;
     example?: {
       ja: string;
       id: string;
@@ -62,7 +64,7 @@ export function FlashcardModal({
   });
 
   const currentItem = items[currentIndex];
-  const currentBushu = currentItem?.type === "kanji" ? getBushuByKanji(currentItem.front.title) : null;
+  const currentBushu = currentItem?.back?.bushu || (currentItem?.type === "kanji" ? getBushuByKanji(currentItem.front.title) : null);
 
   // Sync bookmark state with current item
   useEffect(() => {
@@ -334,7 +336,7 @@ export function FlashcardModal({
 
                     {currentItem.back.connection && (
                       <div className="mt-4 inline-block rounded-xl border border-slate-700 bg-slate-900/90 px-3.5 py-1.5 text-xs text-amber-300 font-mono">
-                        接続: {currentItem.back.connection}
+                        Rumus: {currentItem.back.connection}
                       </div>
                     )}
 

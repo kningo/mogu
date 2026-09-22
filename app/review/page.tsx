@@ -253,6 +253,11 @@ export default function ReviewPage() {
                         <p className="text-xs text-slate-400 font-japanese mt-0.5">
                           {k.on && `ON: ${k.on}`} {k.kun && `• KUN: ${k.kun}`}
                         </p>
+                        {k.bushu && (
+                          <p className="text-xs text-indigo-400 font-medium mt-1">
+                            Bushu: <span className="font-japanese font-bold">[{k.bushu.radical}]</span> {k.bushu.nameJa} ({k.bushu.meaningId})
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -340,7 +345,7 @@ export default function ReviewPage() {
                       </div>
                       <p className="text-sm font-bold text-slate-200 mt-1">{g.meaning}</p>
                       <span className="text-xs font-mono text-amber-400/90 mt-1 block">
-                        接続: {g.connection}
+                        Rumus: {g.connection}
                       </span>
                     </div>
 

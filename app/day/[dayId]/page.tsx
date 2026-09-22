@@ -163,6 +163,7 @@ export default function DailyLessonPage() {
         back: {
           reading: k.on || k.kun,
           meaning: k.meaning,
+          bushu: k.bushu,
           notes: k.words?.map((w) => `${w.word} (${w.reading}): ${w.meaning}`).join(" | "),
         },
       });
@@ -547,7 +548,7 @@ export default function DailyLessonPage() {
 
                   {/* Bushu Radical Badge (Active when toggled on) */}
                   {showBushu && (() => {
-                    const bushu = getBushuByKanji(kanjiItem.kanji);
+                    const bushu = kanjiItem.bushu || getBushuByKanji(kanjiItem.kanji);
                     if (!bushu) return null;
                     return (
                       <div className="mt-3.5 pt-3 border-t border-slate-800/80 flex flex-wrap items-center gap-2 text-xs">

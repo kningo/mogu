@@ -230,7 +230,7 @@ export function WallDisplayModal({
             {/* Grammar connection or sub */}
             {currentCard.back.connection && (
               <div className="rounded-2xl border border-slate-800 bg-slate-900/90 px-5 py-2.5 text-base text-slate-300 font-mono mb-6">
-                接続: <span className="text-amber-400">{currentCard.back.connection}</span>
+                Rumus: <span className="text-amber-400">{currentCard.back.connection}</span>
               </div>
             )}
 
