@@ -6,6 +6,7 @@ import { Play, Pause, RotateCcw, ChevronLeft, ChevronRight, Hash } from "lucide-
 export interface KanjiStrokeData {
   strokes: string[]; // array of svg path "d" strings
   numbers: { num: number; transform: string }[];
+  lengths: number[]; // exact getTotalLength() values for each stroke path
 }
 
 // Global in-memory cache for loaded kanji stroke data
@@ -30,6 +31,48 @@ export const MAZII_STROKE_COLORS = [
   "#6610f2", // 9. Indigo (--bs-indigo)
   "#0dcaf0", // 10. Cyan (--bs-cyan)
 ];
+
+// Mazii animation timing constants
+const STROKE_DURATION = 400; // ms (transition-duration: 400ms as in Mazii)
+const STEP_INTERVAL = 480; // ms (400ms transition + 80ms natural pause before next stroke)
+
+/**
+ * Computes exact path lengths using an offscreen SVG element in browser DOM.
+ * Exactly matches Mazii / dmak.js path.getTotalLength() technique.
+ */
+export function computePathLengths(strokes: string[]): number[] {
+  if (typeof document === "undefined") {
+    return strokes.map(() => 100);
+  }
+
+  try {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 109 109");
+    svg.style.position = "absolute";
+    svg.style.width = "0";
+    svg.style.height = "0";
+    svg.style.top = "-9999px";
+    svg.style.left = "-9999px";
+    svg.style.opacity = "0";
+    svg.style.pointerEvents = "none";
+    document.body.appendChild(svg);
+
+    const lengths = strokes.map((d) => {
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", d);
+      svg.appendChild(path);
+      const len = path.getTotalLength();
+      svg.removeChild(path);
+      return len > 0 ? Number(len.toFixed(2)) : 100;
+    });
+
+    document.body.removeChild(svg);
+    return lengths;
+  } catch (err) {
+    console.error("Error computing stroke path lengths:", err);
+    return strokes.map(() => 100);
+  }
+}
 
 interface KanjiStrokeAnimatorProps {
   kanji: string;
@@ -60,10 +103,29 @@ export function KanjiStrokeAnimator({
   const [loading, setLoading] = useState<boolean>(!data);
   const [error, setError] = useState<boolean>(false);
   const [currentStroke, setCurrentStroke] = useState<number>(0);
-  const [isPlaying, setIsPlaying] = useState<boolean>(autoPlay);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState<boolean>(false);
   const [showNumbers, setShowNumbers] = useState<boolean>(true);
 
   const hex = getKanjiHex(kanji);
+
+  // Smooth start/restart sequence for Mazii-style transition
+  const startAutoplay = useCallback((total: number) => {
+    if (total <= 0) return;
+    // Step 1: Hide all strokes instantly with transition: none
+    setIsTransitionEnabled(false);
+    setCurrentStroke(0);
+    setIsPlaying(false);
+
+    // Step 2: In next animation frames, enable transition and start stroke 1 smoothly
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setIsTransitionEnabled(true);
+        setCurrentStroke(1);
+        setIsPlaying(true);
+      });
+    });
+  }, []);
 
   // Fetch and parse KanjiVG SVG
   useEffect(() => {
@@ -71,15 +133,18 @@ export function KanjiStrokeAnimator({
 
     if (STROKE_DATA_CACHE.has(kanji)) {
       const cached = STROKE_DATA_CACHE.get(kanji)!;
+      if (!cached.lengths || cached.lengths.length !== cached.strokes.length) {
+        cached.lengths = computePathLengths(cached.strokes);
+      }
       setData(cached);
+      setLoading(false);
       if (autoPlay) {
-        setCurrentStroke(0);
-        setIsPlaying(true);
+        startAutoplay(cached.strokes.length);
       } else {
+        setIsTransitionEnabled(false);
         setCurrentStroke(cached.strokes.length);
         setIsPlaying(false);
       }
-      setLoading(false);
       return;
     }
 
@@ -89,10 +154,8 @@ export function KanjiStrokeAnimator({
 
     async function loadSvg() {
       try {
-        // Try local public folder first
         let res = await fetch(`/kanji/${hex}.svg`);
         if (!res.ok) {
-          // Fallback to CDN if missing
           res = await fetch(`https://cdn.jsdelivr.net/gh/KanjiVG/kanjivg@master/kanji/${hex}.svg`);
         }
         if (!res.ok) throw new Error("SVG not found");
@@ -113,19 +176,20 @@ export function KanjiStrokeAnimator({
           transform: t.getAttribute("transform") || "",
         }));
 
-        const strokeData: KanjiStrokeData = { strokes, numbers };
+        const lengths = computePathLengths(strokes);
+        const strokeData: KanjiStrokeData = { strokes, numbers, lengths };
         STROKE_DATA_CACHE.set(kanji, strokeData);
 
         if (isMounted) {
           setData(strokeData);
+          setLoading(false);
           if (autoPlay) {
-            setCurrentStroke(0);
-            setIsPlaying(true);
+            startAutoplay(strokes.length);
           } else {
-            setCurrentStroke(strokeData.strokes.length);
+            setIsTransitionEnabled(false);
+            setCurrentStroke(strokes.length);
             setIsPlaying(false);
           }
-          setLoading(false);
         }
       } catch (err) {
         if (isMounted) {
@@ -139,61 +203,66 @@ export function KanjiStrokeAnimator({
     return () => {
       isMounted = false;
     };
-  }, [kanji, hex, autoPlay]);
+  }, [kanji, hex, autoPlay, startAutoplay]);
 
   const totalStrokes = data?.strokes.length || 0;
 
-  // Animation player loop (Autoplay Mazii style)
+  // Mazii-style sequential stroke animator loop
   useEffect(() => {
     if (!isPlaying || totalStrokes === 0) return;
 
     const timer = setInterval(() => {
       setCurrentStroke((prev) => {
         if (prev >= totalStrokes) {
-          // Reached end: stop animation, stay on completed kanji
+          // Reached end: stop animation loop, maintain all completed strokes
           setIsPlaying(false);
           return totalStrokes;
         }
         return prev + 1;
       });
-    }, 480); // 480ms per stroke for natural, clear observation
+    }, STEP_INTERVAL);
 
     return () => clearInterval(timer);
   }, [isPlaying, totalStrokes]);
 
   const handleReplay = useCallback(() => {
-    setCurrentStroke(0);
-    setIsPlaying(true);
-  }, []);
+    startAutoplay(totalStrokes);
+  }, [startAutoplay, totalStrokes]);
 
   const handlePlayToggle = () => {
     if (isPlaying) {
       setIsPlaying(false);
     } else {
+      setIsTransitionEnabled(true);
       if (currentStroke >= totalStrokes) {
-        setCurrentStroke(1);
+        startAutoplay(totalStrokes);
+      } else {
+        setIsPlaying(true);
       }
-      setIsPlaying(true);
     }
   };
 
   const handleReset = () => {
     setIsPlaying(false);
+    setIsTransitionEnabled(false);
     setCurrentStroke(0);
   };
 
   const handleShowAll = () => {
     setIsPlaying(false);
+    setIsTransitionEnabled(false);
     setCurrentStroke(totalStrokes);
   };
 
   const handlePrevStroke = () => {
     setIsPlaying(false);
+    setIsTransitionEnabled(true);
     setCurrentStroke((prev) => Math.max(0, prev - 1));
   };
 
   const handleNextStroke = () => {
     setIsPlaying(false);
+    setIsTransitionEnabled(true);
     setCurrentStroke((prev) => Math.min(totalStrokes, prev + 1));
   };
 
@@ -291,7 +360,7 @@ export function KanjiStrokeAnimator({
               strokeWidth: 3.2,
               strokeLinecap: "round",
               strokeLinejoin: "round",
-              opacity: 0.1,
+              opacity: 0.09,
             }}
             className="text-slate-900 dark:text-slate-100"
           >
@@ -300,7 +369,7 @@ export function KanjiStrokeAnimator({
             ))}
           </g>
 
-          {/* Layer 2: Completed Drawn Strokes (Mazii Multicolor Palette) */}
+          {/* Layer 2: Completed & Drawing Strokes (Mazii Stroke-Dashoffset Engine) */}
           <g
             style={{
               fill: "none",
@@ -308,17 +377,27 @@ export function KanjiStrokeAnimator({
               strokeLinejoin: "round",
             }}
           >
-            {data.strokes.slice(0, currentStroke).map((d, idx) => {
+            {data.strokes.map((d, idx) => {
+              const isDrawn = idx < currentStroke;
               const isCurrent = idx === currentStroke - 1;
+              const len = data.lengths[idx] || 100;
               const strokeColor = `var(--kvg-stroke-${(idx % 10) + 1}, ${MAZII_STROKE_COLORS[idx % 10]})`;
+
               return (
                 <path
                   key={`stroke-${idx}`}
                   d={d}
-                  className={isCurrent && isPlaying ? "kvg-stroke-animating" : "transition-all duration-150"}
                   style={{
                     stroke: strokeColor,
                     strokeWidth: isCurrent ? 4.5 : 3.9,
+                    strokeDasharray: `${len} ${len}`,
+                    strokeDashoffset: isDrawn ? 0 : len,
+                    transition: isTransitionEnabled
+                      ? `stroke-dashoffset ${STROKE_DURATION}ms ease, stroke-width 200ms ease, opacity 150ms ease`
+                      : "none",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round",
+                    opacity: isDrawn ? 1 : 0,
                   }}
                 />
               );
@@ -328,9 +407,11 @@ export function KanjiStrokeAnimator({
           {/* Layer 3: Stroke Order Numbers (Color-matched to strokes) */}
           {showNumbers && (
             <g className="select-none pointer-events-none">
-              {data.numbers.slice(0, currentStroke).map((n, idx) => {
+              {data.numbers.map((n, idx) => {
+                const isVisible = idx < currentStroke;
                 const isCurrent = idx === currentStroke - 1;
                 const strokeColor = `var(--kvg-stroke-${(idx % 10) + 1}, ${MAZII_STROKE_COLORS[idx % 10]})`;
+
                 return (
                   <text
                     key={`num-${idx}`}
@@ -340,8 +421,10 @@ export function KanjiStrokeAnimator({
                     fontFamily="system-ui, -apple-system, sans-serif"
                     style={{
                       fill: strokeColor,
+                      opacity: isVisible ? 1 : 0,
+                      transition: isTransitionEnabled ? "opacity 300ms ease" : "none",
                     }}
-                    className="transition-all duration-150"
+                    className="drop-shadow-[0_1px_1px_rgba(0,0,0,0.12)]"
                   >
                     {n.num}
                   </text>
