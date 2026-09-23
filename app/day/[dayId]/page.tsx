@@ -625,7 +625,7 @@ export default function DailyLessonPage() {
                               <FuriganaText
                                 kanji={w.word}
                                 reading={w.reading}
-                                className="text-[1.5rem] font-bold text-slate-100 leading-snug group-hover/jukugo:text-emerald-300 transition-colors"
+                                className="text-[2rem] font-bold text-slate-100 leading-snug group-hover/jukugo:text-emerald-300 transition-colors"
                               />
                               <p className="text-xs text-slate-400 mt-0.5">{w.meaning}</p>
                             </div>
