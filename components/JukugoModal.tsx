@@ -7,17 +7,12 @@ import {
   Minimize2,
   ChevronLeft,
   ChevronRight,
-  Sparkles,
-  PenTool,
   RotateCcw,
-  Sliders,
-  Zap,
 } from "lucide-react";
 import { KanjiCompound } from "../lib/types";
 import { AudioButton } from "./AudioButton";
 import { FuriganaText } from "./FuriganaText";
 import { KanjiStrokeAnimator } from "./KanjiStrokeAnimator";
-import { getStrokeControls, setStrokeControls } from "../lib/storage";
 import kanjiData from "../data/kanji.json";
 
 interface JukugoModalProps {
@@ -49,25 +44,17 @@ export function JukugoModal({
   const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
   const [isSuperZoom, setIsSuperZoom] = useState<boolean>(false);
   const [displayMode, setDisplayMode] = useState<"stroke" | "font">("stroke");
-  const [showControls, setShowControls] = useState<boolean>(() => getStrokeControls());
   const [replayKey, setReplayKey] = useState<number>(0);
 
-  // Sync index and settings on open
+  // Sync index on open
   useEffect(() => {
     if (isOpen) {
       setCurrentIndex(Math.max(0, Math.min(initialIndex, words.length - 1)));
       setIsSuperZoom(false);
       setDisplayMode("stroke");
-      setShowControls(getStrokeControls());
       setReplayKey((k) => k + 1);
     }
   }, [isOpen, initialIndex, words.length]);
-
-  const handleToggleControls = () => {
-    const next = !showControls;
-    setShowControls(next);
-    setStrokeControls(next);
-  };
 
   // Dialog open/close lifecycle
   useEffect(() => {
@@ -169,57 +156,33 @@ export function JukugoModal({
     return "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 text-4xl sm:text-5xl md:text-6xl";
   };
 
-  const isSingleKanji = words.length === 1 && parentKanji && words[0].word === parentKanji;
-  const modalHeaderTitle = isSingleKanji
-    ? `Panduan Menulis Kanji: ${parentKanji}`
-    : `Panduan Menulis & Goresan: ${currentWord.word}`;
+  const isSingleKanji = words.length === 1 && Boolean(parentKanji && words[0].word === parentKanji);
 
   return (
     <dialog
       ref={dialogRef}
-      aria-labelledby="jukugo-modal-title"
+      aria-label="Panduan Goresan Kanji"
       {...{ closedby: "any" }}
       className="fixed inset-0 z-50 m-auto flex items-center justify-center p-2 sm:p-4 w-full max-w-xl sm:max-w-2xl bg-transparent backdrop:bg-slate-950/80 backdrop:backdrop-blur-md outline-none"
     >
       <div className="relative flex flex-col w-full max-h-[88vh] sm:max-h-[92vh] rounded-3xl border border-slate-700/80 bg-slate-900 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-        {/* Header (Always pinned on top) */}
-        <div className="shrink-0 flex items-center justify-between border-b border-slate-800 px-5 py-3 sm:px-6 sm:py-3.5 bg-slate-900/95">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 shadow-sm">
-              <PenTool size={18} />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h2 id="jukugo-modal-title" className="text-base font-extrabold text-slate-100">
-                  {modalHeaderTitle}
-                </h2>
-                {parentKanji && !isSingleKanji && (
-                  <span className="hidden sm:inline-flex items-center gap-1 rounded-md bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 text-[11px] font-bold text-emerald-600 dark:text-emerald-300">
-                    Kanji: {parentKanji}
-                  </span>
-                )}
-              </div>
-              <p className="text-xs text-slate-400">
-                Kisi kotak 4 kuadran (田) & animasi urutan goresan resmi KanjiVG
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            {words.length > 1 && (
-              <span className="rounded-xl bg-slate-800/90 border border-slate-700 px-2.5 py-1 text-xs font-semibold text-slate-300">
-                {currentIndex + 1} / {words.length}
-              </span>
-            )}
-            <button
-              type="button"
-              onClick={onClose}
-              className="p-2 rounded-xl border border-slate-800 bg-slate-800/80 text-slate-400 hover:text-slate-200 hover:bg-slate-750 transition-colors"
-              title="Tutup (Esc)"
-            >
-              <X size={18} />
-            </button>
-          </div>
+        {/* Header (Minimalist: Only Close Button & Counter) */}
+        <div className="shrink-0 flex items-center justify-between px-5 pt-3.5 pb-1 sm:px-6 bg-slate-900">
+          {words.length > 1 ? (
+            <span className="rounded-lg bg-slate-800/90 border border-slate-700 px-2 py-0.5 text-xs font-semibold text-slate-400">
+              {currentIndex + 1} / {words.length}
+            </span>
+          ) : (
+            <div />
+          )}
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-1.5 rounded-xl border border-slate-800 bg-slate-800/80 text-slate-400 hover:text-slate-100 hover:bg-slate-750 transition-colors ml-auto"
+            title="Tutup (Esc)"
+          >
+            <X size={18} />
+          </button>
         </div>
 
         {/* Body Content (Smooth inner scroll) */}
@@ -265,75 +228,47 @@ export function JukugoModal({
 
           {/* Character Stroke Practice Grid (Genkouyoushi Boxes) */}
           <div>
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                <Sparkles size={13} className="text-emerald-400" />
-                <span>Detail Goresan per Karakter:</span>
-              </span>
+            {/* Minimalist Action Controls: Replay Semua & Display Mode */}
+            <div className="flex items-center justify-end gap-2 mb-2.5">
+              {/* Replay Semua Button (When multiple kanji present) */}
+              {displayMode === "stroke" && characters.filter((c) => /[\u4E00-\u9FAF\u3400-\u4DBF々]/.test(c)).length > 1 && (
+                <button
+                  type="button"
+                  onClick={() => setReplayKey((k) => k + 1)}
+                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl border border-slate-800 bg-slate-950/70 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/30 text-xs font-semibold transition-all shadow-sm active:scale-95"
+                  title="Putar ulang animasi semua kanji sekaligus"
+                >
+                  <RotateCcw size={12} className="text-emerald-400" />
+                  <span>Replay Semua</span>
+                </button>
+              )}
 
-              {/* Controls Toolbar: Mazii Autoplay Toggle, Replay All, & Display Mode Switcher */}
-              <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
-                {/* Stroke Controls Mode Toggle (Autoplay Mazii vs Kontrol Manual) */}
-                {displayMode === "stroke" && (
-                  <button
-                    type="button"
-                    onClick={handleToggleControls}
-                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-xl border text-xs font-semibold transition-all ${
-                      showControls
-                        ? "border-indigo-500/40 bg-indigo-500/15 text-indigo-400 font-bold shadow-sm"
-                        : "border-slate-800 bg-slate-950/70 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/30"
-                    }`}
-                    title={
-                      showControls
-                        ? "Mode Kontrol Manual Aktif (Klik untuk kembali ke Autoplay Mazii)"
-                        : "Mode Autoplay Mazii Aktif (Klik untuk membuka kontrol manual bertahap)"
-                    }
-                  >
-                    {showControls ? <Sliders size={13} className="text-indigo-400" /> : <Zap size={13} className="text-emerald-400" />}
-                    <span>{showControls ? "Kontrol: Manual" : "Mode: Autoplay Mazii"}</span>
-                  </button>
-                )}
-
-                {/* Replay All Button (When multiple kanji present) */}
-                {displayMode === "stroke" && characters.filter((c) => /[\u4E00-\u9FAF\u3400-\u4DBF々]/.test(c)).length > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => setReplayKey((k) => k + 1)}
-                    className="flex items-center gap-1 px-2.5 py-1 rounded-xl border border-slate-800 bg-slate-950/70 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/30 text-xs font-semibold transition-all"
-                    title="Putar ulang animasi semua kanji sekaligus"
-                  >
-                    <RotateCcw size={12} />
-                    <span>Replay Semua</span>
-                  </button>
-                )}
-
-                {/* Display Mode Switcher: Animasi Goresan (KanjiVG) vs Huruf Kaligrafi */}
-                <div className="flex items-center gap-1 bg-slate-950/70 border border-slate-800 p-0.5 rounded-xl text-xs font-semibold">
-                  <button
-                    type="button"
-                    onClick={() => setDisplayMode("stroke")}
-                    className={`px-3 py-1 rounded-lg transition-all ${
-                      displayMode === "stroke"
-                        ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
-                        : "text-slate-400 hover:text-slate-200"
-                    }`}
-                    title="Tampilkan animasi urutan goresan bertahap (KanjiVG)"
-                  >
-                    Animasi Goresan
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setDisplayMode("font")}
-                    className={`px-3 py-1 rounded-lg transition-all ${
-                      displayMode === "font"
-                        ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
-                        : "text-slate-400 hover:text-slate-200"
-                    }`}
-                    title="Tampilkan bentuk huruf statis kaligrafi"
-                  >
-                    Huruf Kaligrafi
-                  </button>
-                </div>
+              {/* Display Mode Switcher: Animasi Goresan vs Huruf Kaligrafi */}
+              <div className="inline-flex items-center gap-0.5 bg-slate-950/70 border border-slate-800 p-0.5 rounded-xl text-xs font-semibold shadow-sm">
+                <button
+                  type="button"
+                  onClick={() => setDisplayMode("stroke")}
+                  className={`px-2.5 py-1 rounded-lg transition-all ${
+                    displayMode === "stroke"
+                      ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
+                      : "text-slate-400 hover:text-slate-200"
+                  }`}
+                  title="Tampilkan animasi urutan goresan bertahap"
+                >
+                  Animasi Goresan
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDisplayMode("font")}
+                  className={`px-3 py-1 rounded-lg transition-all ${
+                    displayMode === "font"
+                      ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
+                      : "text-slate-400 hover:text-slate-200"
+                  }`}
+                  title="Tampilkan bentuk huruf statis kaligrafi"
+                >
+                  Huruf Kaligrafi
+                </button>
               </div>
             </div>
 
@@ -375,7 +310,7 @@ export function JukugoModal({
                             isParent={isParent}
                             boxClassName={getBoxSizeClass()}
                             autoPlay={true}
-                            showControls={showControls}
+                            showControls={false}
                             showNumberToggle={true}
                             showReplayButton={true}
                           />
@@ -431,14 +366,6 @@ export function JukugoModal({
                 })}
               </div>
             </div>
-          </div>
-
-          {/* Stroke Practice Helpful Guide (Compact Tip) */}
-          <div className="flex items-center gap-2.5 rounded-xl border border-slate-800/80 bg-slate-950/40 px-4 py-2.5 text-xs text-slate-300">
-            <Sparkles size={14} className="text-emerald-400 shrink-0" />
-            <p className="text-[11px] sm:text-xs text-slate-400 leading-snug">
-              <strong>Tips Menulis:</strong> Tekan tombol <strong>Putar</strong> untuk melihat animasi goresan otomatis, atau gunakan tombol panah <strong>&lt; &gt;</strong> untuk mengamati urutan goresan satu per satu secara bertahap.
-            </p>
           </div>
         </div>
 
