@@ -271,9 +271,9 @@ export function KanjiStrokeAnimator({
     return (
       <div
         style={boxClassName ? undefined : { width: size, height: size }}
-        className={`relative flex items-center justify-center rounded-2xl border border-slate-700/80 bg-slate-950/80 ${boxClassName || ""} ${className}`}
+        className={`relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white ${boxClassName || ""} ${className}`}
       >
-        <div className="h-6 w-6 animate-spin rounded-full border-2 border-emerald-400 border-t-transparent" />
+        <div className="h-6 w-6 animate-spin rounded-full border-2 border-emerald-500 border-t-transparent" />
       </div>
     );
   }
@@ -283,12 +283,12 @@ export function KanjiStrokeAnimator({
     return (
       <div
         style={boxClassName ? undefined : { width: size, height: size }}
-        className={`relative flex items-center justify-center rounded-2xl border-2 border-slate-700/80 bg-slate-950/80 select-none ${boxClassName || ""} ${className}`}
+        className={`relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white select-none ${boxClassName || ""} ${className}`}
       >
         {/* Crosshairs */}
-        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-sky-300/60 dark:border-slate-700/60 pointer-events-none" />
-        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-sky-300/60 dark:border-slate-700/60 pointer-events-none" />
-        <span className="font-japanese font-black text-6xl text-slate-100">{kanji}</span>
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-sky-300/60 pointer-events-none" />
+        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-sky-300/60 pointer-events-none" />
+        <span className="font-japanese font-black text-6xl text-slate-900">{kanji}</span>
       </div>
     );
   }
@@ -303,13 +303,9 @@ export function KanjiStrokeAnimator({
             handleReplay();
           }
         }}
-        className={`relative flex items-center justify-center rounded-2xl border-2 transition-all duration-300 shadow-md ${
-          !showControls ? "cursor-pointer hover:shadow-lg" : ""
-        } ${boxClassName || ""} ${
-          isParent
-            ? "border-emerald-500/50 bg-emerald-500/5 dark:bg-emerald-950/20"
-            : "border-slate-300 dark:border-slate-700/80 bg-slate-50/70 dark:bg-slate-950/80"
-        }`}
+        className={`relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white transition-all duration-300 shadow-sm ${
+          !showControls ? "cursor-pointer hover:shadow-md" : ""
+        } ${boxClassName || ""}`}
       >
         {/* Top-Right Replay Button (Mazii Style circular reload) */}
         {showReplayButton && (
@@ -319,7 +315,7 @@ export function KanjiStrokeAnimator({
               e.stopPropagation();
               handleReplay();
             }}
-            className="absolute top-2 right-2 z-20 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl border border-slate-300/90 dark:border-slate-700/90 bg-white/95 dark:bg-slate-900/95 text-slate-500 hover:text-emerald-500 hover:border-emerald-500/50 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/50 shadow-sm transition-all active:scale-95"
+            className="absolute top-2 right-2 z-20 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl border border-slate-200 bg-white/95 text-slate-500 hover:text-emerald-500 hover:border-emerald-500/50 hover:bg-emerald-50 shadow-sm transition-all active:scale-95"
             title="Putar Ulang Animasi Goresan (Replay)"
           >
             <RotateCcw
@@ -330,20 +326,20 @@ export function KanjiStrokeAnimator({
         )}
 
         {/* 4-Quadrant Crosshair Lines (田) - Soft dashed lines like Mazii */}
-        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-sky-300/60 dark:border-slate-700/60 pointer-events-none" />
-        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-sky-300/60 dark:border-slate-700/60 pointer-events-none" />
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-sky-300/60 pointer-events-none" />
+        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-sky-300/60 pointer-events-none" />
 
         {/* Corner Accents */}
-        <div className="absolute top-1 left-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 pointer-events-none">
+        <div className="absolute top-1 left-1.5 text-[9px] font-mono text-slate-300 pointer-events-none">
           ↖
         </div>
-        <div className="absolute top-1 right-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 pointer-events-none">
+        <div className="absolute top-1 right-1.5 text-[9px] font-mono text-slate-300 pointer-events-none">
           ↗
         </div>
-        <div className="absolute bottom-1 left-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 pointer-events-none">
+        <div className="absolute bottom-1 left-1.5 text-[9px] font-mono text-slate-300 pointer-events-none">
           ↙
         </div>
-        <div className="absolute bottom-1 right-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 pointer-events-none">
+        <div className="absolute bottom-1 right-1.5 text-[9px] font-mono text-slate-300 pointer-events-none">
           ↘
         </div>
 
@@ -356,13 +352,12 @@ export function KanjiStrokeAnimator({
           <g
             style={{
               fill: "none",
-              stroke: "currentColor",
+              stroke: "#0f172a",
               strokeWidth: 3.2,
               strokeLinecap: "round",
               strokeLinejoin: "round",
-              opacity: 0.09,
+              opacity: 0.1,
             }}
-            className="text-slate-900 dark:text-slate-100"
           >
             {data.strokes.map((d, idx) => (
               <path key={`ghost-${idx}`} d={d} />

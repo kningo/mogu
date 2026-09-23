@@ -92,26 +92,18 @@ export function FlashcardModal({
     }
   }, [isOpen]);
 
-  // Modern dialog fallback light dismiss
+  // Handle native dialog cancel event (Esc key)
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
 
-    const handleBackdropClick = (event: MouseEvent) => {
-      if (event.target !== dialog) return;
-      const rect = dialog.getBoundingClientRect();
-      const isDialogContent =
-        rect.top <= event.clientY &&
-        event.clientY <= rect.top + rect.height &&
-        rect.left <= event.clientX &&
-        event.clientX <= rect.left + rect.width;
-      if (!isDialogContent) {
-        onClose();
-      }
+    const handleCancel = (e: Event) => {
+      e.preventDefault();
+      onClose();
     };
 
-    dialog.addEventListener("click", handleBackdropClick);
-    return () => dialog.removeEventListener("click", handleBackdropClick);
+    dialog.addEventListener("cancel", handleCancel);
+    return () => dialog.removeEventListener("cancel", handleCancel);
   }, [onClose]);
 
   // Next card action
@@ -183,7 +175,6 @@ export function FlashcardModal({
     <dialog
       ref={dialogRef}
       aria-labelledby="flashcard-title"
-      {...{ closedby: "any" }}
       className="fixed inset-0 z-50 m-auto h-full w-full max-w-2xl bg-transparent p-4 backdrop:bg-slate-950/80 backdrop:backdrop-blur-md outline-none"
     >
       <div className="relative flex h-full max-h-[85vh] flex-col rounded-3xl border border-slate-700/80 bg-slate-900 shadow-2xl overflow-hidden">

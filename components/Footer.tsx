@@ -18,7 +18,7 @@ export function Footer() {
             >
               xkningo
             </a>{" "}
-            • JLPT Marathon
+            • Mogu
           </p>
           <p className="text-[11px] text-slate-500 mt-0.5">
             Dirancang untuk belajar dengan target kebut semalam.

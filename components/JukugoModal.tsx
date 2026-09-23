@@ -72,26 +72,18 @@ export function JukugoModal({
     }
   }, [isOpen]);
 
-  // Light dismiss on clicking backdrop
+  // Handle native dialog cancel event (Esc key)
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
 
-    const handleBackdropClick = (event: MouseEvent) => {
-      if (event.target !== dialog) return;
-      const rect = dialog.getBoundingClientRect();
-      const isDialogContent =
-        rect.top <= event.clientY &&
-        event.clientY <= rect.top + rect.height &&
-        rect.left <= event.clientX &&
-        event.clientX <= rect.left + rect.width;
-      if (!isDialogContent) {
-        onClose();
-      }
+    const handleCancel = (e: Event) => {
+      e.preventDefault();
+      onClose();
     };
 
-    dialog.addEventListener("click", handleBackdropClick);
-    return () => dialog.removeEventListener("click", handleBackdropClick);
+    dialog.addEventListener("cancel", handleCancel);
+    return () => dialog.removeEventListener("cancel", handleCancel);
   }, [onClose]);
 
   const currentWord = words[currentIndex] || words[0];
@@ -162,7 +154,6 @@ export function JukugoModal({
     <dialog
       ref={dialogRef}
       aria-label="Panduan Goresan Kanji"
-      {...{ closedby: "any" }}
       className="fixed inset-0 z-50 m-auto flex items-center justify-center p-2 sm:p-4 w-full max-w-xl sm:max-w-2xl bg-transparent backdrop:bg-slate-950/80 backdrop:backdrop-blur-md outline-none"
     >
       <div className="relative flex flex-col w-full max-h-[88vh] sm:max-h-[92vh] rounded-3xl border border-slate-700/80 bg-slate-900 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
@@ -322,38 +313,28 @@ export function JukugoModal({
                         /* Display Mode 2: Static Calligraphy Typography Box */
                         <div className="flex flex-col items-center space-y-2">
                           <div
-                            className={`relative flex items-center justify-center rounded-2xl border-2 transition-all duration-300 shadow-md ${getBoxSizeClass()} ${
-                              isParent
-                                ? "border-emerald-500/50 bg-emerald-500/5 dark:bg-emerald-950/20"
-                                : "border-slate-300 dark:border-slate-700/80 bg-slate-50/50 dark:bg-slate-950/80"
-                            }`}
+                            className={`relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white transition-all duration-300 shadow-sm ${getBoxSizeClass()}`}
                           >
                             {/* 4-Quadrant Crosshair Lines (田) */}
-                            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-slate-300 dark:border-slate-700/60 pointer-events-none" />
-                            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-slate-300 dark:border-slate-700/60 pointer-events-none" />
+                            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-sky-300/60 pointer-events-none" />
+                            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-sky-300/60 pointer-events-none" />
 
                             {/* Kanji Character - Clean, sharp typography without muddy shadow */}
-                            <span
-                              className={`relative z-10 font-japanese font-black tracking-wide leading-none transition-transform duration-200 select-none ${
-                                isParent
-                                  ? "text-emerald-600 dark:text-emerald-300"
-                                  : "text-slate-900 dark:text-slate-100"
-                              }`}
-                            >
+                            <span className="relative z-10 font-japanese font-black tracking-wide leading-none text-slate-900 select-none">
                               {char}
                             </span>
 
                             {/* Corner Accents */}
-                            <div className="absolute top-1 left-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
+                            <div className="absolute top-1 left-1.5 text-[9px] font-mono text-slate-300 select-none pointer-events-none">
                               ↖
                             </div>
-                            <div className="absolute top-1 right-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
+                            <div className="absolute top-1 right-1.5 text-[9px] font-mono text-slate-300 select-none pointer-events-none">
                               ↗
                             </div>
-                            <div className="absolute bottom-1 left-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
+                            <div className="absolute bottom-1 left-1.5 text-[9px] font-mono text-slate-300 select-none pointer-events-none">
                               ↙
                             </div>
-                            <div className="absolute bottom-1 right-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
+                            <div className="absolute bottom-1 right-1.5 text-[9px] font-mono text-slate-300 select-none pointer-events-none">
                               ↘
                             </div>
                           </div>

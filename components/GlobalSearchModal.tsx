@@ -213,10 +213,7 @@ export function GlobalSearchModal({
   return createPortal(
     <div className="fixed inset-0 !m-0 z-[100] flex items-start justify-center p-4 sm:p-6 md:p-12 overflow-y-auto">
       {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity animate-in fade-in duration-200"
-        onClick={onClose}
-      />
+      <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity animate-in fade-in duration-200" />
 
       {/* Modal Card */}
       <div className="relative z-10 w-full max-w-3xl rounded-3xl border border-slate-700/80 bg-slate-900 shadow-2xl overflow-hidden flex flex-col max-h-[85vh] animate-in zoom-in-95 fade-in duration-200">
