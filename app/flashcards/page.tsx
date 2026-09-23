@@ -306,7 +306,7 @@ export default function FlashcardsDeckPage() {
             </span>
             <span className="font-mono text-emerald-400">
               {filteredDeck.length > 0
-                ? `${Math.round(((currentIndex + 1) / filteredDeck.length) * 100)}%`
+                ? `${Math.round((stats.gotIt / filteredDeck.length) * 100)}%`
                 : "0%"}
             </span>
           </div>
@@ -314,7 +314,7 @@ export default function FlashcardsDeckPage() {
             <div
               className="h-full bg-emerald-500 transition-all duration-300 rounded-full"
               style={{
-                width: `${filteredDeck.length > 0 ? ((currentIndex + 1) / filteredDeck.length) * 100 : 0}%`,
+                width: `${filteredDeck.length > 0 ? (stats.gotIt / filteredDeck.length) * 100 : 0}%`,
               }}
             />
           </div>

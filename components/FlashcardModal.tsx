@@ -225,11 +225,11 @@ export function FlashcardModal({
           </div>
         </div>
 
-        {/* Progress bar */}
+        {/* Progress bar (Hanya bertambah saat kartu dihafal) */}
         <div className="w-full bg-slate-800 h-1">
           <div
             className="bg-emerald-500 h-1 transition-all duration-300"
-            style={{ width: `${((currentIndex + 1) / items.length) * 100}%` }}
+            style={{ width: `${items.length > 0 ? (sessionStats.gotIt / items.length) * 100 : 0}%` }}
           />
         </div>
 
