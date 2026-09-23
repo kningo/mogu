@@ -20,6 +20,7 @@ import {
   LayoutGrid,
   Lock,
   Maximize2,
+  PenTool,
 } from "lucide-react";
 import { getDailyContent } from "../../../data/schedule";
 import { FuriganaText } from "../../../components/FuriganaText";
@@ -524,8 +525,28 @@ export default function DailyLessonPage() {
                   <div className="flex items-start justify-between gap-4">
                     {/* Big Character */}
                     <div className="flex items-center gap-4">
-                      <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-slate-950 border border-slate-800 text-4xl sm:text-5xl font-black font-japanese text-slate-50 shadow-inner">
-                        {kanjiItem.kanji}
+                      <div
+                        onClick={() =>
+                          handleOpenJukugo(
+                            [
+                              {
+                                word: kanjiItem.kanji,
+                                reading: kanjiItem.on || kanjiItem.kun || "",
+                                meaning: kanjiItem.meaning,
+                              },
+                            ],
+                            0,
+                            kanjiItem.kanji,
+                            kanjiItem.meaning
+                          )
+                        }
+                        className="cursor-pointer group/kbox relative flex h-20 w-20 items-center justify-center rounded-2xl bg-slate-950 border border-slate-800 text-4xl sm:text-5xl font-black font-japanese text-slate-50 shadow-inner hover:border-emerald-500/50 hover:bg-slate-900 transition-all"
+                        title="Klik untuk melihat animasi urutan goresan (Stroke Order)"
+                      >
+                        <span>{kanjiItem.kanji}</span>
+                        <span className="absolute bottom-1 right-1.5 opacity-0 group-hover/kbox:opacity-100 transition-opacity text-[10px] text-emerald-400">
+                          <PenTool size={11} />
+                        </span>
                       </div>
 
                       <div className="space-y-1">
@@ -561,8 +582,29 @@ export default function DailyLessonPage() {
                       </div>
                     </div>
 
-                    {/* Star & Audio Actions */}
+                    {/* Star, Audio & Stroke Order Actions */}
                     <div className="flex items-center gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handleOpenJukugo(
+                            [
+                              {
+                                word: kanjiItem.kanji,
+                                reading: kanjiItem.on || kanjiItem.kun || "",
+                                meaning: kanjiItem.meaning,
+                              },
+                            ],
+                            0,
+                            kanjiItem.kanji,
+                            kanjiItem.meaning
+                          )
+                        }
+                        className="p-1.5 rounded-lg border border-slate-800 bg-slate-850 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/40 hover:bg-slate-800 transition-colors"
+                        title="Lihat Urutan Goresan Kanji (Stroke Order)"
+                      >
+                        <PenTool size={16} />
+                      </button>
                       <AudioButton text={kanjiItem.kanji} size="sm" />
                       <button
                         type="button"
@@ -709,6 +751,7 @@ export default function DailyLessonPage() {
           >
             {schedule.vocab.map((vItem) => {
               const isStarred = bookmarkedSet.has(vItem.id);
+              const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF々]/.test(vItem.word);
 
               return (
                 <div
@@ -720,7 +763,34 @@ export default function DailyLessonPage() {
                     <div className="flex items-start justify-between gap-3">
                       <div className="space-y-1 min-w-0 flex-1">
                         <div className="flex flex-wrap items-center gap-2">
-                          <h3 className="text-xl sm:text-2xl font-bold font-japanese text-slate-100 tracking-wide">
+                          <h3
+                            onClick={() => {
+                              if (hasKanji) {
+                                handleOpenJukugo(
+                                  [
+                                    {
+                                      word: vItem.word,
+                                      reading: vItem.reading,
+                                      meaning: vItem.meaning,
+                                    },
+                                  ],
+                                  0,
+                                  undefined,
+                                  vItem.meaning
+                                );
+                              }
+                            }}
+                            className={`text-xl sm:text-2xl font-bold font-japanese tracking-wide ${
+                              hasKanji
+                                ? "text-slate-100 hover:text-emerald-400 cursor-pointer transition-colors"
+                                : "text-slate-100"
+                            }`}
+                            title={
+                              hasKanji
+                                ? "Klik untuk melihat animasi urutan goresan kanji (Stroke Order)"
+                                : undefined
+                            }
+                          >
                             {vItem.word}
                           </h3>
                           <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-md font-semibold">
@@ -739,8 +809,31 @@ export default function DailyLessonPage() {
                         </p>
                       </div>
 
-                      {/* Action Buttons: Audio & Star */}
+                      {/* Action Buttons: PenTool (if has kanji), Audio & Star */}
                       <div className="flex items-center gap-1.5 shrink-0 pt-0.5">
+                        {hasKanji && (
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handleOpenJukugo(
+                                [
+                                  {
+                                    word: vItem.word,
+                                    reading: vItem.reading,
+                                    meaning: vItem.meaning,
+                                  },
+                                ],
+                                0,
+                                undefined,
+                                vItem.meaning
+                              )
+                            }
+                            className="p-1.5 rounded-lg border border-slate-800 bg-slate-850 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/40 hover:bg-slate-800 transition-colors"
+                            title="Lihat Urutan Goresan Kanji (Stroke Order)"
+                          >
+                            <PenTool size={15} />
+                          </button>
+                        )}
                         <AudioButton text={vItem.word} size="sm" />
                         <button
                           type="button"

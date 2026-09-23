@@ -9,10 +9,12 @@ import {
   ChevronRight,
   Sparkles,
   PenTool,
+  RotateCcw,
 } from "lucide-react";
 import { KanjiCompound } from "../lib/types";
 import { AudioButton } from "./AudioButton";
 import { FuriganaText } from "./FuriganaText";
+import { KanjiStrokeAnimator } from "./KanjiStrokeAnimator";
 import kanjiData from "../data/kanji.json";
 
 interface JukugoModalProps {
@@ -43,12 +45,14 @@ export function JukugoModal({
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
   const [isSuperZoom, setIsSuperZoom] = useState<boolean>(false);
+  const [displayMode, setDisplayMode] = useState<"stroke" | "font">("stroke");
 
   // Sync index on open
   useEffect(() => {
     if (isOpen) {
       setCurrentIndex(Math.max(0, Math.min(initialIndex, words.length - 1)));
       setIsSuperZoom(false);
+      setDisplayMode("stroke");
     }
   }, [isOpen, initialIndex, words.length]);
 
@@ -152,6 +156,11 @@ export function JukugoModal({
     return "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 text-4xl sm:text-5xl md:text-6xl";
   };
 
+  const isSingleKanji = words.length === 1 && parentKanji && words[0].word === parentKanji;
+  const modalHeaderTitle = isSingleKanji
+    ? `Panduan Menulis Kanji: ${parentKanji}`
+    : `Panduan Menulis & Goresan: ${currentWord.word}`;
+
   return (
     <dialog
       ref={dialogRef}
@@ -169,16 +178,16 @@ export function JukugoModal({
             <div>
               <div className="flex items-center gap-2">
                 <h2 id="jukugo-modal-title" className="text-base font-extrabold text-slate-100">
-                  Panduan Menulis & Goresan Jukugo
+                  {modalHeaderTitle}
                 </h2>
-                {parentKanji && (
+                {parentKanji && !isSingleKanji && (
                   <span className="hidden sm:inline-flex items-center gap-1 rounded-md bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 text-[11px] font-bold text-emerald-600 dark:text-emerald-300">
                     Kanji: {parentKanji}
                   </span>
                 )}
               </div>
               <p className="text-xs text-slate-400">
-                Kisi kotak 4 kuadran (田) untuk melatih proporsi dan arah goresan
+                Kisi kotak 4 kuadran (田) & animasi urutan goresan resmi KanjiVG
               </p>
             </div>
           </div>
@@ -206,7 +215,7 @@ export function JukugoModal({
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-950/60 px-4 py-3 sm:px-5 sm:py-3.5">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 font-mono">
-                Kosakata Gabungan (Jukugo):
+                {isSingleKanji ? "Karakter Kanji Utama:" : "Kosakata / Jukugo:"}
               </span>
               <div className="mt-0.5">
                 <FuriganaText
@@ -222,7 +231,7 @@ export function JukugoModal({
 
             {/* Quick Actions in Banner */}
             <div className="flex items-center gap-2 self-start sm:self-auto">
-              <AudioButton text={currentWord.word} size="md" title="Putar Pelafalan Audio Jukugo" />
+              <AudioButton text={currentWord.word} size="md" title="Putar Pelafalan Audio" />
 
               {/* Super Zoom Toggle */}
               <button
@@ -243,21 +252,47 @@ export function JukugoModal({
 
           {/* Character Stroke Practice Grid (Genkouyoushi Boxes) */}
           <div>
-            <div className="flex items-center justify-between mb-2">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
                 <Sparkles size={13} className="text-emerald-400" />
-                <span>Detail Goresan per Karakter Kanji:</span>
+                <span>Detail Goresan per Karakter:</span>
               </span>
-              <span className="text-[11px] text-slate-500 hidden sm:inline">
-                {isSuperZoom ? "Mode Super Zoom Aktif" : "Tekan Super Zoom untuk memperbesar kanvas"}
-              </span>
+
+              {/* Display Mode Switcher: Animasi Goresan (KanjiVG) vs Huruf Kaligrafi */}
+              <div className="flex items-center gap-1 bg-slate-950/70 border border-slate-800 p-0.5 rounded-xl text-xs font-semibold self-start sm:self-auto">
+                <button
+                  type="button"
+                  onClick={() => setDisplayMode("stroke")}
+                  className={`px-3 py-1 rounded-lg transition-all ${
+                    displayMode === "stroke"
+                      ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
+                      : "text-slate-400 hover:text-slate-200"
+                  }`}
+                  title="Tampilkan animasi urutan goresan bertahap (KanjiVG)"
+                >
+                  Animasi Goresan (KanjiVG)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDisplayMode("font")}
+                  className={`px-3 py-1 rounded-lg transition-all ${
+                    displayMode === "font"
+                      ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
+                      : "text-slate-400 hover:text-slate-200"
+                  }`}
+                  title="Tampilkan bentuk huruf statis kaligrafi"
+                >
+                  Huruf Kaligrafi
+                </button>
+              </div>
             </div>
 
             <div className="overflow-x-auto pb-2 pt-1">
-              <div className="flex items-center justify-center gap-3 sm:gap-4 flex-nowrap min-w-max mx-auto px-2">
+              <div className="flex items-start justify-center gap-3 sm:gap-4 flex-nowrap min-w-max mx-auto px-2">
                 {characters.map((char, cIdx) => {
                   const strokes = STROKE_MAP[char];
-                  const isParent = parentKanji && char === parentKanji;
+                  const isParent = Boolean(parentKanji && char === parentKanji);
+                  const isKanji = /[\u4E00-\u9FAF\u3400-\u4DBF々]/.test(char);
 
                   return (
                     <div
@@ -281,48 +316,63 @@ export function JukugoModal({
                         )}
                       </div>
 
-                      {/* The Genkouyoushi Character Box */}
-                      <div
-                        className={`relative flex items-center justify-center rounded-2xl border-2 transition-all duration-300 shadow-md ${getBoxSizeClass()} ${
-                          isParent
-                            ? "border-emerald-500/50 bg-emerald-500/5 dark:bg-emerald-950/20"
-                            : "border-slate-300 dark:border-slate-700/80 bg-slate-50/50 dark:bg-slate-950/80"
-                        }`}
-                      >
-                        {/* 4-Quadrant Crosshair Lines (田) */}
-                        {/* Horizontal dashed line */}
-                        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-slate-300 dark:border-slate-700/60 pointer-events-none" />
-                        {/* Vertical dashed line */}
-                        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-slate-300 dark:border-slate-700/60 pointer-events-none" />
+                      {/* Display Mode 1: Animated Stroke Order (KanjiVG) */}
+                      {displayMode === "stroke" && isKanji ? (
+                        <div className="flex flex-col items-center">
+                          <KanjiStrokeAnimator
+                            kanji={char}
+                            isParent={isParent}
+                            boxClassName={getBoxSizeClass()}
+                            showControls={true}
+                            showNumberToggle={true}
+                          />
+                          <div className="mt-2">
+                            <AudioButton text={char} size="sm" title={`Dengarkan pelafalan karakter ${char}`} />
+                          </div>
+                        </div>
+                      ) : (
+                        /* Display Mode 2: Static Calligraphy Typography Box */
+                        <div className="flex flex-col items-center space-y-2">
+                          <div
+                            className={`relative flex items-center justify-center rounded-2xl border-2 transition-all duration-300 shadow-md ${getBoxSizeClass()} ${
+                              isParent
+                                ? "border-emerald-500/50 bg-emerald-500/5 dark:bg-emerald-950/20"
+                                : "border-slate-300 dark:border-slate-700/80 bg-slate-50/50 dark:bg-slate-950/80"
+                            }`}
+                          >
+                            {/* 4-Quadrant Crosshair Lines (田) */}
+                            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-slate-300 dark:border-slate-700/60 pointer-events-none" />
+                            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-slate-300 dark:border-slate-700/60 pointer-events-none" />
 
-                        {/* Kanji Character - Clean, sharp typography without muddy shadow */}
-                        <span
-                          className={`relative z-10 font-japanese font-black tracking-wide leading-none transition-transform duration-200 select-none ${
-                            isParent
-                              ? "text-emerald-600 dark:text-emerald-300"
-                              : "text-slate-900 dark:text-slate-100"
-                          }`}
-                        >
-                          {char}
-                        </span>
+                            {/* Kanji Character - Clean, sharp typography without muddy shadow */}
+                            <span
+                              className={`relative z-10 font-japanese font-black tracking-wide leading-none transition-transform duration-200 select-none ${
+                                isParent
+                                  ? "text-emerald-600 dark:text-emerald-300"
+                                  : "text-slate-900 dark:text-slate-100"
+                              }`}
+                            >
+                              {char}
+                            </span>
 
-                        {/* Corner Accents */}
-                        <div className="absolute top-1 left-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
-                          ↖
-                        </div>
-                        <div className="absolute top-1 right-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
-                          ↗
-                        </div>
-                        <div className="absolute bottom-1 left-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
-                          ↙
-                        </div>
-                        <div className="absolute bottom-1 right-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
-                          ↘
-                        </div>
-                      </div>
+                            {/* Corner Accents */}
+                            <div className="absolute top-1 left-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
+                              ↖
+                            </div>
+                            <div className="absolute top-1 right-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
+                              ↗
+                            </div>
+                            <div className="absolute bottom-1 left-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
+                              ↙
+                            </div>
+                            <div className="absolute bottom-1 right-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 select-none pointer-events-none">
+                              ↘
+                            </div>
+                          </div>
 
-                      {/* Character Audio Button */}
-                      <AudioButton text={char} size="sm" title={`Dengarkan pelafalan karakter ${char}`} />
+                          <AudioButton text={char} size="sm" title={`Dengarkan pelafalan karakter ${char}`} />
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -334,7 +384,7 @@ export function JukugoModal({
           <div className="flex items-center gap-2.5 rounded-xl border border-slate-800/80 bg-slate-950/40 px-4 py-2.5 text-xs text-slate-300">
             <Sparkles size={14} className="text-emerald-400 shrink-0" />
             <p className="text-[11px] sm:text-xs text-slate-400 leading-snug">
-              <strong>Tips Menulis:</strong> Perhatikan titik temu goresan terhadap garis tengah <strong>4 kuadran (田)</strong> untuk menjaga simetri dan keseimbangan proporsi kanji.
+              <strong>Tips Menulis:</strong> Tekan tombol <strong>Putar</strong> untuk melihat animasi goresan otomatis, atau gunakan tombol panah <strong>&lt; &gt;</strong> untuk mengamati urutan goresan satu per satu secara bertahap.
             </p>
           </div>
         </div>
@@ -368,7 +418,7 @@ export function JukugoModal({
                       ? "w-6 bg-emerald-400"
                       : "w-2 bg-slate-700 hover:bg-slate-600"
                   }`}
-                  title={`Buka Jukugo ${idx + 1}`}
+                  title={`Buka Kata ${idx + 1}`}
                 />
               ))}
             </div>
