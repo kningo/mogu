@@ -43,7 +43,6 @@ export function JukugoModal({
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
   const [isSuperZoom, setIsSuperZoom] = useState<boolean>(false);
-  const [displayMode, setDisplayMode] = useState<"stroke" | "font">("stroke");
   const [replayKey, setReplayKey] = useState<number>(0);
 
   // Sync index on open
@@ -51,7 +50,6 @@ export function JukugoModal({
     if (isOpen) {
       setCurrentIndex(Math.max(0, Math.min(initialIndex, words.length - 1)));
       setIsSuperZoom(false);
-      setDisplayMode("stroke");
       setReplayKey((k) => k + 1);
     }
   }, [isOpen, initialIndex, words.length]);
@@ -219,10 +217,9 @@ export function JukugoModal({
 
           {/* Character Stroke Practice Grid (Genkouyoushi Boxes) */}
           <div>
-            {/* Minimalist Action Controls: Replay Semua & Display Mode */}
-            <div className="flex items-center justify-end gap-2 mb-2.5">
-              {/* Replay Semua Button (When multiple kanji present) */}
-              {displayMode === "stroke" && characters.filter((c) => /[\u4E00-\u9FAF\u3400-\u4DBF々]/.test(c)).length > 1 && (
+            {/* Minimalist Action Controls: Replay Semua (When multiple kanji present) */}
+            {characters.filter((c) => /[\u4E00-\u9FAF\u3400-\u4DBF々]/.test(c)).length > 1 && (
+              <div className="flex items-center justify-end mb-2.5">
                 <button
                   type="button"
                   onClick={() => setReplayKey((k) => k + 1)}
@@ -232,36 +229,8 @@ export function JukugoModal({
                   <RotateCcw size={12} className="text-emerald-400" />
                   <span>Replay Semua</span>
                 </button>
-              )}
-
-              {/* Display Mode Switcher: Animasi Goresan vs Huruf Kaligrafi */}
-              <div className="inline-flex items-center gap-0.5 bg-slate-950/70 border border-slate-800 p-0.5 rounded-xl text-xs font-semibold shadow-sm">
-                <button
-                  type="button"
-                  onClick={() => setDisplayMode("stroke")}
-                  className={`px-2.5 py-1 rounded-lg transition-all ${
-                    displayMode === "stroke"
-                      ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
-                      : "text-slate-400 hover:text-slate-200"
-                  }`}
-                  title="Tampilkan animasi urutan goresan bertahap"
-                >
-                  Animasi Goresan
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setDisplayMode("font")}
-                  className={`px-3 py-1 rounded-lg transition-all ${
-                    displayMode === "font"
-                      ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
-                      : "text-slate-400 hover:text-slate-200"
-                  }`}
-                  title="Tampilkan bentuk huruf statis kaligrafi"
-                >
-                  Huruf Kaligrafi
-                </button>
               </div>
-            </div>
+            )}
 
             <div className="overflow-x-auto pb-2 pt-1">
               <div className="flex items-start justify-center gap-3 sm:gap-4 flex-nowrap min-w-max mx-auto px-2">
@@ -292,8 +261,8 @@ export function JukugoModal({
                         )}
                       </div>
 
-                      {/* Display Mode 1: Animated Stroke Order (KanjiVG - Mazii Style) */}
-                      {displayMode === "stroke" && isKanji ? (
+                      {/* Animated Stroke Order (KanjiVG - Mazii Style) */}
+                      {isKanji ? (
                         <div className="flex flex-col items-center">
                           <KanjiStrokeAnimator
                             key={`${char}-${cIdx}-${replayKey}`}
@@ -310,7 +279,6 @@ export function JukugoModal({
                           </div>
                         </div>
                       ) : (
-                        /* Display Mode 2: Static Calligraphy Typography Box */
                         <div className="flex flex-col items-center space-y-2">
                           <div
                             className={`relative flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white transition-all duration-300 shadow-sm ${getBoxSizeClass()}`}
@@ -319,24 +287,9 @@ export function JukugoModal({
                             <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-sky-300/60 pointer-events-none" />
                             <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-sky-300/60 pointer-events-none" />
 
-                            {/* Kanji Character - Clean, sharp typography without muddy shadow */}
                             <span className="relative z-10 font-japanese font-black tracking-wide leading-none text-slate-900 select-none">
                               {char}
                             </span>
-
-                            {/* Corner Accents */}
-                            <div className="absolute top-1 left-1.5 text-[9px] font-mono text-slate-300 select-none pointer-events-none">
-                              ↖
-                            </div>
-                            <div className="absolute top-1 right-1.5 text-[9px] font-mono text-slate-300 select-none pointer-events-none">
-                              ↗
-                            </div>
-                            <div className="absolute bottom-1 left-1.5 text-[9px] font-mono text-slate-300 select-none pointer-events-none">
-                              ↙
-                            </div>
-                            <div className="absolute bottom-1 right-1.5 text-[9px] font-mono text-slate-300 select-none pointer-events-none">
-                              ↘
-                            </div>
                           </div>
 
                           <AudioButton text={char} size="sm" title={`Dengarkan pelafalan karakter ${char}`} />
