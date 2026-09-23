@@ -47,6 +47,18 @@
   --indigo-800: 55 48 163;
   --indigo-950: 30 27 75;
 
+  /* KanjiVG Stroke Colors (Dark Midnight Mode - High Contrast) */
+  --kvg-stroke-1: #5c85f2; /* Bright Blue */
+  --kvg-stroke-2: #ea868f; /* Coral Red */
+  --kvg-stroke-3: #f8f9fa; /* Crisp White (replaces black on dark mode) */
+  --kvg-stroke-4: #75b798; /* Mint Green */
+  --kvg-stroke-5: #ffd37f; /* Warm Amber/Gold */
+  --kvg-stroke-6: #b085f5; /* Bright Purple */
+  --kvg-stroke-7: #38d9a9; /* Teal */
+  --kvg-stroke-8: #f07ca8; /* Rose Pink */
+  --kvg-stroke-9: #8c68f7; /* Indigo */
+  --kvg-stroke-10: #6edff6; /* Cyan */
+
   /* Scrollbar */
   --scrollbar-track: #0b0f19;
   --scrollbar-thumb: #1e293b;
@@ -100,6 +112,18 @@
   --indigo-400: 55 48 163;    /* Royal Indigo #3730A3 */
   --indigo-800: 199 210 254;  /* Soft lavender border #C7D2FE */
   --indigo-950: 238 242 255;  /* Soft lavender mist pill background #EEF2FF */
+
+  /* KanjiVG Stroke Colors (Mazii Standard Light Mode) */
+  --kvg-stroke-1: #3e67d6; /* Mazii Blue */
+  --kvg-stroke-2: #dc3545; /* Mazii Red */
+  --kvg-stroke-3: #212529; /* Mazii Black/Charcoal */
+  --kvg-stroke-4: #198754; /* Mazii Green */
+  --kvg-stroke-5: #fd7e14; /* Mazii Orange */
+  --kvg-stroke-6: #6f42c1; /* Mazii Purple */
+  --kvg-stroke-7: #20c997; /* Mazii Teal */
+  --kvg-stroke-8: #d63384; /* Mazii Pink */
+  --kvg-stroke-9: #6610f2; /* Mazii Indigo */
+  --kvg-stroke-10: #0dcaf0; /* Mazii Cyan */
 
   /* Scrollbar */
   --scrollbar-track: #f3f6f4;
@@ -182,5 +206,21 @@ rt {
 ::selection {
   background: var(--selection-bg);
   color: var(--selection-text);
+}
+
+/* KanjiVG Stroke Drawing Animation */
+@keyframes kvg-draw-stroke {
+  from {
+    stroke-dashoffset: 250;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.kvg-stroke-animating {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 0;
+  animation: kvg-draw-stroke 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 

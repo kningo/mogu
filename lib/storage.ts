@@ -10,6 +10,7 @@ const STORAGE_KEYS = {
   THEME: "jlpt_n3_theme",
   ALLOW_FREE_ACCESS: "jlpt_n3_allow_free_access",
   SHOW_BUSHU: "jlpt_n3_show_bushu",
+  SHOW_STROKE_CONTROLS: "jlpt_n3_show_stroke_controls",
 };
 
 export type AppTheme = "dark" | "matcha";
@@ -444,5 +445,25 @@ export function setShowBushu(show: boolean): void {
     dispatchStorageUpdate();
   } catch (err) {
     console.error("Error setting show bushu:", err);
+  }
+}
+
+export function getStrokeControls(): boolean {
+  if (!isBrowser()) return false; // Default: false (autoplay minimalis ala Mazii)
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.SHOW_STROKE_CONTROLS);
+    return raw === "true";
+  } catch {
+    return false;
+  }
+}
+
+export function setStrokeControls(enabled: boolean): void {
+  if (!isBrowser()) return;
+  try {
+    localStorage.setItem(STORAGE_KEYS.SHOW_STROKE_CONTROLS, enabled ? "true" : "false");
+    dispatchStorageUpdate();
+  } catch (err) {
+    console.error("Error setting stroke controls:", err);
   }
 }

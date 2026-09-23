@@ -17,14 +17,29 @@ export function getKanjiHex(ch: string): string {
   return "0" + code.toString(16).toLowerCase();
 }
 
+// 10-Color Palette reference from Mazii CSS
+export const MAZII_STROKE_COLORS = [
+  "#3e67d6", // 1. Blue (--bs-blue)
+  "#dc3545", // 2. Red (--bs-red)
+  "#212529", // 3. Black / Dark Charcoal (--bs-black / --bs-dark)
+  "#198754", // 4. Green (--bs-green)
+  "#fd7e14", // 5. Orange / Amber (--bs-orange / --bs-warning)
+  "#6f42c1", // 6. Purple (--bs-purple)
+  "#20c997", // 7. Teal (--bs-teal)
+  "#d63384", // 8. Pink (--bs-pink)
+  "#6610f2", // 9. Indigo (--bs-indigo)
+  "#0dcaf0", // 10. Cyan (--bs-cyan)
+];
+
 interface KanjiStrokeAnimatorProps {
   kanji: string;
   size?: number; // width/height in px, default 180 (used if boxClassName not provided)
   boxClassName?: string;
   className?: string;
-  autoPlay?: boolean;
-  showControls?: boolean;
+  autoPlay?: boolean; // default: true (autoplay seperti di mazii)
+  showControls?: boolean; // default: false (kontrol interaktif dimatikan secara default)
   showNumberToggle?: boolean;
+  showReplayButton?: boolean;
   isParent?: boolean;
 }
 
@@ -33,9 +48,10 @@ export function KanjiStrokeAnimator({
   size = 180,
   boxClassName,
   className = "",
-  autoPlay = false,
-  showControls = true,
+  autoPlay = true,
+  showControls = false,
   showNumberToggle = true,
+  showReplayButton = true,
   isParent = false,
 }: KanjiStrokeAnimatorProps) {
   const [data, setData] = useState<KanjiStrokeData | null>(() => {
@@ -56,7 +72,13 @@ export function KanjiStrokeAnimator({
     if (STROKE_DATA_CACHE.has(kanji)) {
       const cached = STROKE_DATA_CACHE.get(kanji)!;
       setData(cached);
-      setCurrentStroke(cached.strokes.length);
+      if (autoPlay) {
+        setCurrentStroke(0);
+        setIsPlaying(true);
+      } else {
+        setCurrentStroke(cached.strokes.length);
+        setIsPlaying(false);
+      }
       setLoading(false);
       return;
     }
@@ -96,7 +118,13 @@ export function KanjiStrokeAnimator({
 
         if (isMounted) {
           setData(strokeData);
-          setCurrentStroke(strokeData.strokes.length);
+          if (autoPlay) {
+            setCurrentStroke(0);
+            setIsPlaying(true);
+          } else {
+            setCurrentStroke(strokeData.strokes.length);
+            setIsPlaying(false);
+          }
           setLoading(false);
         }
       } catch (err) {
@@ -111,27 +139,32 @@ export function KanjiStrokeAnimator({
     return () => {
       isMounted = false;
     };
-  }, [kanji, hex]);
+  }, [kanji, hex, autoPlay]);
 
   const totalStrokes = data?.strokes.length || 0;
 
-  // Animation player loop
+  // Animation player loop (Autoplay Mazii style)
   useEffect(() => {
     if (!isPlaying || totalStrokes === 0) return;
 
     const timer = setInterval(() => {
       setCurrentStroke((prev) => {
         if (prev >= totalStrokes) {
-          // Reached end: stop animation
+          // Reached end: stop animation, stay on completed kanji
           setIsPlaying(false);
           return totalStrokes;
         }
         return prev + 1;
       });
-    }, 600); // 600ms per stroke for clear observation
+    }, 480); // 480ms per stroke for natural, clear observation
 
     return () => clearInterval(timer);
   }, [isPlaying, totalStrokes]);
+
+  const handleReplay = useCallback(() => {
+    setCurrentStroke(0);
+    setIsPlaying(true);
+  }, []);
 
   const handlePlayToggle = () => {
     if (isPlaying) {
@@ -184,8 +217,8 @@ export function KanjiStrokeAnimator({
         className={`relative flex items-center justify-center rounded-2xl border-2 border-slate-700/80 bg-slate-950/80 select-none ${boxClassName || ""} ${className}`}
       >
         {/* Crosshairs */}
-        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-slate-300 dark:border-slate-700/60 pointer-events-none" />
-        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-slate-300 dark:border-slate-700/60 pointer-events-none" />
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-sky-300/60 dark:border-slate-700/60 pointer-events-none" />
+        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-sky-300/60 dark:border-slate-700/60 pointer-events-none" />
         <span className="font-japanese font-black text-6xl text-slate-100">{kanji}</span>
       </div>
     );
@@ -193,18 +226,43 @@ export function KanjiStrokeAnimator({
 
   return (
     <div className={`flex flex-col items-center select-none ${className}`}>
-      {/* Canvas Box (Genkouyoushi 4 Kuadran) */}
+      {/* Canvas Box (Genkouyoushi 4 Kuadran - Mazii Style) */}
       <div
         style={boxClassName ? undefined : { width: size, height: size }}
-        className={`relative flex items-center justify-center rounded-2xl border-2 transition-all duration-300 shadow-md ${boxClassName || ""} ${
+        onClick={() => {
+          if (!showControls && !isPlaying) {
+            handleReplay();
+          }
+        }}
+        className={`relative flex items-center justify-center rounded-2xl border-2 transition-all duration-300 shadow-md ${
+          !showControls ? "cursor-pointer hover:shadow-lg" : ""
+        } ${boxClassName || ""} ${
           isParent
             ? "border-emerald-500/50 bg-emerald-500/5 dark:bg-emerald-950/20"
-            : "border-slate-300 dark:border-slate-700/80 bg-slate-50/50 dark:bg-slate-950/80"
+            : "border-slate-300 dark:border-slate-700/80 bg-slate-50/70 dark:bg-slate-950/80"
         }`}
       >
-        {/* 4-Quadrant Crosshair Lines (田) */}
-        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-slate-300 dark:border-slate-700/60 pointer-events-none" />
-        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-slate-300 dark:border-slate-700/60 pointer-events-none" />
+        {/* Top-Right Replay Button (Mazii Style circular reload) */}
+        {showReplayButton && (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleReplay();
+            }}
+            className="absolute top-2 right-2 z-20 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl border border-slate-300/90 dark:border-slate-700/90 bg-white/95 dark:bg-slate-900/95 text-slate-500 hover:text-emerald-500 hover:border-emerald-500/50 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/50 shadow-sm transition-all active:scale-95"
+            title="Putar Ulang Animasi Goresan (Replay)"
+          >
+            <RotateCcw
+              size={14}
+              className={`transition-transform duration-300 ${isPlaying ? "animate-spin text-emerald-500" : ""}`}
+            />
+          </button>
+        )}
+
+        {/* 4-Quadrant Crosshair Lines (田) - Soft dashed lines like Mazii */}
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-sky-300/60 dark:border-slate-700/60 pointer-events-none" />
+        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-dashed border-sky-300/60 dark:border-slate-700/60 pointer-events-none" />
 
         {/* Corner Accents */}
         <div className="absolute top-1 left-1.5 text-[9px] font-mono text-slate-400 dark:text-slate-600 pointer-events-none">
@@ -233,7 +291,7 @@ export function KanjiStrokeAnimator({
               strokeWidth: 3.2,
               strokeLinecap: "round",
               strokeLinejoin: "round",
-              opacity: 0.12,
+              opacity: 0.1,
             }}
             className="text-slate-900 dark:text-slate-100"
           >
@@ -242,52 +300,48 @@ export function KanjiStrokeAnimator({
             ))}
           </g>
 
-          {/* Layer 2: Completed Drawn Strokes */}
+          {/* Layer 2: Completed Drawn Strokes (Mazii Multicolor Palette) */}
           <g
             style={{
               fill: "none",
-              strokeWidth: 3.5,
               strokeLinecap: "round",
               strokeLinejoin: "round",
             }}
           >
             {data.strokes.slice(0, currentStroke).map((d, idx) => {
               const isCurrent = idx === currentStroke - 1;
+              const strokeColor = `var(--kvg-stroke-${(idx % 10) + 1}, ${MAZII_STROKE_COLORS[idx % 10]})`;
               return (
                 <path
                   key={`stroke-${idx}`}
                   d={d}
-                  className={`transition-all duration-200 ${
-                    isCurrent
-                      ? "stroke-emerald-500 drop-shadow-[0_0_4px_rgba(16,185,129,0.5)]"
-                      : isParent
-                      ? "stroke-emerald-600 dark:stroke-emerald-400"
-                      : "stroke-slate-900 dark:stroke-slate-100"
-                  }`}
+                  className={isCurrent && isPlaying ? "kvg-stroke-animating" : "transition-all duration-150"}
                   style={{
-                    strokeWidth: isCurrent ? 4.2 : 3.6,
+                    stroke: strokeColor,
+                    strokeWidth: isCurrent ? 4.5 : 3.9,
                   }}
                 />
               );
             })}
           </g>
 
-          {/* Layer 3: Stroke Order Numbers (Toggleable) */}
+          {/* Layer 3: Stroke Order Numbers (Color-matched to strokes) */}
           {showNumbers && (
             <g className="select-none pointer-events-none">
-              {data.numbers.slice(0, Math.max(1, currentStroke)).map((n, idx) => {
+              {data.numbers.slice(0, currentStroke).map((n, idx) => {
                 const isCurrent = idx === currentStroke - 1;
+                const strokeColor = `var(--kvg-stroke-${(idx % 10) + 1}, ${MAZII_STROKE_COLORS[idx % 10]})`;
                 return (
                   <text
                     key={`num-${idx}`}
                     transform={n.transform}
-                    fontSize={isCurrent ? 9.5 : 8}
-                    fontWeight={isCurrent ? "bold" : "normal"}
-                    className={`transition-all duration-200 ${
-                      isCurrent
-                        ? "fill-emerald-500 font-bold"
-                        : "fill-slate-500 dark:fill-slate-400"
-                    }`}
+                    fontSize={isCurrent ? 9.5 : 8.5}
+                    fontWeight="bold"
+                    fontFamily="system-ui, -apple-system, sans-serif"
+                    style={{
+                      fill: strokeColor,
+                    }}
+                    className="transition-all duration-150"
                   >
                     {n.num}
                   </text>
@@ -298,7 +352,7 @@ export function KanjiStrokeAnimator({
         </svg>
       </div>
 
-      {/* Interactive Controls Bar */}
+      {/* Interactive Controls Bar (Only rendered when showControls is true) */}
       {showControls && (
         <div className="mt-2.5 flex flex-col items-center gap-1.5 w-full">
           {/* Stroke Progress & Actions */}

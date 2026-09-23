@@ -10,11 +10,14 @@ import {
   Sparkles,
   PenTool,
   RotateCcw,
+  Sliders,
+  Zap,
 } from "lucide-react";
 import { KanjiCompound } from "../lib/types";
 import { AudioButton } from "./AudioButton";
 import { FuriganaText } from "./FuriganaText";
 import { KanjiStrokeAnimator } from "./KanjiStrokeAnimator";
+import { getStrokeControls, setStrokeControls } from "../lib/storage";
 import kanjiData from "../data/kanji.json";
 
 interface JukugoModalProps {
@@ -46,15 +49,25 @@ export function JukugoModal({
   const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
   const [isSuperZoom, setIsSuperZoom] = useState<boolean>(false);
   const [displayMode, setDisplayMode] = useState<"stroke" | "font">("stroke");
+  const [showControls, setShowControls] = useState<boolean>(() => getStrokeControls());
+  const [replayKey, setReplayKey] = useState<number>(0);
 
-  // Sync index on open
+  // Sync index and settings on open
   useEffect(() => {
     if (isOpen) {
       setCurrentIndex(Math.max(0, Math.min(initialIndex, words.length - 1)));
       setIsSuperZoom(false);
       setDisplayMode("stroke");
+      setShowControls(getStrokeControls());
+      setReplayKey((k) => k + 1);
     }
   }, [isOpen, initialIndex, words.length]);
+
+  const handleToggleControls = () => {
+    const next = !showControls;
+    setShowControls(next);
+    setStrokeControls(next);
+  };
 
   // Dialog open/close lifecycle
   useEffect(() => {
@@ -258,32 +271,69 @@ export function JukugoModal({
                 <span>Detail Goresan per Karakter:</span>
               </span>
 
-              {/* Display Mode Switcher: Animasi Goresan (KanjiVG) vs Huruf Kaligrafi */}
-              <div className="flex items-center gap-1 bg-slate-950/70 border border-slate-800 p-0.5 rounded-xl text-xs font-semibold self-start sm:self-auto">
-                <button
-                  type="button"
-                  onClick={() => setDisplayMode("stroke")}
-                  className={`px-3 py-1 rounded-lg transition-all ${
-                    displayMode === "stroke"
-                      ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
-                      : "text-slate-400 hover:text-slate-200"
-                  }`}
-                  title="Tampilkan animasi urutan goresan bertahap (KanjiVG)"
-                >
-                  Animasi Goresan (KanjiVG)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setDisplayMode("font")}
-                  className={`px-3 py-1 rounded-lg transition-all ${
-                    displayMode === "font"
-                      ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
-                      : "text-slate-400 hover:text-slate-200"
-                  }`}
-                  title="Tampilkan bentuk huruf statis kaligrafi"
-                >
-                  Huruf Kaligrafi
-                </button>
+              {/* Controls Toolbar: Mazii Autoplay Toggle, Replay All, & Display Mode Switcher */}
+              <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+                {/* Stroke Controls Mode Toggle (Autoplay Mazii vs Kontrol Manual) */}
+                {displayMode === "stroke" && (
+                  <button
+                    type="button"
+                    onClick={handleToggleControls}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-xl border text-xs font-semibold transition-all ${
+                      showControls
+                        ? "border-indigo-500/40 bg-indigo-500/15 text-indigo-400 font-bold shadow-sm"
+                        : "border-slate-800 bg-slate-950/70 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/30"
+                    }`}
+                    title={
+                      showControls
+                        ? "Mode Kontrol Manual Aktif (Klik untuk kembali ke Autoplay Mazii)"
+                        : "Mode Autoplay Mazii Aktif (Klik untuk membuka kontrol manual bertahap)"
+                    }
+                  >
+                    {showControls ? <Sliders size={13} className="text-indigo-400" /> : <Zap size={13} className="text-emerald-400" />}
+                    <span>{showControls ? "Kontrol: Manual" : "Mode: Autoplay Mazii"}</span>
+                  </button>
+                )}
+
+                {/* Replay All Button (When multiple kanji present) */}
+                {displayMode === "stroke" && characters.filter((c) => /[\u4E00-\u9FAF\u3400-\u4DBF々]/.test(c)).length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => setReplayKey((k) => k + 1)}
+                    className="flex items-center gap-1 px-2.5 py-1 rounded-xl border border-slate-800 bg-slate-950/70 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/30 text-xs font-semibold transition-all"
+                    title="Putar ulang animasi semua kanji sekaligus"
+                  >
+                    <RotateCcw size={12} />
+                    <span>Replay Semua</span>
+                  </button>
+                )}
+
+                {/* Display Mode Switcher: Animasi Goresan (KanjiVG) vs Huruf Kaligrafi */}
+                <div className="flex items-center gap-1 bg-slate-950/70 border border-slate-800 p-0.5 rounded-xl text-xs font-semibold">
+                  <button
+                    type="button"
+                    onClick={() => setDisplayMode("stroke")}
+                    className={`px-3 py-1 rounded-lg transition-all ${
+                      displayMode === "stroke"
+                        ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
+                        : "text-slate-400 hover:text-slate-200"
+                    }`}
+                    title="Tampilkan animasi urutan goresan bertahap (KanjiVG)"
+                  >
+                    Animasi Goresan
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setDisplayMode("font")}
+                    className={`px-3 py-1 rounded-lg transition-all ${
+                      displayMode === "font"
+                        ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
+                        : "text-slate-400 hover:text-slate-200"
+                    }`}
+                    title="Tampilkan bentuk huruf statis kaligrafi"
+                  >
+                    Huruf Kaligrafi
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -316,15 +366,18 @@ export function JukugoModal({
                         )}
                       </div>
 
-                      {/* Display Mode 1: Animated Stroke Order (KanjiVG) */}
+                      {/* Display Mode 1: Animated Stroke Order (KanjiVG - Mazii Style) */}
                       {displayMode === "stroke" && isKanji ? (
                         <div className="flex flex-col items-center">
                           <KanjiStrokeAnimator
+                            key={`${char}-${cIdx}-${replayKey}`}
                             kanji={char}
                             isParent={isParent}
                             boxClassName={getBoxSizeClass()}
-                            showControls={true}
+                            autoPlay={true}
+                            showControls={showControls}
                             showNumberToggle={true}
+                            showReplayButton={true}
                           />
                           <div className="mt-2">
                             <AudioButton text={char} size="sm" title={`Dengarkan pelafalan karakter ${char}`} />
