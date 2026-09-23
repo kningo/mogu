@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   Repeat,
   Star,
-  Keyboard,
   Volume2,
 } from "lucide-react";
 import { FuriganaText } from "./FuriganaText";
@@ -189,7 +188,7 @@ export function FlashcardModal({
     >
       <div className="relative flex h-full max-h-[85vh] flex-col rounded-3xl border border-slate-700/80 bg-slate-900 shadow-2xl overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-slate-800 px-6 py-4 bg-slate-900/90">
+        <div className="flex items-center justify-between border-b border-slate-800 px-6 py-3.5 bg-slate-900/90">
           <div>
             <h2 id="flashcard-title" className="text-base font-bold text-slate-100 flex items-center gap-2">
               <span>{title}</span>
@@ -197,9 +196,6 @@ export function FlashcardModal({
                 {currentIndex + 1} / {items.length}
               </span>
             </h2>
-            <p className="text-xs text-slate-400 mt-0.5">
-              Tekan <kbd className="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 font-mono text-[10px] text-amber-400">Space</kbd> untuk membalik kartu
-            </p>
           </div>
 
           <div className="flex items-center gap-2">
@@ -404,26 +400,24 @@ export function FlashcardModal({
           ) : null}
         </div>
 
-        {/* Bottom Actions & Keyboard Controls */}
+        {/* Bottom Actions */}
         {!completedDeck && (
-          <div className="border-t border-slate-800 bg-slate-900/95 px-6 py-4">
+          <div className="border-t border-slate-800 bg-slate-900/95 px-6 py-3.5">
             <div className="flex items-center justify-between gap-3">
               <button
                 type="button"
                 onClick={handleReviewAgain}
-                className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm font-semibold text-amber-300 hover:bg-amber-500/20 active:scale-95 transition-all"
+                className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-2.5 text-sm font-semibold text-amber-300 hover:bg-amber-500/20 active:scale-95 transition-all shadow-sm"
+                title="Belum Hafal / Ulangi Kartu Ini (Tekan 1 atau ←)"
               >
                 <ArrowLeft size={16} />
-                <span>Ulangi Lagi (Belum Hafal)</span>
-                <kbd className="hidden sm:inline px-1.5 py-0.5 rounded bg-amber-950/60 border border-amber-500/40 text-[10px] font-mono">
-                  1 / ←
-                </kbd>
+                <span>Ulangi</span>
               </button>
 
               <button
                 type="button"
                 onClick={flipCard}
-                className="flex items-center justify-center p-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-200 hover:bg-slate-750 transition-colors"
+                className="flex items-center justify-center p-2.5 rounded-xl border border-slate-700 bg-slate-800 text-slate-200 hover:bg-slate-750 active:scale-95 transition-all shadow-sm"
                 title="Balik Kartu (Space)"
               >
                 <RotateCw size={18} />
@@ -432,27 +426,12 @@ export function FlashcardModal({
               <button
                 type="button"
                 onClick={handleGotIt}
-                className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/20 active:scale-95 transition-all"
+                className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-2.5 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/20 active:scale-95 transition-all shadow-sm"
+                title="Sudah Hafal / Lanjut ke Kartu Berikutnya (Tekan 2 atau →)"
               >
-                <span>Sudah Paham (Lanjut)</span>
-                <kbd className="hidden sm:inline px-1.5 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/40 text-[10px] font-mono">
-                  2 / →
-                </kbd>
+                <span>Hafal</span>
                 <ArrowRight size={16} />
               </button>
-            </div>
-
-            <div className="mt-3 flex items-center justify-center gap-4 text-[11px] text-slate-400">
-              <span className="flex items-center gap-1">
-                <Keyboard size={12} />
-                <span>Space: Balik</span>
-              </span>
-              <span>•</span>
-              <span>1 atau ←: Belum Hafal</span>
-              <span>•</span>
-              <span>2 atau →: Sudah Hafal</span>
-              <span>•</span>
-              <span>Esc: Keluar</span>
             </div>
           </div>
         )}
