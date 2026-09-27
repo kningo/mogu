@@ -151,18 +151,20 @@ export function getAllSettings(): AppSettings {
   };
 }
 
-function dispatchStorageUpdate() {
+export function dispatchStorageUpdate(skipCloudSync: boolean = false) {
   if (isBrowser()) {
     window.dispatchEvent(new Event(PROGRESS_EVENT_NAME));
-    try {
-      const progress = getAllProgress();
-      const targetDays = getTargetDays();
-      const settings = getAllSettings();
-      // Lazy import or call sync helper
-      import("./auth").then(({ syncProgressToCloudDebounced }) => {
-        syncProgressToCloudDebounced({ ...progress, targetDays, settings });
-      }).catch(() => {});
-    } catch {}
+    if (!skipCloudSync) {
+      try {
+        const progress = getAllProgress();
+        const targetDays = getTargetDays();
+        const settings = getAllSettings();
+        // Lazy import or call sync helper
+        import("./auth").then(({ syncProgressToCloudDebounced }) => {
+          syncProgressToCloudDebounced({ ...progress, targetDays, settings });
+        }).catch(() => {});
+      } catch {}
+    }
   }
 }
 
@@ -225,7 +227,7 @@ export function getTheme(): AppTheme {
   }
 }
 
-export function setTheme(theme: AppTheme): void {
+export function setTheme(theme: AppTheme, skipCloudSync: boolean = false): void {
   if (!isBrowser()) return;
   try {
     localStorage.setItem(STORAGE_KEYS.THEME, theme);
@@ -236,7 +238,7 @@ export function setTheme(theme: AppTheme): void {
       document.documentElement.setAttribute("data-theme", "dark");
       document.documentElement.classList.add("dark");
     }
-    dispatchStorageUpdate();
+    dispatchStorageUpdate(skipCloudSync);
   } catch (err) {
     console.error("Error setting theme:", err);
   }
@@ -486,7 +488,7 @@ export function applyLoadedProgress(progress: {
     }
     if (progress.settings && typeof progress.settings === "object") {
       if (progress.settings.theme) {
-        setTheme(progress.settings.theme);
+        setTheme(progress.settings.theme, true);
       }
       if (progress.settings.examDate) {
         localStorage.setItem(STORAGE_KEYS.EXAM_DATE, progress.settings.examDate);
@@ -501,10 +503,10 @@ export function applyLoadedProgress(progress: {
         localStorage.setItem(STORAGE_KEYS.SHOW_STROKE_CONTROLS, progress.settings.showStrokeControls ? "true" : "false");
       }
       if (typeof progress.settings.tvMode === "boolean") {
-        setTvMode(progress.settings.tvMode);
+        setTvMode(progress.settings.tvMode, true);
       }
     }
-    dispatchStorageUpdate();
+    dispatchStorageUpdate(true);
   } catch (err) {
     console.error("Error applying loaded progress:", err);
   }
@@ -560,7 +562,7 @@ export function getTvMode(): boolean {
   }
 }
 
-export function setTvMode(enabled: boolean): void {
+export function setTvMode(enabled: boolean, skipCloudSync: boolean = false): void {
   if (!isBrowser()) return;
   try {
     localStorage.setItem(STORAGE_KEYS.TV_MODE, enabled ? "true" : "false");
@@ -569,7 +571,7 @@ export function setTvMode(enabled: boolean): void {
     } else {
       document.documentElement.removeAttribute("data-display");
     }
-    dispatchStorageUpdate();
+    dispatchStorageUpdate(skipCloudSync);
   } catch (err) {
     console.error("Error setting TV mode:", err);
   }

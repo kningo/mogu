@@ -51,51 +51,51 @@ export function Navbar() {
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
 
   useEffect(() => {
-    // 1. Initialize or load active guest session
-    const currentGuest = ensureGuestSession();
-    setGuestSession(currentGuest);
+    if (typeof window === "undefined") return;
 
-    // Sync local progress to Cloudflare D1 immediately on mount
-    const initialProgress = getAllProgress();
-    const initialTargetDays = getTargetDays();
-    const initialSettings = getAllSettings();
-    syncProgressToCloudDebounced(
-      {
-        ...initialProgress,
-        targetDays: initialTargetDays,
-        settings: initialSettings,
-        mascot: currentGuest?.mascot,
-      },
-      currentGuest?.guestCode
-    );
+    const params = new URLSearchParams(window.location.search);
+    const guestParam = (params.get("guest") || params.get("code"))?.trim().toLowerCase();
 
-    // 2. Handle ?guest=mogu-xxxx or ?code=mogu-xxxx query param from magic links
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
-      const guestParam = (params.get("guest") || params.get("code"))?.trim().toLowerCase();
-      if (guestParam) {
-        fetchProgressByCode(guestParam).then((res) => {
-          if (res.success && res.progress) {
-            applyLoadedProgress(res.progress);
-            const loadedMascotEmoji = res.user?.mascot || "🦊";
-            const matchedMascot = MASCOTS.find((m) => m.emoji === loadedMascotEmoji) || getMascotForCode(guestParam);
-            const s: GuestSession = {
-              guestCode: guestParam,
-              mascot: matchedMascot.emoji,
-              mascotName: matchedMascot.title,
-              createdAt: new Date().toISOString(),
-            };
-            setActiveGuestSession(s);
-            setGuestSession(s);
-          }
-        }).catch(() => {});
+    if (guestParam) {
+      // 1. Arrival via Magic Link: Fetch & apply remote progress FIRST (never overwrite with empty local storage)
+      fetchProgressByCode(guestParam).then((res) => {
+        if (res.success && res.progress) {
+          applyLoadedProgress(res.progress);
+          const loadedMascotEmoji = res.user?.mascot || "🦊";
+          const matchedMascot = MASCOTS.find((m) => m.emoji === loadedMascotEmoji) || getMascotForCode(guestParam);
+          const s: GuestSession = {
+            guestCode: guestParam,
+            mascot: matchedMascot.emoji,
+            mascotName: matchedMascot.title,
+            createdAt: new Date().toISOString(),
+          };
+          setActiveGuestSession(s);
+          setGuestSession(s);
+        }
+      }).catch(() => {});
 
-        // Clean query parameter from URL
-        params.delete("guest");
-        params.delete("code");
-        const newUrl = window.location.pathname + (params.toString() ? `?${params.toString()}` : "");
-        window.history.replaceState({}, "", newUrl);
-      }
+      // Clean query parameter from URL
+      params.delete("guest");
+      params.delete("code");
+      const newUrl = window.location.pathname + (params.toString() ? `?${params.toString()}` : "");
+      window.history.replaceState({}, "", newUrl);
+    } else {
+      // 2. Normal visit: Initialize/load active guest session & sync local progress to Cloudflare D1
+      const currentGuest = ensureGuestSession();
+      setGuestSession(currentGuest);
+
+      const initialProgress = getAllProgress();
+      const initialTargetDays = getTargetDays();
+      const initialSettings = getAllSettings();
+      syncProgressToCloudDebounced(
+        {
+          ...initialProgress,
+          targetDays: initialTargetDays,
+          settings: initialSettings,
+          mascot: currentGuest?.mascot,
+        },
+        currentGuest?.guestCode
+      );
     }
 
     const update = () => {
