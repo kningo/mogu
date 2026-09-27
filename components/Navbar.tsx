@@ -3,12 +3,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 import {
   Compass,
   Layers,
   Star,
   Menu,
   X,
+  User,
 } from "lucide-react";
 import {
   getBookmarks,
@@ -17,20 +19,66 @@ import {
   setTheme,
   AppTheme,
   PROGRESS_EVENT_NAME,
+  applyLoadedProgress,
 } from "../lib/storage";
+import {
+  GuestSession,
+  ensureGuestSession,
+  getActiveGuestSession,
+  fetchProgressByCode,
+  getMascotForCode,
+  setActiveGuestSession,
+} from "../lib/auth";
+import { AuthProfileModal } from "./AuthProfileModal";
 
 export function Navbar() {
   const pathname = usePathname();
+  const { data: session } = useSession();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [bookmarkCount, setBookmarkCount] = useState(0);
   const [targetDays, setTargetDays] = useState(70);
   const [theme, setThemeState] = useState<AppTheme>("dark");
 
+  const [guestSession, setGuestSession] = useState<GuestSession | null>(null);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+
   useEffect(() => {
+    // 1. Initialize or load active guest session
+    const currentGuest = ensureGuestSession();
+    setGuestSession(currentGuest);
+
+    // 2. Handle ?guest=mogu-xxxx query param from magic links
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const guestParam = params.get("guest")?.trim().toLowerCase();
+      if (guestParam) {
+        fetchProgressByCode(guestParam).then((res) => {
+          if (res.success && res.progress) {
+            applyLoadedProgress(res.progress);
+            const m = getMascotForCode(guestParam);
+            const s: GuestSession = {
+              guestCode: guestParam,
+              mascot: m.emoji,
+              mascotName: m.name,
+              createdAt: new Date().toISOString(),
+            };
+            setActiveGuestSession(s);
+            setGuestSession(s);
+          }
+        }).catch(() => {});
+
+        // Clean query parameter from URL
+        params.delete("guest");
+        const newUrl = window.location.pathname + (params.toString() ? `?${params.toString()}` : "");
+        window.history.replaceState({}, "", newUrl);
+      }
+    }
+
     const update = () => {
       setBookmarkCount(getBookmarks().length);
       setTargetDays(getTargetDays());
       setThemeState(getTheme());
+      setGuestSession(getActiveGuestSession());
     };
 
     update();
@@ -131,10 +179,58 @@ export function Navbar() {
               </>
             )}
           </button>
+
+          {/* Profile Pill Button (Guest or Google) */}
+          <button
+            type="button"
+            onClick={() => setIsProfileModalOpen(true)}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-semibold border border-slate-700/80 bg-slate-900 text-slate-200 hover:text-emerald-400 hover:border-emerald-500/40 transition-all shadow-sm active:scale-95"
+            title="Buka Profil & Magic Code"
+          >
+            {session?.user ? (
+              <>
+                {session.user.image ? (
+                  <img
+                    src={session.user.image}
+                    alt={session.user.name || "User"}
+                    className="h-5 w-5 rounded-full object-cover border border-emerald-500/40"
+                  />
+                ) : (
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 text-[10px] font-bold text-emerald-400">
+                    {session.user.name?.charAt(0) || "G"}
+                  </span>
+                )}
+                <span className="max-w-[85px] truncate">{session.user.name?.split(" ")[0] || "Akun"}</span>
+              </>
+            ) : (
+              <>
+                <span className="text-sm select-none">{guestSession?.mascot || "🦊"}</span>
+                <span className="font-mono text-emerald-400 font-bold">{guestSession?.guestCode || "Tamu"}</span>
+              </>
+            )}
+          </button>
         </div>
 
         {/* Mobile Action Controls */}
         <div className="flex md:hidden items-center gap-2">
+          {/* Mobile Profile Icon */}
+          <button
+            type="button"
+            onClick={() => setIsProfileModalOpen(true)}
+            className="p-2 rounded-xl border border-slate-800 bg-slate-900 text-slate-300 hover:text-slate-100 text-sm flex items-center justify-center"
+            title="Buka Profil & Magic Code"
+          >
+            {session?.user?.image ? (
+              <img
+                src={session?.user?.image || ""}
+                alt="User"
+                className="h-5 w-5 rounded-full object-cover"
+              />
+            ) : (
+              <span>{guestSession?.mascot || "🦊"}</span>
+            )}
+          </button>
+
           <button
             type="button"
             onClick={toggleTheme}
@@ -186,7 +282,27 @@ export function Navbar() {
             );
           })}
 
-          <div className="pt-2 border-t border-slate-850">
+          <div className="pt-2 border-t border-slate-850 space-y-2">
+            {/* Mobile Drawer Profile Button */}
+            <button
+              type="button"
+              onClick={() => {
+                setIsProfileModalOpen(true);
+                setMobileMenuOpen(false);
+              }}
+              className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold border border-slate-800 bg-slate-900/60 text-slate-200 hover:bg-slate-850 transition-all"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-base select-none">
+                  {session?.user ? "👤" : guestSession?.mascot || "🦊"}
+                </span>
+                <span>{session?.user ? session.user.name || "Akun Google" : `Profil ${guestSession?.mascotName || "Tamu"}`}</span>
+              </div>
+              <span className="text-xs px-2 py-0.5 rounded-md bg-slate-800 text-emerald-400 font-mono font-bold">
+                {session?.user ? "Google" : guestSession?.guestCode || "Tamu"}
+              </span>
+            </button>
+
             <button
               type="button"
               onClick={() => {
@@ -206,6 +322,12 @@ export function Navbar() {
           </div>
         </div>
       )}
+
+      {/* Auth & Profile Modal */}
+      <AuthProfileModal
+        isOpen={isProfileModalOpen}
+        onClose={() => setIsProfileModalOpen(false)}
+      />
     </header>
   );
 }

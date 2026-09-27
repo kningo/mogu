@@ -133,6 +133,14 @@ function isBrowser(): boolean {
 function dispatchStorageUpdate() {
   if (isBrowser()) {
     window.dispatchEvent(new Event(PROGRESS_EVENT_NAME));
+    try {
+      const progress = getAllProgress();
+      const targetDays = getTargetDays();
+      // Lazy import or call sync helper
+      import("./auth").then(({ syncProgressToCloudDebounced }) => {
+        syncProgressToCloudDebounced({ ...progress, targetDays });
+      }).catch(() => {});
+    } catch {}
   }
 }
 
@@ -425,6 +433,37 @@ export function resetAllProgress(): void {
     dispatchStorageUpdate();
   } catch (err) {
     console.error("Error resetting progress:", err);
+  }
+}
+
+export function applyLoadedProgress(progress: {
+  completedDays?: number[];
+  bookmarks?: string[];
+  quizResults?: Record<number, any>;
+  streak?: StudyStreak;
+  targetDays?: number;
+}): void {
+  if (!isBrowser() || !progress) return;
+  try {
+    if (Array.isArray(progress.completedDays)) {
+      localStorage.setItem(STORAGE_KEYS.COMPLETED_DAYS, JSON.stringify(progress.completedDays));
+    }
+    if (Array.isArray(progress.bookmarks)) {
+      localStorage.setItem(STORAGE_KEYS.BOOKMARKS, JSON.stringify(progress.bookmarks));
+    }
+    if (progress.quizResults && typeof progress.quizResults === "object") {
+      localStorage.setItem(STORAGE_KEYS.QUIZ_RESULTS, JSON.stringify(progress.quizResults));
+    }
+    if (progress.streak && typeof progress.streak === "object") {
+      localStorage.setItem(STORAGE_KEYS.STREAK, JSON.stringify(progress.streak));
+    }
+    if (typeof progress.targetDays === "number") {
+      const clamped = Math.max(MIN_TARGET_DAYS, Math.min(MAX_TARGET_DAYS, progress.targetDays));
+      localStorage.setItem(STORAGE_KEYS.TARGET_DAYS, clamped.toString());
+    }
+    dispatchStorageUpdate();
+  } catch (err) {
+    console.error("Error applying loaded progress:", err);
   }
 }
 
