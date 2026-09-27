@@ -36,7 +36,6 @@ export function AuthProfileModal({ isOpen, onClose }: AuthProfileModalProps) {
   const [copiedLink, setCopiedLink] = useState(false);
 
   // Restore input state
-  const [showRestoreInput, setShowRestoreInput] = useState(false);
   const [restoreCode, setRestoreCode] = useState("");
   const [isRestoring, setIsRestoring] = useState(false);
   const [restoreMessage, setRestoreMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
@@ -50,7 +49,6 @@ export function AuthProfileModal({ isOpen, onClose }: AuthProfileModalProps) {
       setCopiedLink(false);
       setRestoreMessage(null);
       setRestoreCode("");
-      setShowRestoreInput(false);
     }
   }, [isOpen]);
 
@@ -194,9 +192,8 @@ export function AuthProfileModal({ isOpen, onClose }: AuthProfileModalProps) {
         text: `Progres ${clean} berhasil dimuat! 🎉`,
       });
       setTimeout(() => {
-        setShowRestoreInput(false);
         setRestoreMessage(null);
-      }, 1500);
+      }, 2500);
     } catch (err: any) {
       setRestoreMessage({
         type: "error",
@@ -362,67 +359,44 @@ export function AuthProfileModal({ isOpen, onClose }: AuthProfileModalProps) {
           </div>
         )}
 
-        {/* Minimalist Collapsible: Restore from another device */}
-        <div className="pt-2 border-t border-slate-800">
-          {!showRestoreInput ? (
+        {/* Restore from another device (Directly visible) */}
+        <div className="pt-2 border-t border-slate-800 space-y-2">
+          <div className="flex items-center gap-1.5 text-xs text-slate-300">
+            <Download size={13} className="text-emerald-400" />
+            <span className="font-semibold text-[11px]">Muat Progres Perangkat Lain</span>
+          </div>
+
+          <form onSubmit={handleRestoreFromCode} className="flex gap-2">
+            <input
+              type="text"
+              value={restoreCode}
+              onChange={(e) => setRestoreCode(e.target.value)}
+              placeholder="Contoh: mogu-a7b3"
+              className="flex-1 rounded-xl border border-slate-700 bg-slate-950 px-3 py-1.5 text-xs text-slate-100 placeholder:text-slate-500 font-mono focus:border-emerald-500/50 focus:outline-none"
+            />
             <button
-              type="button"
-              onClick={() => setShowRestoreInput(true)}
-              className="w-full flex items-center justify-center gap-1.5 py-1 text-xs text-slate-400 hover:text-emerald-400 font-medium transition-colors"
+              type="submit"
+              disabled={!restoreCode.trim() || isRestoring}
+              className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white text-xs font-bold transition-all shrink-0 active:scale-95"
             >
-              <Download size={13} />
-              <span>Punya kode dari perangkat lain?</span>
+              {isRestoring ? <Loader2 size={12} className="animate-spin" /> : "Muat"}
             </button>
-          ) : (
-            <div className="space-y-2">
-              <div className="flex items-center justify-between text-xs text-slate-300">
-                <span className="font-semibold text-[11px]">Muat Progres Perangkat Lain</span>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowRestoreInput(false);
-                    setRestoreMessage(null);
-                  }}
-                  className="text-[11px] text-slate-400 hover:text-slate-200"
-                >
-                  Batal
-                </button>
-              </div>
+          </form>
 
-              <form onSubmit={handleRestoreFromCode} className="flex gap-2">
-                <input
-                  type="text"
-                  value={restoreCode}
-                  onChange={(e) => setRestoreCode(e.target.value)}
-                  placeholder="Contoh: mogu-a7b3"
-                  className="flex-1 rounded-xl border border-slate-700 bg-slate-950 px-3 py-1.5 text-xs text-slate-100 placeholder:text-slate-500 font-mono focus:border-emerald-500/50 focus:outline-none"
-                  autoFocus
-                />
-                <button
-                  type="submit"
-                  disabled={!restoreCode.trim() || isRestoring}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white text-xs font-bold transition-all shrink-0"
-                >
-                  {isRestoring ? <Loader2 size={12} className="animate-spin" /> : "Muat"}
-                </button>
-              </form>
-
-              {restoreMessage && (
-                <div
-                  className={`flex items-start gap-1.5 p-2 rounded-lg text-xs font-medium ${
-                    restoreMessage.type === "success"
-                      ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-                      : "bg-rose-500/10 text-rose-400 border border-rose-500/20"
-                  }`}
-                >
-                  {restoreMessage.type === "success" ? (
-                    <Check size={13} className="shrink-0 mt-0.5" />
-                  ) : (
-                    <AlertCircle size={13} className="shrink-0 mt-0.5" />
-                  )}
-                  <span>{restoreMessage.text}</span>
-                </div>
+          {restoreMessage && (
+            <div
+              className={`flex items-start gap-1.5 p-2 rounded-lg text-xs font-medium ${
+                restoreMessage.type === "success"
+                  ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                  : "bg-rose-500/10 text-rose-400 border border-rose-500/20"
+              }`}
+            >
+              {restoreMessage.type === "success" ? (
+                <Check size={13} className="shrink-0 mt-0.5" />
+              ) : (
+                <AlertCircle size={13} className="shrink-0 mt-0.5" />
               )}
+              <span>{restoreMessage.text}</span>
             </div>
           )}
         </div>
