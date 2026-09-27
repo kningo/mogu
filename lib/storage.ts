@@ -130,15 +130,34 @@ function isBrowser(): boolean {
   return typeof window !== "undefined";
 }
 
+export interface AppSettings {
+  theme?: AppTheme;
+  examDate?: string;
+  allowFreeAccess?: boolean;
+  showBushu?: boolean;
+  showStrokeControls?: boolean;
+}
+
+export function getAllSettings(): AppSettings {
+  return {
+    theme: getTheme(),
+    examDate: getExamDate(),
+    allowFreeAccess: getAllowFreeAccess(),
+    showBushu: getShowBushu(),
+    showStrokeControls: getStrokeControls(),
+  };
+}
+
 function dispatchStorageUpdate() {
   if (isBrowser()) {
     window.dispatchEvent(new Event(PROGRESS_EVENT_NAME));
     try {
       const progress = getAllProgress();
       const targetDays = getTargetDays();
+      const settings = getAllSettings();
       // Lazy import or call sync helper
       import("./auth").then(({ syncProgressToCloudDebounced }) => {
-        syncProgressToCloudDebounced({ ...progress, targetDays });
+        syncProgressToCloudDebounced({ ...progress, targetDays, settings });
       }).catch(() => {});
     } catch {}
   }
@@ -442,6 +461,7 @@ export function applyLoadedProgress(progress: {
   quizResults?: Record<number, any>;
   streak?: StudyStreak;
   targetDays?: number;
+  settings?: AppSettings;
 }): void {
   if (!isBrowser() || !progress) return;
   try {
@@ -460,6 +480,23 @@ export function applyLoadedProgress(progress: {
     if (typeof progress.targetDays === "number") {
       const clamped = Math.max(MIN_TARGET_DAYS, Math.min(MAX_TARGET_DAYS, progress.targetDays));
       localStorage.setItem(STORAGE_KEYS.TARGET_DAYS, clamped.toString());
+    }
+    if (progress.settings && typeof progress.settings === "object") {
+      if (progress.settings.theme) {
+        setTheme(progress.settings.theme);
+      }
+      if (progress.settings.examDate) {
+        localStorage.setItem(STORAGE_KEYS.EXAM_DATE, progress.settings.examDate);
+      }
+      if (typeof progress.settings.allowFreeAccess === "boolean") {
+        localStorage.setItem(STORAGE_KEYS.ALLOW_FREE_ACCESS, String(progress.settings.allowFreeAccess));
+      }
+      if (typeof progress.settings.showBushu === "boolean") {
+        localStorage.setItem(STORAGE_KEYS.SHOW_BUSHU, progress.settings.showBushu ? "true" : "false");
+      }
+      if (typeof progress.settings.showStrokeControls === "boolean") {
+        localStorage.setItem(STORAGE_KEYS.SHOW_STROKE_CONTROLS, progress.settings.showStrokeControls ? "true" : "false");
+      }
     }
     dispatchStorageUpdate();
   } catch (err) {

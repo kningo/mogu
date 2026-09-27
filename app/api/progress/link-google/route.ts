@@ -41,6 +41,7 @@ export async function POST(request: Request) {
     let mergedQuizResults: Record<string, any> = localProgress?.quizResults || {};
     let mergedStreak = localProgress?.streak || { current: 0, longest: 0, lastStudyDate: null };
     let mergedTargetDays = localProgress?.targetDays || 70;
+    let mergedSettings: Record<string, any> = localProgress?.settings || {};
 
     if (existingGoogleRows.length > 0) {
       const gRow = existingGoogleRows[0];
@@ -48,6 +49,7 @@ export async function POST(request: Request) {
       const gBookmarks: string[] = JSON.parse(gRow.bookmarks || "[]");
       const gQuizResults: Record<string, any> = JSON.parse(gRow.quiz_results || "{}");
       const gStreak = JSON.parse(gRow.streak || '{"current":0,"longest":0,"lastStudyDate":null}');
+      const gSettings: Record<string, any> = JSON.parse(gRow.settings || "{}");
 
       // Union completed days
       mergedCompletedDays = Array.from(new Set([...mergedCompletedDays, ...gCompletedDays])).sort((a, b) => a - b);
@@ -64,12 +66,13 @@ export async function POST(request: Request) {
       if (gRow.target_days) {
         mergedTargetDays = gRow.target_days;
       }
+      mergedSettings = { ...gSettings, ...mergedSettings };
     }
 
     // 3. Upsert merged progress into user_progress under Google user ID
     await executeD1Query(
-      `INSERT INTO user_progress (user_id, guest_code, completed_days, bookmarks, quiz_results, streak, target_days, updated_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+      `INSERT INTO user_progress (user_id, guest_code, completed_days, bookmarks, quiz_results, streak, target_days, settings, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
        ON CONFLICT(user_id) DO UPDATE SET
          guest_code = COALESCE(excluded.guest_code, user_progress.guest_code),
          completed_days = excluded.completed_days,
@@ -77,6 +80,7 @@ export async function POST(request: Request) {
          quiz_results = excluded.quiz_results,
          streak = excluded.streak,
          target_days = excluded.target_days,
+         settings = excluded.settings,
          updated_at = CURRENT_TIMESTAMP;`,
       [
         googleId,
@@ -86,6 +90,7 @@ export async function POST(request: Request) {
         JSON.stringify(mergedQuizResults),
         JSON.stringify(mergedStreak),
         mergedTargetDays,
+        JSON.stringify(mergedSettings),
       ]
     );
 
@@ -97,6 +102,7 @@ export async function POST(request: Request) {
         quizResults: mergedQuizResults,
         streak: mergedStreak,
         targetDays: mergedTargetDays,
+        settings: mergedSettings,
       },
     });
   } catch (error: any) {

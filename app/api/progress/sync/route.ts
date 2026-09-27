@@ -12,6 +12,8 @@ export async function POST(request: Request) {
       quizResults,
       streak,
       targetDays,
+      settings,
+      mascot,
     } = body;
 
     if (!guestCode && !passedUserId) {
@@ -24,20 +26,30 @@ export async function POST(request: Request) {
     const quizResultsStr = JSON.stringify(quizResults || {});
     const streakStr = JSON.stringify(streak || { current: 0, longest: 0, lastStudyDate: null });
     const targetDaysNum = typeof targetDays === "number" ? targetDays : 70;
+    const settingsStr = JSON.stringify(settings || {});
 
     // Upsert into user_progress
     await executeD1Query(
-      `INSERT INTO user_progress (user_id, guest_code, completed_days, bookmarks, quiz_results, streak, target_days, updated_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+      `INSERT INTO user_progress (user_id, guest_code, completed_days, bookmarks, quiz_results, streak, target_days, settings, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
        ON CONFLICT(user_id) DO UPDATE SET
          completed_days = excluded.completed_days,
          bookmarks = excluded.bookmarks,
          quiz_results = excluded.quiz_results,
          streak = excluded.streak,
          target_days = excluded.target_days,
+         settings = excluded.settings,
          updated_at = CURRENT_TIMESTAMP;`,
-      [userId, guestCode || null, completedDaysStr, bookmarksStr, quizResultsStr, streakStr, targetDaysNum]
+      [userId, guestCode || null, completedDaysStr, bookmarksStr, quizResultsStr, streakStr, targetDaysNum, settingsStr]
     );
+
+    // If mascot is provided, update users table
+    if (mascot) {
+      await executeD1Query(
+        `UPDATE users SET mascot = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ? OR LOWER(guest_code) = ?;`,
+        [mascot, userId, (guestCode || "").toLowerCase()]
+      );
+    }
 
     return NextResponse.json({ success: true });
   } catch (error: any) {

@@ -49,6 +49,7 @@ export async function GET(request: Request) {
       quizResults: JSON.parse(raw.quiz_results || "{}"),
       streak: JSON.parse(raw.streak || '{"current":0,"longest":0,"lastStudyDate":null}'),
       targetDays: raw.target_days || 70,
+      settings: JSON.parse(raw.settings || "{}"),
     };
 
     return NextResponse.json({

@@ -11,6 +11,8 @@ import {
   LogOut,
   Loader2,
   AlertCircle,
+  Sparkles,
+  ChevronRight,
 } from "lucide-react";
 import {
   GuestSession,
@@ -19,8 +21,10 @@ import {
   getMascotForCode,
   fetchProgressByCode,
   setActiveGuestSession,
+  syncProgressToCloudDebounced,
+  MASCOTS,
 } from "../lib/auth";
-import { applyLoadedProgress, getAllProgress, getTargetDays } from "../lib/storage";
+import { applyLoadedProgress, getAllProgress, getTargetDays, getAllSettings } from "../lib/storage";
 
 interface AuthProfileModalProps {
   isOpen: boolean;
@@ -34,6 +38,9 @@ export function AuthProfileModal({ isOpen, onClose }: AuthProfileModalProps) {
   const [guestSession, setGuestSessionState] = useState<GuestSession | null>(null);
   const [copiedCode, setCopiedCode] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
+
+  // Mascot selection view toggle
+  const [isSelectingMascot, setIsSelectingMascot] = useState(false);
 
   // Restore input state
   const [restoreCode, setRestoreCode] = useState("");
@@ -49,6 +56,7 @@ export function AuthProfileModal({ isOpen, onClose }: AuthProfileModalProps) {
       setCopiedLink(false);
       setRestoreMessage(null);
       setRestoreCode("");
+      setIsSelectingMascot(false);
     }
   }, [isOpen]);
 
@@ -107,6 +115,7 @@ export function AuthProfileModal({ isOpen, onClose }: AuthProfileModalProps) {
           const localProgress = {
             ...getAllProgress(),
             targetDays: getTargetDays(),
+            settings: getAllSettings(),
           };
 
           const res = await fetch("/api/progress/link-google", {
@@ -154,6 +163,31 @@ export function AuthProfileModal({ isOpen, onClose }: AuthProfileModalProps) {
     } catch {}
   };
 
+  const handleSelectMascot = (m: (typeof MASCOTS)[number]) => {
+    if (!guestSession) return;
+    const updated: GuestSession = {
+      ...guestSession,
+      mascot: m.emoji,
+      mascotName: m.title,
+    };
+    setActiveGuestSession(updated);
+    setGuestSessionState(updated);
+
+    // Sync mascot change to Cloudflare D1
+    const progress = getAllProgress();
+    const targetDays = getTargetDays();
+    const settings = getAllSettings();
+    syncProgressToCloudDebounced({
+      ...progress,
+      targetDays,
+      settings,
+      mascot: m.emoji,
+    });
+
+    // Notify listeners so Navbar Pill updates immediately
+    window.dispatchEvent(new Event("jlpt_n3_storage_update"));
+  };
+
   const handleRestoreFromCode = async (e: React.FormEvent) => {
     e.preventDefault();
     const clean = restoreCode.trim().toLowerCase();
@@ -176,12 +210,13 @@ export function AuthProfileModal({ isOpen, onClose }: AuthProfileModalProps) {
       // Apply loaded progress to local storage & trigger UI update
       applyLoadedProgress(data.progress);
 
-      // Update active guest session to match the loaded code
-      const mascot = getMascotForCode(clean);
+      // Update active guest session to match the loaded code & mascot from cloud
+      const loadedMascotEmoji = data.user?.mascot || "🦊";
+      const matchedMascot = MASCOTS.find((m) => m.emoji === loadedMascotEmoji) || getMascotForCode(clean);
       const newSession: GuestSession = {
         guestCode: clean,
-        mascot: mascot.emoji,
-        mascotName: mascot.name,
+        mascot: matchedMascot.emoji,
+        mascotName: matchedMascot.title,
         createdAt: new Date().toISOString(),
       };
       setActiveGuestSession(newSession);
@@ -208,6 +243,7 @@ export function AuthProfileModal({ isOpen, onClose }: AuthProfileModalProps) {
 
   const isGoogleLoggedIn = Boolean(session?.user);
   const mascotInfo = guestSession ? getMascotForCode(guestSession.guestCode) : null;
+  const activeMascot = MASCOTS.find((m) => m.emoji === guestSession?.mascot) || mascotInfo || MASCOTS[0];
 
   return (
     <dialog
@@ -234,61 +270,166 @@ export function AuthProfileModal({ isOpen, onClose }: AuthProfileModalProps) {
 
         {/* Profile Card */}
         <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3.5 space-y-3">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3 min-w-0">
-              {session?.user ? (
-                session.user.image ? (
-                  <img
-                    src={session.user.image}
-                    alt={session.user.name || "User"}
-                    className="h-10 w-10 rounded-xl border border-emerald-500/40 object-cover shrink-0"
-                  />
+          {!isSelectingMascot ? (
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3 min-w-0">
+                {session?.user ? (
+                  session.user.image ? (
+                    <img
+                      src={session.user.image}
+                      alt={session.user.name || "User"}
+                      className="h-12 w-12 rounded-2xl border border-emerald-500/40 object-cover shrink-0"
+                    />
+                  ) : (
+                    <div className="h-12 w-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-sm font-bold text-emerald-400 shrink-0">
+                      {session.user.name?.charAt(0) || "U"}
+                    </div>
+                  )
                 ) : (
-                  <div className="h-10 w-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-sm font-bold text-emerald-400 shrink-0">
-                    {session.user.name?.charAt(0) || "U"}
+                  <div className="relative group shrink-0">
+                    <button
+                      type="button"
+                      onClick={() => setIsSelectingMascot(true)}
+                      className={`h-12 w-12 rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 hover:scale-105 active:scale-95 border ${activeMascot.borderActive} bg-gradient-to-br ${activeMascot.bgGlow}`}
+                      title="Klik untuk memilih maskot karakter"
+                    >
+                      <span className="transform transition-transform group-hover:scale-115 select-none drop-shadow-md">
+                        {activeMascot.emoji}
+                      </span>
+                      <span className="absolute -bottom-1 -right-1 h-5 w-5 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-[10px] text-emerald-400 shadow-md group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors">
+                        <Sparkles size={10} />
+                      </span>
+                    </button>
                   </div>
-                )
-              ) : (
-                <div className="h-10 w-10 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center text-2xl shrink-0 select-none shadow-sm">
-                  {guestSession?.mascot || "🦊"}
-                </div>
-              )}
+                )}
 
-              <div className="min-w-0">
+                <div className="min-w-0">
+                  <div className="flex items-center gap-1.5">
+                    <h3 className="text-xs font-bold text-slate-100 truncate">
+                      {isGoogleLoggedIn
+                        ? session?.user?.name || "Akun Google"
+                        : activeMascot.title}
+                    </h3>
+                    <span
+                      className={`px-1.5 py-0.2 rounded text-[9px] font-bold font-mono border shrink-0 ${
+                        isGoogleLoggedIn
+                          ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30"
+                          : "bg-slate-800 text-slate-400 border-slate-700"
+                      }`}
+                    >
+                      {isGoogleLoggedIn ? "Cloud" : "Tamu"}
+                    </span>
+                  </div>
+
+                  {isGoogleLoggedIn ? (
+                    <p className="text-[11px] text-slate-400 truncate mt-0.5">
+                      {session?.user?.email}
+                    </p>
+                  ) : (
+                    <div className="flex items-center gap-1.5 mt-1">
+                      <span
+                        className={`px-1.5 py-0.5 rounded-md text-[9px] font-semibold border ${activeMascot.tagColor}`}
+                      >
+                        {activeMascot.trait}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => setIsSelectingMascot(true)}
+                        className="text-[10px] text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-0.5 hover:underline transition-colors"
+                      >
+                        <span>Ganti Maskot</span>
+                        <ChevronRight size={10} />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {isGoogleLoggedIn && (
+                <button
+                  type="button"
+                  onClick={() => signOut()}
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-rose-500/30 bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 text-[11px] font-semibold transition-all shrink-0"
+                  title="Keluar dari akun Google"
+                >
+                  <LogOut size={12} />
+                  <span>Keluar</span>
+                </button>
+              )}
+            </div>
+          ) : (
+            /* Collectible Cards Selection */
+            <div className="space-y-2.5 animate-in fade-in duration-150">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-800">
                 <div className="flex items-center gap-1.5">
-                  <h3 className="text-xs font-bold text-slate-100 truncate">
-                    {isGoogleLoggedIn
-                      ? session?.user?.name || "Akun Google"
-                      : mascotInfo?.title || "Tamu Mogu"}
-                  </h3>
-                  <span
-                    className={`px-1.5 py-0.2 rounded text-[9px] font-bold font-mono border shrink-0 ${
-                      isGoogleLoggedIn
-                        ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30"
-                        : "bg-slate-800 text-slate-400 border-slate-700"
-                    }`}
-                  >
-                    {isGoogleLoggedIn ? "Cloud" : "Tamu"}
+                  <Sparkles size={12} className="text-emerald-400" />
+                  <span className="text-[11px] font-bold text-slate-200 uppercase tracking-wider">
+                    Pilih Maskot Belajar
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-400 truncate mt-0.5">
-                  {isGoogleLoggedIn ? session?.user?.email : `Kode: ${guestSession?.guestCode}`}
-                </p>
+                <button
+                  type="button"
+                  onClick={() => setIsSelectingMascot(false)}
+                  className="text-[11px] text-emerald-400 hover:text-emerald-300 font-bold px-2 py-0.5 rounded-md hover:bg-slate-800 transition-colors flex items-center gap-1"
+                >
+                  <span>Selesai</span>
+                  <Check size={11} strokeWidth={3} />
+                </button>
               </div>
-            </div>
 
-            {isGoogleLoggedIn && (
-              <button
-                type="button"
-                onClick={() => signOut()}
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-rose-500/30 bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 text-[11px] font-semibold transition-all shrink-0"
-                title="Keluar dari akun Google"
-              >
-                <LogOut size={12} />
-                <span>Keluar</span>
-              </button>
-            )}
-          </div>
+              <div className="grid grid-cols-3 gap-2">
+                {MASCOTS.map((m) => {
+                  const isSelected = guestSession?.mascot === m.emoji;
+                  return (
+                    <button
+                      key={m.emoji}
+                      type="button"
+                      onClick={() => {
+                        handleSelectMascot(m);
+                      }}
+                      className={`relative flex flex-col items-center text-center p-2.5 rounded-xl border transition-all duration-200 active:scale-95 group ${
+                        isSelected
+                          ? `${m.borderActive} bg-gradient-to-b ${m.bgGlow} scale-[1.02]`
+                          : "border-slate-800 bg-slate-900/60 hover:bg-slate-850 hover:border-slate-700 opacity-60 hover:opacity-100"
+                      }`}
+                    >
+                      {/* Active Ribbon */}
+                      {isSelected && (
+                        <span className="absolute -top-1.5 px-1.5 py-0.2 rounded-full bg-emerald-500 text-slate-950 font-black text-[8px] uppercase tracking-wider shadow-sm flex items-center gap-0.5">
+                          <Check size={8} strokeWidth={3} />
+                          <span>Aktif</span>
+                        </span>
+                      )}
+
+                      {/* Emoji */}
+                      <span className="text-2xl select-none transform transition-transform group-hover:scale-115 block drop-shadow-sm my-1">
+                        {m.emoji}
+                      </span>
+
+                      {/* Name */}
+                      <h4 className="text-[11px] font-bold text-slate-100 leading-tight">
+                        {m.name}
+                      </h4>
+
+                      {/* Japanese text */}
+                      <span className="text-[9px] text-slate-400 font-japanese mt-0.5">
+                        {m.jpName.split("•")[0]}
+                      </span>
+
+                      {/* Trait badge */}
+                      <span className={`mt-1.5 px-1.5 py-0.5 rounded-md text-[8px] font-semibold border ${m.tagColor} leading-tight truncate max-w-full`}>
+                        {m.trait}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <p className="text-[10px] text-center text-slate-400 font-medium">
+                {activeMascot.desc}
+              </p>
+            </div>
+          )}
 
           {/* Guest Action Bar: Magic Code & Quick Copy */}
           {!isGoogleLoggedIn && guestSession?.guestCode && (

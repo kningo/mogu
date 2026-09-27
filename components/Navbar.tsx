@@ -28,6 +28,7 @@ import {
   fetchProgressByCode,
   getMascotForCode,
   setActiveGuestSession,
+  MASCOTS,
 } from "../lib/auth";
 import { AuthProfileModal } from "./AuthProfileModal";
 
@@ -55,11 +56,12 @@ export function Navbar() {
         fetchProgressByCode(guestParam).then((res) => {
           if (res.success && res.progress) {
             applyLoadedProgress(res.progress);
-            const m = getMascotForCode(guestParam);
+            const loadedMascotEmoji = res.user?.mascot || "🦊";
+            const matchedMascot = MASCOTS.find((m) => m.emoji === loadedMascotEmoji) || getMascotForCode(guestParam);
             const s: GuestSession = {
               guestCode: guestParam,
-              mascot: m.emoji,
-              mascotName: m.name,
+              mascot: matchedMascot.emoji,
+              mascotName: matchedMascot.title,
               createdAt: new Date().toISOString(),
             };
             setActiveGuestSession(s);

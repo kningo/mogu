@@ -10,12 +10,52 @@ export interface GuestMascot {
   emoji: string;
   name: string;
   title: string;
+  jpName: string;
+  trait: string;
+  desc: string;
+  theme: "amber" | "emerald" | "rose";
+  tagColor: string;
+  bgGlow: string;
+  borderActive: string;
 }
 
 export const MASCOTS: GuestMascot[] = [
-  { emoji: "🦊", name: "Kitsune", title: "Kitsune Mogu" },
-  { emoji: "🐼", name: "Panda", title: "Panda Mogu" },
-  { emoji: "🐱", name: "Maneki-neko", title: "Maneki Mogu" },
+  {
+    emoji: "🦊",
+    name: "Kitsune",
+    title: "Kitsune Mogu",
+    jpName: "狐 • 稲荷の導き",
+    trait: "Fokus & Cerdik",
+    desc: "Mempertajam memori hafalan kanji",
+    theme: "amber",
+    tagColor: "bg-amber-500/10 text-amber-400 border-amber-500/30",
+    bgGlow: "from-amber-500/20 via-orange-500/15 to-transparent",
+    borderActive: "border-amber-500/80 ring-2 ring-amber-500/30 shadow-[0_0_18px_rgba(245,158,11,0.25)]",
+  },
+  {
+    emoji: "🐼",
+    name: "Panda",
+    title: "Panda Mogu",
+    jpName: "熊猫 • 竹林の禅",
+    trait: "Santai & Konsisten",
+    desc: "Belajar tenang tanpa terburu-buru",
+    theme: "emerald",
+    tagColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
+    bgGlow: "from-emerald-500/20 via-teal-500/15 to-transparent",
+    borderActive: "border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[0_0_18px_rgba(16,185,129,0.25)]",
+  },
+  {
+    emoji: "🐱",
+    name: "Maneki-neko",
+    title: "Maneki Mogu",
+    jpName: "招猫 • 満福の導き",
+    trait: "Hoki & Semangat",
+    desc: "Pembawa hoki ujian JLPT",
+    theme: "rose",
+    tagColor: "bg-rose-500/10 text-rose-400 border-rose-500/30",
+    bgGlow: "from-rose-500/20 via-pink-500/15 to-transparent",
+    borderActive: "border-rose-500/80 ring-2 ring-rose-500/30 shadow-[0_0_18px_rgba(244,63,94,0.25)]",
+  },
 ];
 
 export interface GuestSession {
@@ -126,6 +166,8 @@ export function syncProgressToCloudDebounced(
     quizResults: Record<number, any>;
     streak: any;
     targetDays?: number;
+    settings?: any;
+    mascot?: string;
   },
   userIdOrGuestCode?: string
 ): void {
@@ -154,6 +196,8 @@ export function syncProgressToCloudDebounced(
           quizResults: progress.quizResults,
           streak: progress.streak,
           targetDays: progress.targetDays,
+          settings: progress.settings,
+          mascot: progress.mascot || activeSession?.mascot,
         }),
       });
     } catch (err) {
