@@ -128,6 +128,14 @@ export function setActiveGuestSession(session: GuestSession): void {
 export function ensureGuestSession(): GuestSession {
   const existing = getActiveGuestSession();
   if (existing && existing.guestCode) {
+    // Ensure existing local session is registered in Cloudflare D1
+    if (isBrowser()) {
+      fetch("/api/guest/init", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ guestCode: existing.guestCode, mascot: existing.mascot }),
+      }).catch((err) => console.warn("Background guest init warning:", err));
+    }
     return existing;
   }
 

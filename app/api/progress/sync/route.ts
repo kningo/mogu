@@ -28,7 +28,21 @@ export async function POST(request: Request) {
     const targetDaysNum = typeof targetDays === "number" ? targetDays : 70;
     const settingsStr = JSON.stringify(settings || {});
 
-    // Upsert into user_progress
+    // 1. Ensure user exists in users table
+    if (guestCode) {
+      const assignedMascot = mascot || "🦊";
+      const displayName = `Tamu ${assignedMascot} ${guestCode}`;
+      await executeD1Query(
+        `INSERT INTO users (id, guest_code, mascot, display_name, auth_provider)
+         VALUES (?, ?, ?, ?, 'guest')
+         ON CONFLICT(id) DO UPDATE SET
+           mascot = COALESCE(?, users.mascot),
+           updated_at = CURRENT_TIMESTAMP;`,
+        [userId, guestCode, assignedMascot, displayName, mascot || null]
+      );
+    }
+
+    // 2. Upsert into user_progress
     await executeD1Query(
       `INSERT INTO user_progress (user_id, guest_code, completed_days, bookmarks, quiz_results, streak, target_days, settings, updated_at)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
@@ -43,7 +57,7 @@ export async function POST(request: Request) {
       [userId, guestCode || null, completedDaysStr, bookmarksStr, quizResultsStr, streakStr, targetDaysNum, settingsStr]
     );
 
-    // If mascot is provided, update users table
+    // 3. If mascot is provided, update users table
     if (mascot) {
       await executeD1Query(
         `UPDATE users SET mascot = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ? OR LOWER(guest_code) = ?;`,

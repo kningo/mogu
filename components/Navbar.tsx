@@ -23,6 +23,8 @@ import {
   applyLoadedProgress,
   getTvMode,
   setTvMode,
+  getAllProgress,
+  getAllSettings,
 } from "../lib/storage";
 import {
   GuestSession,
@@ -32,6 +34,7 @@ import {
   getMascotForCode,
   setActiveGuestSession,
   MASCOTS,
+  syncProgressToCloudDebounced,
 } from "../lib/auth";
 import { AuthProfileModal } from "./AuthProfileModal";
 
@@ -52,10 +55,24 @@ export function Navbar() {
     const currentGuest = ensureGuestSession();
     setGuestSession(currentGuest);
 
-    // 2. Handle ?guest=mogu-xxxx query param from magic links
+    // Sync local progress to Cloudflare D1 immediately on mount
+    const initialProgress = getAllProgress();
+    const initialTargetDays = getTargetDays();
+    const initialSettings = getAllSettings();
+    syncProgressToCloudDebounced(
+      {
+        ...initialProgress,
+        targetDays: initialTargetDays,
+        settings: initialSettings,
+        mascot: currentGuest?.mascot,
+      },
+      currentGuest?.guestCode
+    );
+
+    // 2. Handle ?guest=mogu-xxxx or ?code=mogu-xxxx query param from magic links
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
-      const guestParam = params.get("guest")?.trim().toLowerCase();
+      const guestParam = (params.get("guest") || params.get("code"))?.trim().toLowerCase();
       if (guestParam) {
         fetchProgressByCode(guestParam).then((res) => {
           if (res.success && res.progress) {
@@ -75,6 +92,7 @@ export function Navbar() {
 
         // Clean query parameter from URL
         params.delete("guest");
+        params.delete("code");
         const newUrl = window.location.pathname + (params.toString() ? `?${params.toString()}` : "");
         window.history.replaceState({}, "", newUrl);
       }
