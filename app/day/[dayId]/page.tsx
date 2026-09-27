@@ -44,6 +44,8 @@ import {
   setShowBushu,
   getShowFurigana,
   setShowFurigana,
+  getShowMeaning,
+  setShowMeaning,
   getStrokeControls,
   setStrokeControls,
   DEFAULT_TARGET_DAYS,
@@ -78,6 +80,7 @@ export default function DailyLessonPage() {
   const [allowFreeAccess, setAllowFreeAccess] = useState<boolean>(true);
   const [showBushu, setShowBushuState] = useState<boolean>(false);
   const [showFurigana, setShowFuriganaState] = useState<boolean>(true);
+  const [showMeaning, setShowMeaningState] = useState<boolean>(true);
   const [showStrokeControls, setShowStrokeControlsState] = useState<boolean>(false);
   const [activeJukugoModal, setActiveJukugoModal] = useState<{
     isOpen: boolean;
@@ -124,12 +127,14 @@ export default function DailyLessonPage() {
       }
       setShowBushuState(getShowBushu());
       setShowFuriganaState(getShowFurigana());
+      setShowMeaningState(getShowMeaning());
       setShowStrokeControlsState(getStrokeControls());
     } catch {}
 
     const handleStorageUpdate = () => {
       setShowBushuState(getShowBushu());
       setShowFuriganaState(getShowFurigana());
+      setShowMeaningState(getShowMeaning());
       setShowStrokeControlsState(getStrokeControls());
     };
 
@@ -154,6 +159,12 @@ export default function DailyLessonPage() {
     const next = !showFurigana;
     setShowFuriganaState(next);
     setShowFurigana(next);
+  };
+
+  const handleToggleMeaning = () => {
+    const next = !showMeaning;
+    setShowMeaningState(next);
+    setShowMeaning(next);
   };
 
   const handleToggleStrokeControls = () => {
@@ -563,7 +574,16 @@ export default function DailyLessonPage() {
 
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
-                          <h3 className="text-lg font-bold text-emerald-400">
+                          <h3
+                            tabIndex={0}
+                            role="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              e.currentTarget.classList.toggle("meaning-peek");
+                            }}
+                            className="study-meaning text-lg font-bold text-emerald-400 rounded focus:outline-none"
+                            title="Sentuh/arahkan kursor untuk melihat arti"
+                          >
                             {kanjiItem.meaning}
                           </h3>
                         </div>
@@ -681,7 +701,18 @@ export default function DailyLessonPage() {
                                 reading={w.reading}
                                 className="text-[2rem] font-bold text-slate-100 leading-snug group-hover/jukugo:text-emerald-300 transition-colors"
                               />
-                              <p className="text-xs text-slate-400 mt-0.5">{w.meaning}</p>
+                              <p
+                                tabIndex={0}
+                                role="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  e.currentTarget.classList.toggle("meaning-peek");
+                                }}
+                                className="study-meaning text-xs text-slate-400 mt-0.5 rounded focus:outline-none"
+                                title="Sentuh/arahkan kursor untuk melihat arti"
+                              >
+                                {w.meaning}
+                              </p>
                             </div>
 
                             <div
@@ -816,7 +847,16 @@ export default function DailyLessonPage() {
                         </div>
 
                         {/* Indonesian Meaning */}
-                        <p className="text-sm sm:text-base font-bold text-amber-300 leading-snug">
+                        <p
+                          tabIndex={0}
+                          role="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            e.currentTarget.classList.toggle("meaning-peek");
+                          }}
+                          className="study-meaning text-sm sm:text-base font-bold text-amber-300 leading-snug rounded focus:outline-none"
+                          title="Sentuh/arahkan kursor untuk melihat arti"
+                        >
                           {vItem.meaning}
                         </p>
                       </div>
@@ -871,7 +911,16 @@ export default function DailyLessonPage() {
                               text={vItem.exampleJaWithFurigana || vItem.example.ruby || vItem.example.ja}
                               className="text-xs sm:text-[13px] font-medium leading-relaxed"
                             />
-                            <p className="text-xs text-slate-400 mt-1 leading-normal line-clamp-2">
+                            <p
+                              tabIndex={0}
+                              role="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                e.currentTarget.classList.toggle("meaning-peek");
+                              }}
+                              className="study-meaning text-xs text-slate-400 mt-1 leading-normal line-clamp-2 rounded focus:outline-none"
+                              title="Sentuh/arahkan kursor untuk melihat terjemahan"
+                            >
                               {vItem.example.id}
                             </p>
                           </div>
@@ -977,7 +1026,16 @@ export default function DailyLessonPage() {
                                 {ex.reading}
                               </p>
                             )}
-                            <p className="text-xs sm:text-sm text-emerald-400/90 font-medium mt-1.5 leading-relaxed">
+                            <p
+                              tabIndex={0}
+                              role="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                e.currentTarget.classList.toggle("meaning-peek");
+                              }}
+                              className="study-meaning text-xs sm:text-sm text-emerald-400/90 font-medium mt-1.5 leading-relaxed rounded focus:outline-none"
+                              title="Sentuh/arahkan kursor untuk melihat terjemahan"
+                            >
                               {ex.indonesian}
                             </p>
                           </div>
@@ -1063,6 +1121,8 @@ export default function DailyLessonPage() {
       <FloatingQuickControls
         showFurigana={showFurigana}
         onToggleFurigana={handleToggleFurigana}
+        showMeaning={showMeaning}
+        onToggleMeaning={handleToggleMeaning}
         showBushu={showBushu}
         onToggleBushu={handleToggleBushu}
         showStrokeControls={showStrokeControls}

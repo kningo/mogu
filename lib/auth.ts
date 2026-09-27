@@ -193,12 +193,26 @@ export function syncProgressToCloudDebounced(
 
       if (!idToUse) return;
 
+      // Determine proper userId vs guestCode
+      let resolvedUserId: string | undefined = undefined;
+      if (userIdOrGuestCode) {
+        if (
+          userIdOrGuestCode.startsWith("guest_") ||
+          userIdOrGuestCode.startsWith("mogu-") ||
+          userIdOrGuestCode === guestCode
+        ) {
+          resolvedUserId = undefined; // Guest session, backend will use guest_<guestCode>
+        } else {
+          resolvedUserId = userIdOrGuestCode; // E.g. Google user ID
+        }
+      }
+
       await fetch("/api/progress/sync", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           guestCode,
-          userId: userIdOrGuestCode?.startsWith("guest_") ? undefined : userIdOrGuestCode,
+          userId: resolvedUserId,
           completedDays: progress.completedDays,
           bookmarks: progress.bookmarks,
           quizResults: progress.quizResults,

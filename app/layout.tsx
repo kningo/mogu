@@ -47,6 +47,10 @@ export default function RootLayout({
                   if (furigana === 'false') {
                     document.documentElement.setAttribute('data-furigana', 'hidden');
                   }
+                  var meaning = localStorage.getItem('jlpt_n3_show_meaning');
+                  if (meaning === 'false') {
+                    document.documentElement.setAttribute('data-meaning', 'hidden');
+                  }
                 } catch (e) {}
               })();
             `,

@@ -298,9 +298,59 @@ rt {
   filter: blur(0) !important;
 }
 
-/* Visual cursor indicator when furigana is hidden */
+/* Visual cursor indicator & relative positioning when furigana is hidden */
 [data-furigana="hidden"] ruby {
+  position: relative;
   cursor: pointer;
 }
+
+/* Expanded mouse detection radius for desktop & touch targets (Furigana) */
+[data-furigana="hidden"] ruby::after {
+  content: "";
+  position: absolute;
+  inset: -10px -8px;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Meaning & Translation Hidden & Interactive Peek Mode
+   ========================================================================== */
+
+[data-meaning="hidden"] .study-meaning {
+  position: relative;
+  opacity: 0;
+  filter: blur(2px);
+  transition: opacity 0.18s cubic-bezier(0.4, 0, 0.2, 1), filter 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Expanded mouse detection radius for desktop & touch targets (Meaning) */
+[data-meaning="hidden"] .study-meaning::after {
+  content: "";
+  position: absolute;
+  inset: -12px -16px;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+/* Hover reveal (Desktop) */
+[data-meaning="hidden"] .study-meaning:hover,
+[data-meaning="hidden"] .study-meaning-parent:hover .study-meaning {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+}
+
+/* Click / Tap reveal (Mobile, Touch & Keyboard Focus) */
+[data-meaning="hidden"] .study-meaning:active,
+[data-meaning="hidden"] .study-meaning:focus,
+[data-meaning="hidden"] .study-meaning.meaning-peek,
+[data-meaning="hidden"] .study-meaning[data-peek="true"],
+[data-meaning="hidden"] .study-meaning-parent.meaning-peek .study-meaning {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+}
+
 
 

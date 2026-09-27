@@ -10,11 +10,14 @@ import {
   PlayCircle,
   Rows2,
   LayoutGrid,
+  Languages,
 } from "lucide-react";
 
 interface FloatingQuickControlsProps {
   showFurigana: boolean;
   onToggleFurigana: () => void;
+  showMeaning?: boolean;
+  onToggleMeaning?: () => void;
   showBushu: boolean;
   onToggleBushu: () => void;
   showStrokeControls?: boolean;
@@ -26,6 +29,8 @@ interface FloatingQuickControlsProps {
 export function FloatingQuickControls({
   showFurigana,
   onToggleFurigana,
+  showMeaning,
+  onToggleMeaning,
   showBushu,
   onToggleBushu,
   showStrokeControls,
@@ -61,7 +66,11 @@ export function FloatingQuickControls({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
-  const hasCustomActive = !showFurigana || showBushu || showStrokeControls;
+  const hasCustomActive =
+    !showFurigana ||
+    (typeof showMeaning === "boolean" && !showMeaning) ||
+    showBushu ||
+    showStrokeControls;
 
   return (
     <div ref={containerRef} className="fixed bottom-6 right-6 z-40 print:hidden">
@@ -119,7 +128,41 @@ export function FloatingQuickControls({
               </button>
             </div>
 
-            {/* 2. Radikal Bushu */}
+            {/* 2. Arti & Makna Toggle */}
+            {onToggleMeaning && typeof showMeaning === "boolean" && (
+              <div className="flex items-center justify-between py-0.5">
+                <div className="flex items-center gap-2">
+                  <Languages
+                    size={14}
+                    className={showMeaning ? "text-amber-400 shrink-0" : "text-slate-400 shrink-0"}
+                  />
+                  <span className="text-xs font-medium text-slate-200">Arti & Makna</span>
+                </div>
+
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={showMeaning}
+                  onClick={onToggleMeaning}
+                  className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                    showMeaning ? "bg-amber-500" : "bg-slate-700"
+                  }`}
+                  title={
+                    showMeaning
+                      ? "Sembunyikan Arti (Sentuh/Arahkan kursor untuk mengintip arti)"
+                      : "Tampilkan Arti"
+                  }
+                >
+                  <span
+                    className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${
+                      showMeaning ? "translate-x-4" : "translate-x-0"
+                    }`}
+                  />
+                </button>
+              </div>
+            )}
+
+            {/* 3. Radikal Bushu */}
             <div className="flex items-center justify-between py-0.5">
               <div className="flex items-center gap-2">
                 <Sparkles size={14} className={showBushu ? "text-indigo-400 shrink-0" : "text-slate-400 shrink-0"} />
