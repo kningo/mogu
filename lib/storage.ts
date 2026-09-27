@@ -12,6 +12,7 @@ const STORAGE_KEYS = {
   SHOW_BUSHU: "jlpt_n3_show_bushu",
   SHOW_STROKE_CONTROLS: "jlpt_n3_show_stroke_controls",
   TV_MODE: "jlpt_n3_tv_mode",
+  SHOW_FURIGANA: "jlpt_n3_show_furigana",
 };
 
 export type AppTheme = "dark" | "matcha";
@@ -138,6 +139,7 @@ export interface AppSettings {
   showBushu?: boolean;
   showStrokeControls?: boolean;
   tvMode?: boolean;
+  showFurigana?: boolean;
 }
 
 export function getAllSettings(): AppSettings {
@@ -148,6 +150,7 @@ export function getAllSettings(): AppSettings {
     showBushu: getShowBushu(),
     showStrokeControls: getStrokeControls(),
     tvMode: getTvMode(),
+    showFurigana: getShowFurigana(),
   };
 }
 
@@ -505,6 +508,9 @@ export function applyLoadedProgress(progress: {
       if (typeof progress.settings.tvMode === "boolean") {
         setTvMode(progress.settings.tvMode, true);
       }
+      if (typeof progress.settings.showFurigana === "boolean") {
+        setShowFurigana(progress.settings.showFurigana, true);
+      }
     }
     dispatchStorageUpdate(true);
   } catch (err) {
@@ -576,3 +582,29 @@ export function setTvMode(enabled: boolean, skipCloudSync: boolean = false): voi
     console.error("Error setting TV mode:", err);
   }
 }
+
+export function getShowFurigana(): boolean {
+  if (!isBrowser()) return true;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.SHOW_FURIGANA);
+    return raw === null ? true : raw === "true";
+  } catch {
+    return true;
+  }
+}
+
+export function setShowFurigana(show: boolean, skipCloudSync: boolean = false): void {
+  if (!isBrowser()) return;
+  try {
+    localStorage.setItem(STORAGE_KEYS.SHOW_FURIGANA, show ? "true" : "false");
+    if (!show) {
+      document.documentElement.setAttribute("data-furigana", "hidden");
+    } else {
+      document.documentElement.removeAttribute("data-furigana");
+    }
+    dispatchStorageUpdate(skipCloudSync);
+  } catch (err) {
+    console.error("Error setting show furigana:", err);
+  }
+}
+

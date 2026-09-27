@@ -24,7 +24,20 @@ export function FuriganaSentence({
         const match = part.match(/^([一-龯々〆ヵヶ]+)\[([^\]]+)\]$/);
         if (match && match[1] && match[2]) {
           return (
-            <ruby key={index} className="ruby-position-over px-[1px]">
+            <ruby
+              key={index}
+              tabIndex={0}
+              role="button"
+              aria-label={`${match[1]} (${match[2]})`}
+              onClick={(e) => e.currentTarget.classList.toggle("ruby-peek")}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  e.currentTarget.classList.toggle("ruby-peek");
+                }
+              }}
+              className="ruby-position-over px-[1px] outline-none select-text cursor-pointer"
+            >
               {match[1]}
               <rt className="text-[11px] text-slate-400 select-none font-normal leading-none">
                 {match[2]}

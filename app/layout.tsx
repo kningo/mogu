@@ -43,6 +43,10 @@ export default function RootLayout({
                   if (tvMode === 'true') {
                     document.documentElement.setAttribute('data-display', 'tv');
                   }
+                  var furigana = localStorage.getItem('jlpt_n3_show_furigana');
+                  if (furigana === 'false') {
+                    document.documentElement.setAttribute('data-furigana', 'hidden');
+                  }
                 } catch (e) {}
               })();
             `,

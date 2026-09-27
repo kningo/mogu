@@ -20,7 +20,19 @@ export function FuriganaText({
   // If direct kanji & reading are provided
   if (kanji && reading) {
     return (
-      <ruby className={`font-japanese tracking-wide ${className}`}>
+      <ruby
+        tabIndex={0}
+        role="button"
+        aria-label={`${kanji} (${reading})`}
+        onClick={(e) => e.currentTarget.classList.toggle("ruby-peek")}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            e.currentTarget.classList.toggle("ruby-peek");
+          }
+        }}
+        className={`font-japanese tracking-wide outline-none select-text cursor-pointer ${className}`}
+      >
         {kanji}
         {!hideRuby && (
           <>
@@ -45,7 +57,20 @@ export function FuriganaText({
           if (match) {
             const [, kText, rText] = match;
             return (
-              <ruby key={idx} className="tracking-wide">
+              <ruby
+                key={idx}
+                tabIndex={0}
+                role="button"
+                aria-label={`${kText} (${rText})`}
+                onClick={(e) => e.currentTarget.classList.toggle("ruby-peek")}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    e.currentTarget.classList.toggle("ruby-peek");
+                  }
+                }}
+                className="tracking-wide outline-none select-text cursor-pointer"
+              >
                 {kText}
                 {!hideRuby && (
                   <>

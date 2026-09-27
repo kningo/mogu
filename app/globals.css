@@ -269,3 +269,38 @@ rt {
   text-rendering: optimizeLegibility;
 }
 
+/* ==========================================================================
+   Furigana Hidden & Interactive Peek Mode
+   ========================================================================== */
+
+[data-furigana="hidden"] rt,
+[data-furigana="hidden"] .ruby-position-over rt {
+  opacity: 0;
+  filter: blur(1.5px);
+  transition: opacity 0.18s cubic-bezier(0.4, 0, 0.2, 1), filter 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+/* Hover reveal (Desktop) */
+[data-furigana="hidden"] ruby:hover rt,
+[data-furigana="hidden"] ruby:hover .ruby-position-over rt,
+[data-furigana="hidden"] rt:hover {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+}
+
+/* Click / Tap reveal (Mobile, Touch & Keyboard Focus) */
+[data-furigana="hidden"] ruby:active rt,
+[data-furigana="hidden"] ruby:focus rt,
+[data-furigana="hidden"] ruby.ruby-peek rt,
+[data-furigana="hidden"] ruby[data-peek="true"] rt {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+}
+
+/* Visual cursor indicator when furigana is hidden */
+[data-furigana="hidden"] ruby {
+  cursor: pointer;
+}
+
+

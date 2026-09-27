@@ -31,6 +31,7 @@ import { WallDisplayModal } from "../../../components/WallDisplayModal";
 import { JukugoModal } from "../../../components/JukugoModal";
 import { KanjiCompound } from "../../../lib/types";
 import { QuizWidget } from "../../../components/QuizWidget";
+import { FloatingQuickControls } from "../../../components/FloatingQuickControls";
 import {
   isBookmarked,
   toggleBookmark,
@@ -41,6 +42,10 @@ import {
   getAllowFreeAccess,
   getShowBushu,
   setShowBushu,
+  getShowFurigana,
+  setShowFurigana,
+  getStrokeControls,
+  setStrokeControls,
   DEFAULT_TARGET_DAYS,
   PROGRESS_EVENT_NAME,
 } from "../../../lib/storage";
@@ -72,6 +77,8 @@ export default function DailyLessonPage() {
   const [bookmarkedSet, setBookmarkedSet] = useState<Set<string>>(new Set());
   const [allowFreeAccess, setAllowFreeAccess] = useState<boolean>(true);
   const [showBushu, setShowBushuState] = useState<boolean>(false);
+  const [showFurigana, setShowFuriganaState] = useState<boolean>(true);
+  const [showStrokeControls, setShowStrokeControlsState] = useState<boolean>(false);
   const [activeJukugoModal, setActiveJukugoModal] = useState<{
     isOpen: boolean;
     words: KanjiCompound[];
@@ -116,7 +123,18 @@ export default function DailyLessonPage() {
         setKanjiCols(1);
       }
       setShowBushuState(getShowBushu());
+      setShowFuriganaState(getShowFurigana());
+      setShowStrokeControlsState(getStrokeControls());
     } catch {}
+
+    const handleStorageUpdate = () => {
+      setShowBushuState(getShowBushu());
+      setShowFuriganaState(getShowFurigana());
+      setShowStrokeControlsState(getStrokeControls());
+    };
+
+    window.addEventListener(PROGRESS_EVENT_NAME, handleStorageUpdate);
+    return () => window.removeEventListener(PROGRESS_EVENT_NAME, handleStorageUpdate);
   }, []);
 
   const handleKanjiColsChange = (cols: 1 | 2) => {
@@ -130,6 +148,18 @@ export default function DailyLessonPage() {
     const next = !showBushu;
     setShowBushuState(next);
     setShowBushu(next);
+  };
+
+  const handleToggleFurigana = () => {
+    const next = !showFurigana;
+    setShowFuriganaState(next);
+    setShowFurigana(next);
+  };
+
+  const handleToggleStrokeControls = () => {
+    const next = !showStrokeControls;
+    setShowStrokeControlsState(next);
+    setStrokeControls(next);
   };
 
   const handleVocabViewModeChange = (mode: "full" | "compact") => {
@@ -464,52 +494,34 @@ export default function DailyLessonPage() {
               </h2>
             </div>
 
-            {/* Kanji Controls: Bushu Toggle & Layout Switcher */}
-            <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
-              {/* Bushu Radical Toggle */}
+            {/* Kanji Controls: Layout Switcher */}
+            <div className="flex items-center gap-1 bg-slate-900/90 border border-slate-800 p-1 rounded-xl self-start sm:self-auto text-xs font-semibold shadow-sm">
               <button
                 type="button"
-                onClick={handleToggleBushu}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-all ${
-                  showBushu
-                    ? "bg-indigo-500/15 border-indigo-500/40 text-indigo-400 font-bold shadow-sm"
-                    : "border-slate-800 bg-slate-900/90 text-slate-400 hover:text-slate-200 hover:border-slate-700"
+                onClick={() => handleKanjiColsChange(1)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  kanjiCols === 1
+                    ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
+                    : "text-slate-400 hover:text-slate-200"
                 }`}
-                title={showBushu ? "Sembunyikan Informasi Radikal (Bushu)" : "Tampilkan Informasi Radikal (Bushu)"}
+                title="Tampilan 1 Baris per Kanji (Mode Fokus)"
               >
-                <Sparkles size={13} className={showBushu ? "text-indigo-400" : "text-slate-400"} />
-                <span>Radikal Bushu: {showBushu ? "Aktif" : "Off"}</span>
+                <Rows2 size={13} />
+                <span>1 Baris (Fokus)</span>
               </button>
-
-              {/* Kanji Layout Switcher: 1 Baris (Fokus) vs 2 Baris (Grid) */}
-              <div className="flex items-center gap-1 bg-slate-900/90 border border-slate-800 p-1 rounded-xl text-xs font-semibold shadow-sm">
-                <button
-                  type="button"
-                  onClick={() => handleKanjiColsChange(1)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                    kanjiCols === 1
-                      ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
-                      : "text-slate-400 hover:text-slate-200"
-                  }`}
-                  title="Tampilan 1 Baris per Kanji (Mode Fokus)"
-                >
-                  <Rows2 size={13} />
-                  <span>1 Baris (Fokus)</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleKanjiColsChange(2)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                    kanjiCols === 2
-                      ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
-                      : "text-slate-400 hover:text-slate-200"
-                  }`}
-                  title="Tampilan 2 Kolom (Grid)"
-                >
-                  <LayoutGrid size={13} />
-                  <span>2 Baris (Grid)</span>
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={() => handleKanjiColsChange(2)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  kanjiCols === 2
+                    ? "bg-emerald-500 text-slate-950 font-bold shadow-sm"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+                title="Tampilan 2 Kolom (Grid)"
+              >
+                <LayoutGrid size={13} />
+                <span>2 Baris (Grid)</span>
+              </button>
             </div>
           </div>
 
@@ -1045,6 +1057,18 @@ export default function DailyLessonPage() {
         initialIndex={activeJukugoModal.initialIndex}
         parentKanji={activeJukugoModal.parentKanji}
         parentMeaning={activeJukugoModal.parentMeaning}
+      />
+
+      {/* Floating Quick Controls Dock */}
+      <FloatingQuickControls
+        showFurigana={showFurigana}
+        onToggleFurigana={handleToggleFurigana}
+        showBushu={showBushu}
+        onToggleBushu={handleToggleBushu}
+        showStrokeControls={showStrokeControls}
+        onToggleStrokeControls={handleToggleStrokeControls}
+        kanjiCols={kanjiCols}
+        onKanjiColsChange={handleKanjiColsChange}
       />
     </div>
   );
