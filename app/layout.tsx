@@ -39,6 +39,10 @@ export default function RootLayout({
                     document.documentElement.setAttribute('data-theme', 'dark');
                     document.documentElement.classList.add('dark');
                   }
+                  var tvMode = localStorage.getItem('jlpt_n3_tv_mode');
+                  if (tvMode === 'true') {
+                    document.documentElement.setAttribute('data-display', 'tv');
+                  }
                 } catch (e) {}
               })();
             `,

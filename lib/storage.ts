@@ -11,6 +11,7 @@ const STORAGE_KEYS = {
   ALLOW_FREE_ACCESS: "jlpt_n3_allow_free_access",
   SHOW_BUSHU: "jlpt_n3_show_bushu",
   SHOW_STROKE_CONTROLS: "jlpt_n3_show_stroke_controls",
+  TV_MODE: "jlpt_n3_tv_mode",
 };
 
 export type AppTheme = "dark" | "matcha";
@@ -136,6 +137,7 @@ export interface AppSettings {
   allowFreeAccess?: boolean;
   showBushu?: boolean;
   showStrokeControls?: boolean;
+  tvMode?: boolean;
 }
 
 export function getAllSettings(): AppSettings {
@@ -145,6 +147,7 @@ export function getAllSettings(): AppSettings {
     allowFreeAccess: getAllowFreeAccess(),
     showBushu: getShowBushu(),
     showStrokeControls: getStrokeControls(),
+    tvMode: getTvMode(),
   };
 }
 
@@ -497,6 +500,9 @@ export function applyLoadedProgress(progress: {
       if (typeof progress.settings.showStrokeControls === "boolean") {
         localStorage.setItem(STORAGE_KEYS.SHOW_STROKE_CONTROLS, progress.settings.showStrokeControls ? "true" : "false");
       }
+      if (typeof progress.settings.tvMode === "boolean") {
+        setTvMode(progress.settings.tvMode);
+      }
     }
     dispatchStorageUpdate();
   } catch (err) {
@@ -541,5 +547,30 @@ export function setStrokeControls(enabled: boolean): void {
     dispatchStorageUpdate();
   } catch (err) {
     console.error("Error setting stroke controls:", err);
+  }
+}
+
+export function getTvMode(): boolean {
+  if (!isBrowser()) return false;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.TV_MODE);
+    return raw === "true";
+  } catch {
+    return false;
+  }
+}
+
+export function setTvMode(enabled: boolean): void {
+  if (!isBrowser()) return;
+  try {
+    localStorage.setItem(STORAGE_KEYS.TV_MODE, enabled ? "true" : "false");
+    if (enabled) {
+      document.documentElement.setAttribute("data-display", "tv");
+    } else {
+      document.documentElement.removeAttribute("data-display");
+    }
+    dispatchStorageUpdate();
+  } catch (err) {
+    console.error("Error setting TV mode:", err);
   }
 }

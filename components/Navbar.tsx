@@ -11,6 +11,7 @@ import {
   Menu,
   X,
   User,
+  Tv,
 } from "lucide-react";
 import {
   getBookmarks,
@@ -20,6 +21,8 @@ import {
   AppTheme,
   PROGRESS_EVENT_NAME,
   applyLoadedProgress,
+  getTvMode,
+  setTvMode,
 } from "../lib/storage";
 import {
   GuestSession,
@@ -39,6 +42,7 @@ export function Navbar() {
   const [bookmarkCount, setBookmarkCount] = useState(0);
   const [targetDays, setTargetDays] = useState(70);
   const [theme, setThemeState] = useState<AppTheme>("dark");
+  const [tvMode, setTvModeState] = useState(false);
 
   const [guestSession, setGuestSession] = useState<GuestSession | null>(null);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
@@ -80,6 +84,7 @@ export function Navbar() {
       setBookmarkCount(getBookmarks().length);
       setTargetDays(getTargetDays());
       setThemeState(getTheme());
+      setTvModeState(getTvMode());
       setGuestSession(getActiveGuestSession());
     };
 
@@ -97,6 +102,12 @@ export function Navbar() {
     const nextTheme: AppTheme = theme === "dark" ? "matcha" : "dark";
     setTheme(nextTheme);
     setThemeState(nextTheme);
+  };
+
+  const toggleTvMode = () => {
+    const next = !tvMode;
+    setTvMode(next);
+    setTvModeState(next);
   };
 
   const navLinks = [
@@ -182,6 +193,22 @@ export function Navbar() {
             )}
           </button>
 
+          {/* TV Display Mode Button */}
+          <button
+            type="button"
+            onClick={toggleTvMode}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all shadow-sm active:scale-95 ${
+              tvMode
+                ? "bg-cyan-500/15 border-cyan-500/50 text-cyan-300 ring-1 ring-cyan-500/20 shadow-[0_0_12px_rgba(6,182,212,0.15)]"
+                : "border-slate-700/80 bg-slate-900 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40"
+            }`}
+            title={tvMode ? "Matikan Mode Tampilan TV" : "Aktifkan Mode Tampilan TV (Perbesar Teks & Furigana)"}
+            aria-label="Toggle TV Mode"
+          >
+            <Tv size={14} className={tvMode ? "text-cyan-400" : "text-slate-400"} />
+            <span className="hidden lg:inline">{tvMode ? "TV Aktif" : "Mode TV"}</span>
+          </button>
+
           {/* Profile Pill Button (Guest or Google) */}
           <button
             type="button"
@@ -241,6 +268,19 @@ export function Navbar() {
             aria-label="Toggle Theme"
           >
             {theme === "dark" ? "🍵" : "🌙"}
+          </button>
+          <button
+            type="button"
+            onClick={toggleTvMode}
+            className={`p-2 rounded-xl border transition-all text-sm flex items-center justify-center ${
+              tvMode
+                ? "border-cyan-500/50 bg-cyan-500/15 text-cyan-300 ring-1 ring-cyan-500/30"
+                : "border-slate-800 bg-slate-900 text-slate-300 hover:text-slate-100"
+            }`}
+            title={tvMode ? "Matikan Mode TV" : "Aktifkan Mode Tampilan TV"}
+            aria-label="Toggle TV Mode"
+          >
+            <Tv size={16} className={tvMode ? "text-cyan-400" : "text-slate-400"} />
           </button>
           <button
             type="button"
@@ -319,6 +359,23 @@ export function Navbar() {
               </div>
               <span className="text-xs px-2 py-0.5 rounded-md bg-slate-800 text-slate-400 font-mono">
                 {theme === "dark" ? "Matcha" : "Dark"}
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                toggleTvMode();
+                setMobileMenuOpen(false);
+              }}
+              className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold border border-slate-800 bg-slate-900/60 text-slate-200 hover:bg-slate-850 transition-all"
+            >
+              <div className="flex items-center gap-3">
+                <Tv size={18} className={tvMode ? "text-cyan-400" : "text-slate-400"} />
+                <span>{tvMode ? "Matikan Mode Tampilan TV" : "Aktifkan Mode Tampilan TV"}</span>
+              </div>
+              <span className={`text-xs px-2 py-0.5 rounded-md font-mono ${tvMode ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30" : "bg-slate-800 text-slate-400"}`}>
+                {tvMode ? "Aktif" : "Mati"}
               </span>
             </button>
           </div>

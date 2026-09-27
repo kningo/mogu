@@ -224,3 +224,48 @@ rt {
   animation: kvg-draw-stroke 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
+/* ==========================================================================
+   TV Display Mode (10-Foot UI for Monitor & TV Displays)
+   ========================================================================== */
+
+[data-display="tv"] {
+  font-size: 118%; /* Root scale ~1.18x so all rem-based typography scales cleanly */
+}
+
+/* Furigana bold & larger on TV */
+[data-display="tv"] rt,
+[data-display="tv"] .ruby-position-over rt {
+  font-size: 0.75em !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
+  line-height: 1.25 !important;
+  color: #34d399 !important; /* Vivid emerald on dark mode */
+}
+
+[data-theme="matcha"][data-display="tv"] rt,
+[data-theme="matcha"][data-display="tv"] .ruby-position-over rt {
+  color: #14532d !important; /* Deep forest pine on matcha mode */
+}
+
+/* High Contrast for muted text on TV */
+[data-display="tv"] .text-slate-400 {
+  color: rgb(var(--slate-200)) !important;
+}
+
+[data-display="tv"] .text-slate-500 {
+  color: rgb(var(--slate-300)) !important;
+}
+
+/* Ample touch / click targets for wireless mouse / trackpad from afar */
+[data-display="tv"] button:not(.btn-compact),
+[data-display="tv"] a:not(.link-compact) {
+  min-height: 42px;
+}
+
+/* Japanese font stroke clarity on TV */
+[data-display="tv"] .font-japanese {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+

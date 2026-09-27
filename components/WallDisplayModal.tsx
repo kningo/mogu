@@ -115,19 +115,32 @@ export function WallDisplayModal({
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         onClose();
-      } else if (e.key === "ArrowRight") {
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
         handleNext();
-      } else if (e.key === "ArrowLeft") {
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
         handlePrev();
       } else if (e.key === " " || e.code === "Space") {
         e.preventDefault();
         setIsPlaying((p) => !p);
+      } else if (e.key.toLowerCase() === "f") {
+        e.preventDefault();
+        toggleFullscreen();
+      } else if (e.key.toLowerCase() === "a") {
+        e.preventDefault();
+        const textToSpeak = currentCard?.back?.example ? currentCard.back.example.ja : currentCard?.front?.title;
+        if (textToSpeak && typeof window !== "undefined" && "speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+          const u = new SpeechSynthesisUtterance(textToSpeak);
+          u.lang = "ja-JP";
+          u.rate = 0.9;
+          window.speechSynthesis.speak(u);
+        }
       }
     };
 
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [isOpen, handleNext, handlePrev, onClose]);
+  }, [isOpen, handleNext, handlePrev, onClose, currentCard]);
 
   if (!isOpen || cards.length === 0 || !mounted) return null;
 
@@ -261,8 +274,24 @@ export function WallDisplayModal({
 
       {/* Bottom Floating Control Bar */}
       <div className="flex items-center justify-between px-8 py-5 border-t border-slate-850 bg-slate-950/90 backdrop-blur-md">
-        <div className="text-xs text-slate-400 hidden sm:block">
-          Gunakan panah keyboard <kbd className="px-1.5 py-0.5 bg-slate-900 rounded border border-slate-800 font-mono text-slate-300">←</kbd> <kbd className="px-1.5 py-0.5 bg-slate-900 rounded border border-slate-800 font-mono text-slate-300">→</kbd> atau <kbd className="px-1.5 py-0.5 bg-slate-900 rounded border border-slate-800 font-mono text-slate-300">Space</kbd> untuk Play/Pause
+        <div className="text-xs text-slate-400 hidden lg:flex items-center gap-2">
+          <span>Kontrol TV / Keyboard:</span>
+          <span className="flex items-center gap-1 font-mono text-[11px] text-slate-300">
+            <kbd className="px-1.5 py-0.5 bg-slate-900 rounded border border-slate-800">←</kbd>
+            <kbd className="px-1.5 py-0.5 bg-slate-900 rounded border border-slate-800">→</kbd> Geser
+          </span>
+          <span>•</span>
+          <span className="flex items-center gap-1 font-mono text-[11px] text-slate-300">
+            <kbd className="px-1.5 py-0.5 bg-slate-900 rounded border border-slate-800">Space</kbd> Jeda
+          </span>
+          <span>•</span>
+          <span className="flex items-center gap-1 font-mono text-[11px] text-slate-300">
+            <kbd className="px-1.5 py-0.5 bg-slate-900 rounded border border-slate-800">A</kbd> Audio
+          </span>
+          <span>•</span>
+          <span className="flex items-center gap-1 font-mono text-[11px] text-slate-300">
+            <kbd className="px-1.5 py-0.5 bg-slate-900 rounded border border-slate-800">F</kbd> Layar Penuh
+          </span>
         </div>
 
         <div className="flex items-center gap-4 mx-auto sm:mx-0">
