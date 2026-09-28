@@ -11,6 +11,8 @@ import {
   Rows2,
   LayoutGrid,
   Languages,
+  Maximize,
+  Minimize,
 } from "lucide-react";
 
 interface FloatingQuickControlsProps {
@@ -39,7 +41,71 @@ export function FloatingQuickControls({
   onKanjiColsChange,
 }: FloatingQuickControlsProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Sync fullscreen state
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      const isFull = !!(
+        document.fullscreenElement ||
+        (document as any).webkitFullscreenElement ||
+        (document as any).mozFullScreenElement ||
+        (document as any).msFullscreenElement
+      );
+      setIsFullscreen(isFull);
+    };
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
+    document.addEventListener("mozfullscreenchange", handleFullscreenChange);
+    document.addEventListener("MSFullscreenChange", handleFullscreenChange);
+
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+      document.removeEventListener("webkitfullscreenchange", handleFullscreenChange);
+      document.removeEventListener("mozfullscreenchange", handleFullscreenChange);
+      document.removeEventListener("MSFullscreenChange", handleFullscreenChange);
+    };
+  }, []);
+
+  const handleToggleFullscreen = async () => {
+    if (typeof window === "undefined") return;
+    try {
+      const isFull = !!(
+        document.fullscreenElement ||
+        (document as any).webkitFullscreenElement ||
+        (document as any).mozFullScreenElement ||
+        (document as any).msFullscreenElement
+      );
+
+      if (!isFull) {
+        const elem = document.documentElement as any;
+        if (elem.requestFullscreen) {
+          await elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          await elem.webkitRequestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+          await elem.mozRequestFullScreen();
+        } else if (elem.msRequestFullscreen) {
+          await elem.msRequestFullscreen();
+        }
+      } else {
+        const doc = document as any;
+        if (doc.exitFullscreen) {
+          await doc.exitFullscreen();
+        } else if (doc.webkitExitFullscreen) {
+          await doc.webkitExitFullscreen();
+        } else if (doc.mozCancelFullScreen) {
+          await doc.mozCancelFullScreen();
+        } else if (doc.msExitFullscreen) {
+          await doc.msExitFullscreen();
+        }
+      }
+    } catch (err) {
+      console.warn("Fullscreen toggle error:", err);
+    }
+  };
 
   // Close on outside click
   useEffect(() => {
@@ -70,7 +136,8 @@ export function FloatingQuickControls({
     !showFurigana ||
     (typeof showMeaning === "boolean" && !showMeaning) ||
     showBushu ||
-    showStrokeControls;
+    showStrokeControls ||
+    isFullscreen;
 
   return (
     <div ref={containerRef} className="fixed bottom-6 right-6 z-40 print:hidden">
@@ -87,14 +154,30 @@ export function FloatingQuickControls({
               Opsi Belajar
             </span>
 
-            <button
-              type="button"
-              onClick={() => setIsOpen(false)}
-              className="p-1 rounded-md text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors"
-              aria-label="Tutup panel"
-            >
-              <X size={13} />
-            </button>
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={handleToggleFullscreen}
+                className={`p-1 rounded-md transition-colors ${
+                  isFullscreen
+                    ? "text-violet-400 bg-violet-500/10 hover:bg-violet-500/20"
+                    : "text-slate-400 hover:text-slate-100 hover:bg-slate-800"
+                }`}
+                title={isFullscreen ? "Keluar Layar Penuh (F11 / Esc)" : "Layar Penuh (F11)"}
+                aria-label={isFullscreen ? "Keluar Layar Penuh" : "Layar Penuh"}
+              >
+                {isFullscreen ? <Minimize size={13} /> : <Maximize size={13} />}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="p-1 rounded-md text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors"
+                aria-label="Tutup panel"
+              >
+                <X size={13} />
+              </button>
+            </div>
           </div>
 
           {/* Micro Switch Items (No Paragraphs) */}
@@ -214,7 +297,40 @@ export function FloatingQuickControls({
               </div>
             )}
 
-            {/* 4. Layout Grid */}
+            {/* 4. Layar Penuh (F11) */}
+            <div className="flex items-center justify-between py-0.5">
+              <div className="flex items-center gap-2">
+                {isFullscreen ? (
+                  <Minimize size={14} className="text-violet-400 shrink-0" />
+                ) : (
+                  <Maximize size={14} className="text-slate-400 shrink-0" />
+                )}
+                <span className="text-xs font-medium text-slate-200">Layar Penuh (F11)</span>
+              </div>
+
+              <button
+                type="button"
+                role="switch"
+                aria-checked={isFullscreen}
+                onClick={handleToggleFullscreen}
+                className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                  isFullscreen ? "bg-violet-500" : "bg-slate-700"
+                }`}
+                title={
+                  isFullscreen
+                    ? "Keluar Layar Penuh (F11 / Esc)"
+                    : "Masuk Mode Layar Penuh (F11)"
+                }
+              >
+                <span
+                  className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${
+                    isFullscreen ? "translate-x-4" : "translate-x-0"
+                  }`}
+                />
+              </button>
+            </div>
+
+            {/* 5. Layout Grid */}
             {onKanjiColsChange && (
               <div className="pt-2 mt-1 border-t border-slate-800/80">
                 <div className="grid grid-cols-2 gap-1 p-0.5 rounded-lg bg-slate-950/80 border border-slate-800 text-[11px]">
